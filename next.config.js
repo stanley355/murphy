@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
+  publicRuntimeConfig: {
+    HOST: process.env.HOST,
+    MORPHURL_URL: process.env.MORPHURL_URL
+  }
 }
-
-module.exports = nextConfig
