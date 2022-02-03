@@ -7,7 +7,7 @@ interface HeadInterface {
   keywords: string;
 }
 
-export const SiteHead = (props: { meta: HeadInterface }) => {
+export const MetaHead = (props: { meta: HeadInterface }) => {
   return (
     <Head>
       <meta name="title" content={props.meta.title} />
