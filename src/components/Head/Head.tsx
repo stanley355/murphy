@@ -7,7 +7,7 @@ interface HeadInterface {
   keywords: string;
 }
 
-export const MetaHead = (props: { meta: HeadInterface }) => {
+const MetaHead = (props: { meta: HeadInterface }) => {
   return (
     <Head>
       <meta name="title" content={props.meta.title} />
@@ -21,5 +21,6 @@ export const MetaHead = (props: { meta: HeadInterface }) => {
       <meta name="robots" content='index, follow, , max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
     </Head>
   );
-
 }
+
+export default MetaHead;
