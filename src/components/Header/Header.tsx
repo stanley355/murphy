@@ -1,10 +1,10 @@
 import styles from './Header.module.scss';
 
 const Header = () => {
-  return(
+  return (
     <header className={styles.header}>
-      <a>Morph</a>
-      <a>docs</a>
+      <a href="/">Morph</a>
+      <a href='#docs'>docs</a>
     </header>
   );
 }
