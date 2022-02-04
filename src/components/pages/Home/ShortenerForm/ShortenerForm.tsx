@@ -2,6 +2,7 @@ import styles from './ShortenerForm.module.scss';
 import React, { useState } from 'react';
 import getConfig from 'next/config';
 import axios from 'axios';
+import Router from 'next/router';
 
 const { MARPH_URL } = getConfig().publicRuntimeConfig;
 
@@ -11,15 +12,15 @@ const ShortenerForm = () => {
 
   const urlShortenerHandler = async (event: any) => {
     event.preventDefault();
-    setLoading(true);
+    
     const origin_url = event.target.origin_url.value;
     const custom_url = event.target.custom_url.value;
 
     const urlArr = origin_url.split('/');
-    if (!urlArr.includes('http') || !urlArr.includes('https') || urlArr.length < 3) { //validation
+    if (!urlArr.includes('http') || !urlArr.includes('https')) { //validation
       alert("Please enter correct URL with http or https");
-      window.location.reload;
     } else {
+      setLoading(true);
       const response = await axios.post('/api/shortenurl', {
         origin_url, custom_url
       });
@@ -27,9 +28,10 @@ const ShortenerForm = () => {
       if (response && response.data && response.data.origin_url) {
         const url = `${MARPH_URL}/link/${response.data.custom_url !== "" ? response.data.custom_url : response.data.hashed_url}`;
         setFinalUrl(url);
+        setLoading(false);
       } else {
         alert("System Error, please try again");
-        window.location.reload;
+        setLoading(false);
       }
     }
   }
