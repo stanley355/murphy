@@ -1,5 +1,5 @@
 {
-  "name": "morph",
+  "name": "marph",
   "private": true,
   "scripts": {
     "dev": "next dev",
