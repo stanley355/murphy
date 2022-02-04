@@ -11,10 +11,8 @@ const shortenURLhandler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     if (req.method === "GET") response = await axios.get(apiURL);
     else if (req.method === "POST") response = await axios.post(apiURL, req.body);
-    console.log(1111, response.data);
   } catch (err) {
     response = {error: err};
-    console.log(222, response);
   }
 
   res.statusCode = 200;
