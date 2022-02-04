@@ -1,10 +1,11 @@
 import styles from './Layout.module.scss';
 import React from 'react';
+import Header from '../Header/Header';
 
-export const Layout = ({ children }: any) => {
+const Layout = ({ children }: any) => {
   return (
     <div className={styles.layout}>
-      <header className={styles.layout__header}></header>
+      <Header />
       <body className={styles.layout__body}>
         {children}
       </body>
@@ -12,3 +13,5 @@ export const Layout = ({ children }: any) => {
     </div>
   )
 }
+
+export default Layout;

@@ -1,0 +1,60 @@
+@import '../../../../../styles/tokens/all.scss';
+
+
+.homeDOCS {
+  padding: $space--xs $space--xs $space--md;
+  border-radius: $space--xs;
+  background: $color-white;
+  margin-bottom: $space--md;
+
+  &__title {
+    font-size: $font--xl;
+    text-decoration: underline;
+    margin-bottom: $space--xs;
+  }
+
+
+  &__services {
+    display: flex;
+    flex-direction: column;
+    text-overflow: none;
+    svg {
+      color: $color-blue;
+    }
+
+    &__endpoint {
+      font-size: $font--sm;
+      margin: $space--xs 0;
+      font-style: italic;
+    }
+
+    a {
+      width: 85px;
+      color: $color-white;
+      border-radius: $space--xs;
+      padding: $space--xs;
+      background: $color-blue;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+  }
+
+  @include desktop-view {
+    &__title {
+      font-size: $font--xxxl;
+    }
+
+    &__services {
+      div:first-child {
+        font-size: $font--xxl;
+      }
+
+      &__endpoint {
+        font-size: $font--xl;
+      }
+    }
+  }
+  
+}

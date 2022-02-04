@@ -1,0 +1,51 @@
+@import '../../../../../styles/tokens/all.scss';
+
+.homeAPIS {
+  padding: $space--xs $space--xs $space--md;
+  border-radius: $space--xs;
+  background: $color-white;
+  margin-bottom: $space--md;
+
+  &__title {
+    font-size: $font--xl;
+    text-decoration: underline;
+    margin-bottom: $space--xs;
+  }
+
+
+  &__services {
+    svg {
+      color: $color-blue;
+    }
+
+    p {
+      font-style: italic;
+    }
+
+    a {
+      color: $color-white;
+      border-radius: $space--xs;
+      padding: $space--xs;
+      background: $color-blue;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @include desktop-view {
+    &__title {
+      font-size: $font--xxxl;
+    }
+
+    &__services {
+      div, p {
+        font-size: $font--xxl;
+      }
+      p {
+        margin: $space--xs 0 $space--md;
+      }
+    }
+  }
+  
+}
