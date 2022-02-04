@@ -45,7 +45,7 @@
     }
   }
 
-  &__body {
+  &__cards {
     @include desktop-view {
       display: grid;
       grid-gap: 2%;
