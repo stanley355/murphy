@@ -3,6 +3,6 @@ module.exports = {
   reactStrictMode: true,
   publicRuntimeConfig: {
     HOST: process.env.HOST,
-    MORPHURL_URL: process.env.MORPHURL_URL
+    MORPHURL_URL: `${process.env.MORPHURL_URL}/api/v1`
   }
 }
