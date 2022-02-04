@@ -31,7 +31,7 @@ const ShortenerForm = () => {
         setLoading(false);
       } else {
         alert("System Error, please try again");
-        window.location.reload;
+        setLoading(false);
       }
     }
   }
