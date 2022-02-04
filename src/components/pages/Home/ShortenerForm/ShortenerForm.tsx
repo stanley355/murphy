@@ -2,7 +2,6 @@ import styles from './ShortenerForm.module.scss';
 import React, { useState } from 'react';
 import getConfig from 'next/config';
 import axios from 'axios';
-import Router from 'next/router';
 
 const { MARPH_URL } = getConfig().publicRuntimeConfig;
 
@@ -29,6 +28,7 @@ const ShortenerForm = () => {
         setFinalUrl(url);
         setLoading(false);
       } else {
+        console.log(response);
         alert("System Error, please try again");
         setLoading(false);
       }

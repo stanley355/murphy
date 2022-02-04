@@ -1,10 +1,10 @@
 import axios from "axios";
 import getConfig from "next/config";
 import { NextApiRequest, NextApiResponse } from "next";
-const { MARPHURL_URL } = getConfig().publicRuntimeConfig;
+const { MORPHURL_URL } = getConfig().publicRuntimeConfig;
 
 const shortenURLhandler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const apiURL = req.method === "GET" ? `${MARPHURL_URL}/${req.query.url}` : MARPHURL_URL;
+  const apiURL = req.method === "GET" ? `${MORPHURL_URL}/${req.query.url}` : MORPHURL_URL;
 
   let response: any;
 
@@ -12,7 +12,7 @@ const shortenURLhandler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === "GET") response = await axios.get(apiURL);
     else if (req.method === "POST") response = await axios.post(apiURL, req.body);
   } catch (err) {
-    response = err;
+    response = {error: err};
   }
 
   res.statusCode = 200;
