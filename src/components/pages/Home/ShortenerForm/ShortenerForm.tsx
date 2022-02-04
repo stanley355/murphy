@@ -2,9 +2,8 @@ import styles from './ShortenerForm.module.scss';
 import React, { useState } from 'react';
 import getConfig from 'next/config';
 import axios from 'axios';
-import Router from 'next/router';
 
-const { MORPH_URL } = getConfig().publicRuntimeConfig;
+const { MARPH_URL } = getConfig().publicRuntimeConfig;
 
 const ShortenerForm = () => {
   const [loading, setLoading] = useState(false);
@@ -25,10 +24,11 @@ const ShortenerForm = () => {
       });
 
       if (response && response.data && response.data.origin_url) {
-        const url = `${MORPH_URL}/link/${response.data.custom_url !== "" ? response.data.custom_url : response.data.hashed_url}`;
+        const url = `${MARPH_URL}/link/${response.data.custom_url !== "" ? response.data.custom_url : response.data.hashed_url}`;
         setFinalUrl(url);
         setLoading(false);
       } else {
+        console.log(response);
         alert("System Error, please try again");
         setLoading(false);
       }
