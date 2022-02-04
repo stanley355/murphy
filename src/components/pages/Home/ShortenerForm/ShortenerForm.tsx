@@ -16,8 +16,7 @@ const ShortenerForm = () => {
     const origin_url = event.target.origin_url.value;
     const custom_url = event.target.custom_url.value;
 
-    const urlArr = origin_url.split('/');
-    if (!urlArr.includes('http') || !urlArr.includes('https')) { //validation
+    if (!origin_url.includes('http') || !origin_url.includes('https')) { //validation
       alert("Please enter correct URL with http or https");
     } else {
       setLoading(true);
