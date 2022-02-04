@@ -8,7 +8,7 @@ import ShortenerForm from '../components/pages/Home/ShortenerForm/ShortenerForm'
 
 const Home: NextPage = () => {
   const HomeMeta = {
-    title: "Morph API Service",
+    title: "Marph API Service",
     description: "Powerful and Fastest Open Source API Service written in Rust",
     keywords: "Shorten URL, API Service, Rust"
   }
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
     <div className={styles.home}>
       <MetaHead meta={HomeMeta} />
       <div className={styles.home__hero}>
-        <h1>Morph</h1>
+        <h1>Marph</h1>
         <p>Powerful and Fastest Open Source API Service written in Rust</p>
         <a href="#docs">Get Started</a>
       </div>
