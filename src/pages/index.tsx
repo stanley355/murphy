@@ -1,6 +1,8 @@
+import styles from '../../styles/pages/home.module.scss'
 import type { NextPage } from 'next';
-import styles from '../../styles/Home.module.scss'
+
 import MetaHead from '../components/Head/Head';
+import HomeAPIS from '../components/pages/Home/APIS/APIS';
 
 const Home: NextPage = () => {
   const HomeMeta = {
@@ -17,7 +19,10 @@ const Home: NextPage = () => {
         <p>Powerful and Fastest Open Source API Service written in Rust</p>
         <a href="#docs">Get Started</a>
       </div>
-      <div className={styles.container}></div>
+      <div className="container">
+        <HomeAPIS />
+        <div>DOCS</div>
+      </div>
     </div>
   )
 }
