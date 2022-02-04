@@ -3,13 +3,10 @@
 .footer {
   background: $color-white;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: $space--xs;
-
+text-align: center;
   a {
-    margin-left: $space--xs;
+    margin-left: $space--xxs;
   }
 
   a:hover {

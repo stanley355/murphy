@@ -1,20 +1,19 @@
 import axios from "axios";
 import getConfig from "next/config";
 import { NextApiRequest, NextApiResponse } from "next";
-import { Z_UNKNOWN } from "zlib";
-
 const { MORPHURL_URL } = getConfig().publicRuntimeConfig;
 
 const shortenURLhandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const apiURL = req.method === "GET" ? `${MORPHURL_URL}/${req.query.url}` : MORPHURL_URL;
 
   let response: any;
+  // console.log(req.body);
 
   try {
     if (req.method === "GET") response = await axios.get(apiURL);
     else if (req.method === "POST") response = await axios.post(apiURL, req.body);
   } catch (err) {
-    response = { error: err };
+    response = err;
   }
 
   res.statusCode = 200;
