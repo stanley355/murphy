@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 import MetaHead from '../components/Head/Head';
 import HomeAPIS from '../components/pages/Home/APIS/APIS';
 import HomeDOCS from '../components/pages/Home/DOCS/DOCS';
+import ShortenerForm from '../components/pages/Home/ShortenerForm/ShortenerForm';
 
 const Home: NextPage = () => {
   const HomeMeta = {
@@ -21,10 +22,11 @@ const Home: NextPage = () => {
         <a href="#docs">Get Started</a>
       </div>
       <div className="container">
-        <div className={styles.home__body}>
+        <div className={styles.home__cards}>
           <HomeAPIS />
           <HomeDOCS />
         </div>
+        <ShortenerForm />
       </div>
     </div>
   )

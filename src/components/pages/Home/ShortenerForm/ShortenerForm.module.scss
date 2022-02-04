@@ -1,0 +1,51 @@
+@import "../../../../../styles/tokens/all.scss";
+
+.shortenerForm {
+  padding: $space--xs;
+  border-radius: $space--xs;
+  background: $color-white;
+
+  &__title {
+    text-align: center;
+    margin: 0 0 $space--xs;
+    font-size: $font--lg;
+    font-weight: bold;
+  }
+
+  &__form {
+    &__inputContainer {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: $space--xs;
+
+      label {
+        font-style: italic;
+      }
+
+      input {
+        font-size: $font--md;
+        padding: $space--xs;
+      }
+    }
+
+    button {
+      width: 100%;
+      background: $color-blue;
+      border-radius: $space--xs;
+      border: none;
+      color: $color-white;
+      font-weight: bold;
+      font-size: $font--md;
+      padding: $space--xs;
+      margin: auto;
+      box-shadow: 5px 5px #999;
+      cursor: pointer;
+    }
+
+    button:active {
+      background-color: $color-green;
+      box-shadow: 0 0 $color-blue-2;
+      transform: translateY(4px);
+    }
+  }
+}

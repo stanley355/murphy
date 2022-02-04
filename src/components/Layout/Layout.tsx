@@ -1,6 +1,7 @@
 import styles from './Layout.module.scss';
 import React from 'react';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 const Layout = ({ children }: any) => {
   return (
@@ -9,7 +10,7 @@ const Layout = ({ children }: any) => {
       <body className={styles.layout__body}>
         {children}
       </body>
-      <footer className={styles.layout__footer}></footer>
+      <Footer />
     </div>
   )
 }
