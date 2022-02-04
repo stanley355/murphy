@@ -44,4 +44,12 @@
       }
     }
   }
+
+  &__body {
+    @include desktop-view {
+      display: grid;
+      grid-gap: 2%;
+      grid-template-columns: 49% 49%;
+    }
+  }
 }
