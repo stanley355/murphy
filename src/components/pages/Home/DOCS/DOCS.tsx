@@ -9,8 +9,8 @@ const HomeDOCS = () =>{
 
       <div className={styles.homeDOCS__services}>
         <div> <FaLink /> Shorten URL</div>
-        <div className={styles.homeDOCS__services__endpoint}>GET: https://morph.herokuapp.com/api/shortenurl/[url]</div>
-        <div className={styles.homeDOCS__services__endpoint}>POST: https://morph.herokuapp.com/api/shortenurl</div>
+        <div className={styles.homeDOCS__services__endpoint}>GET: https://marph.herokuapp.com/api/shortenurl/[url]</div>
+        <div className={styles.homeDOCS__services__endpoint}>POST: https://marph.herokuapp.com/api/shortenurl</div>
         <a href="/shortenurl">See More</a>
       </div>
     </div>

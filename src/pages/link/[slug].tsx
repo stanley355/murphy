@@ -4,7 +4,7 @@ import getConfig from "next/config";
 import Router from "next/router";
 import axios from "axios";
 
-const { MORPH_URL } = getConfig().publicRuntimeConfig;
+const { MARPH_URL } = getConfig().publicRuntimeConfig;
 
 const RedirectLink = ({ redirectUrl }: any) => {
   if (typeof window !== 'undefined') {
@@ -21,7 +21,7 @@ export default RedirectLink;
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const { params } = context;
-  const urlData = await axios.get(`${MORPH_URL}/api/shortenurl?url=${params && params.slug}`);
+  const urlData = await axios.get(`${MARPH_URL}/api/shortenurl?url=${params && params.slug}`);
 
   return {
     props: {

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import getConfig from 'next/config';
 import axios from 'axios';
 
-const { MORPH_URL } = getConfig().publicRuntimeConfig;
+const { MARPH_URL } = getConfig().publicRuntimeConfig;
 
 const ShortenerForm = () => {
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ const ShortenerForm = () => {
       });
 
       if (response && response.data && response.data.origin_url) {
-        const url = `${MORPH_URL}/link/${response.data.custom_url !== "" ? response.data.custom_url : response.data.hashed_url}`;
+        const url = `${MARPH_URL}/link/${response.data.custom_url !== "" ? response.data.custom_url : response.data.hashed_url}`;
         setFinalUrl(url);
       } else {
         alert("System Error, please try again");
