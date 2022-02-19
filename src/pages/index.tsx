@@ -2,8 +2,8 @@ import styles from '../../styles/pages/home.module.scss'
 import type { NextPage } from 'next';
 
 import MetaHead from '../components/Head/Head';
-import HomeAPIS from '../components/pages/Home/APIS/APIS';
-import HomeDOCS from '../components/pages/Home/DOCS/DOCS';
+import ServiceCard from '../components/pages/Home/ServiceCard/ServiceCard';
+import DocsCard from '../components/pages/Home/DocsCard/DocsCard';
 import ShortenerForm from '../components/pages/Home/ShortenerForm/ShortenerForm';
 
 const Home: NextPage = () => {
@@ -23,8 +23,8 @@ const Home: NextPage = () => {
       </div>
       <div className="container">
         <div className={styles.home__cards}>
-          <HomeAPIS />
-          <HomeDOCS />
+          <ServiceCard />
+          <DocsCard />
         </div>
         <ShortenerForm />
       </div>
