@@ -11,16 +11,17 @@ const ShortenerForm = () => {
 
   const urlShortenerHandler = async (event: any) => {
     event.preventDefault();
-    
-    const origin_url = event.target.origin_url.value;
-    const custom_url = event.target.custom_url.value;
 
-    if (!origin_url.includes('http') || !origin_url.includes('https')) { //validation
+    const originURL = event.target.origin_url.value;
+    const customURL = event.target.custom_url.value;
+
+    if (!originURL.includes('http') || !originURL.includes('https')) { //validation
       alert("Please enter correct URL with http or https");
     } else {
       setLoading(true);
       const response = await axios.post('/api/shortenurl', {
-        origin_url, custom_url
+        origin_url: originURL,
+        custom_url: customURL
       });
 
       if (response && response.data && response.data.origin_url) {
@@ -28,7 +29,6 @@ const ShortenerForm = () => {
         setFinalUrl(url);
         setLoading(false);
       } else {
-        console.log(response);
         alert("System Error, please try again");
         setLoading(false);
       }
