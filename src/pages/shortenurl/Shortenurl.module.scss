@@ -1,0 +1,21 @@
+@import '../../../styles/tokens/all';
+
+.shortenurl {
+  display: flex;
+  flex-direction: column;
+  padding: $space--md;
+
+  &__texts {
+    h1 {
+      margin: 0 0 $space--sm;
+      font-size: 38px;
+    }
+
+    h2 {
+      margin: 0 0 $space--sm;
+      font-size: $font--lg;
+      font-weight: 400;
+      text-align: justify;
+    }
+  }
+}
