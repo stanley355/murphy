@@ -13,10 +13,10 @@ const ShorturlForm = () => {
           <input type="text" name="origin_url" id="origin_url" className={styles.shortenurlForm__field__originurlInput} />
         </div>
         <div className={styles.shortenurlForm__field}>
-          <label><FaPenAlt /> Customize your link</label>
+          <label htmlFor='custom_url' ><FaPenAlt /> Customize your link</label>
           <div className={styles.shortenurlForm__field__customurl}>
             <div>marph.herokuapp.com</div>
-            <input type="text" name="" id="" />
+            <input type="text" name="custom_url" id="custom_url" placeholder='alias' />
           </div>
         </div>
 
