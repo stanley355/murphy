@@ -1,0 +1,63 @@
+@import "../../../../styles/tokens/all";
+
+.shortenurlForm {
+  background: $color-white;
+  border-radius: $space--sm;
+  padding: $space--sm;
+
+  &__field {
+    margin-bottom: $space--md;
+    label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: $space--sm;
+      svg {
+        font-size: $font--xxl;
+        margin-right: $space--xs;
+      }
+    }
+
+    &__originurlInput {
+      width: 100%;
+      background: none;
+      border: 1px solid $border-grey;
+      border-radius: $space--sm;
+      padding: $space--lg $space--sm;
+      font-size: $font--md;
+    }
+
+    &__customurl {
+      display: flex;
+      flex-wrap: wrap;
+
+      div {
+        width: 60%;
+        font-size: $font--md;
+        border: 1px solid $border-grey;
+        color: $color-black-2;
+        padding: $space--sm $space--xs;
+        background: $color-grey-10;
+        text-align: center;
+        border-radius: $space--xs 0 0 $space--xs;
+      }
+
+      input {
+        width: 40%;
+        border: 1px solid $border-grey;
+        border-radius: 0 $space--xs $space--xs 0;
+        font-size: $font--md;
+      }
+    }
+  }
+
+  &__submitBtn {
+    width: 100%;
+    border: none;
+    font-size: $font--lg;
+    background: $color-green;
+    color: $color-white;
+    border-radius: $space--xs;
+    padding: $space--sm $space--xs;
+  }
+}
