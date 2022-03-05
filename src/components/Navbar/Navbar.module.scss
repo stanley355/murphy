@@ -1,0 +1,19 @@
+@import './../../../styles/tokens/all.scss';
+
+.navbar {
+  width: 100%;
+  padding: $space--xxl $space--md $space--md;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    font-size: $font--xxxl;
+    color: $color-black;
+  }
+
+  &__menuBtn {
+    padding-top: $space--sm;
+    font-size: $font--xl;
+  }
+}
