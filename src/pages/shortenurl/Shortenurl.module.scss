@@ -18,4 +18,9 @@
       text-align: justify;
     }
   }
+
+  @include desktop-view {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
 }
