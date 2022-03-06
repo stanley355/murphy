@@ -23,7 +23,7 @@
       }
     }
 
-    &__originurlInput {
+    &__originurlInput, &__finalurlInput {
       width: 100%;
       background: none;
       border: 1px solid $border-grey;
@@ -75,5 +75,15 @@
     color: $color-white;
     border-radius: $space--xs;
     padding: $space--sm $space--xs;
+  }
+
+  &__anotherBtn {
+    width: 100%;
+    border: none;
+    font-size: $font--lg;
+    background: transparent;
+    color: $color-green;
+    border-radius: $space--xs;
+    padding: $space--sm $space--xs; 
   }
 }
