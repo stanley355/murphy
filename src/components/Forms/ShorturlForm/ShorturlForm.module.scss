@@ -13,8 +13,13 @@
       align-items: center;
       margin-bottom: $space--sm;
       svg {
+        color: $color-blue;
         font-size: $font--xxl;
         margin-right: $space--xs;
+      }
+
+      @include desktop-view {
+        font-size: $font--lg;
       }
     }
 
@@ -47,6 +52,17 @@
         border: 1px solid $border-grey;
         border-radius: 0 $space--xs $space--xs 0;
         font-size: $font--md;
+        padding-left: $space--xs;
+      }
+
+      @include desktop-view {
+        div {
+          width: 40%;
+        }
+
+        input {
+          width: 60%;
+        }
       }
     }
   }
