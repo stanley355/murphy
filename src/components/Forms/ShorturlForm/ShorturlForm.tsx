@@ -12,6 +12,7 @@ const { BASE_URL } = getConfig().publicRuntimeConfig;
 const ShorturlForm = () => {
   const [btnLoading, setBtnLoading] = useState(false);
   const [finalUrl, setFinalUrl] = useState("");
+  const [copiedText, setCopiedText] = useState(false);
 
   const singleurlHandler = async (e: any) => {
     e.preventDefault();
@@ -39,6 +40,12 @@ const ShorturlForm = () => {
       alert("Please include url with http or https");
       setBtnLoading(false);
     }
+  }
+  
+  const copyToClipboard = (e: any) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(e.target.final_url.value);
+    setCopiedText(true);
   }
 
   const SingleurlForm = () => {
@@ -70,7 +77,7 @@ const ShorturlForm = () => {
   const FinalurlForm = () => {
     // To do: create copy to clipboard function
     return (
-      <form onSubmit={(e) => singleurlHandler(e)} className={styles.shortenurlForm__form}>
+      <form onSubmit={(e) => copyToClipboard(e)} className={styles.shortenurlForm__form}>
         <div className={styles.shortenurlForm__field}>
           <label htmlFor='final_url'><FaLink /> Hooray, the magic is done!</label>
           <input
@@ -81,7 +88,7 @@ const ShorturlForm = () => {
             className={styles.shortenurlForm__field__finalurlInput}
           />
         </div>
-        <button type="submit" className={styles.shortenurlForm__submitBtn}>Copy Text to Clipboard</button>
+        <button type="submit" className={styles.shortenurlForm__submitBtn}>{copiedText ? "Copied to Clipboard" : "Copy Text to Clipboard"}</button>
         <button
           onClick={() => setFinalUrl("")}
           className={styles.shortenurlForm__anotherBtn}
