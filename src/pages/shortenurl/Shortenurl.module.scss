@@ -1,21 +1,90 @@
-@import '../../../styles/tokens/all';
+@import "../../../styles/tokens/all";
 
 .shortenurl {
-  display: flex;
-  flex-direction: column;
-  padding: $space--md;
+  &__singleurlForm {
+    display: flex;
+    flex-direction: column;
+    padding: $space--md;
 
-  &__texts {
-    h1 {
-      margin: 0 0 $space--sm;
-      font-size: 38px;
+    &__texts {
+      h1 {
+        margin: 0 0 $space--sm;
+        font-size: 38px;
+      }
+
+      h2 {
+        margin: 0 0 $space--sm;
+        font-size: $font--lg;
+        font-weight: 400;
+        text-align: justify;
+      }
     }
 
-    h2 {
-      margin: 0 0 $space--sm;
-      font-size: $font--lg;
-      font-weight: 400;
-      text-align: justify;
+    @include desktop-view {
+      display: grid;
+      grid-gap: 5%;
+      grid-template-columns: 50% 50%;
+      padding: $space--md 0;
+
+      &__texts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h1 {
+          font-size: 48px;
+        }
+
+        h2 {
+          font-size: $font--xxxl;
+        }
+      }
     }
   }
+
+  &__bulkurlForm {
+    color: $color-black;
+    background: $color-yellow;
+
+    h1 {
+      margin: 0 0 $space--xs;
+      text-align: center;
+    }
+    h2 {
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__faq {
+    background: $color-white;
+    h1 {
+      text-align: center;
+    }
+
+    &__question {
+      span {
+        width: 100%;
+        font-size: $font--xl;
+        background: $color-grey-30;
+        padding: $space--md;
+        font-weight: bold;
+        margin-bottom: $space--sm;
+      }
+      ul {
+        padding-left: $space--md;
+      }
+
+      ul li {
+        list-style: none;
+        font-size: $font--md;
+        padding: $space--xs 0;
+      }
+    }
+  }
+
+  
 }

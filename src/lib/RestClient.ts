@@ -1,11 +1,9 @@
 import axios from "axios";
 import getConfig from "next/config";
 
-const { BASE_URL } = getConfig().publicRuntimeConfig;
-
 interface RestClientConfig {
-  method: "GET" | "POST" | "PUT" | "DELETE";
-  url: String;
+  method: any;
+  url: string;
 }
 
 const RestClient = async (config: RestClientConfig, data: any) => {
@@ -14,13 +12,16 @@ const RestClient = async (config: RestClientConfig, data: any) => {
   try {
     response = await axios({
       method: config.method,
-      url: `${BASE_URL}${config.url}`,
+      url: config.url,
       data,
     });
   } catch (err) {
-    console.error(err);
-    response = {};
+    response = {
+      data: {}
+    };
   }
 
-  return response;
+  return response && response.data;
 };
+
+export default RestClient;
