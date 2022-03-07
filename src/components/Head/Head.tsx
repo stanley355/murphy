@@ -10,7 +10,7 @@ interface HeadInterface {
 const MetaHead = (props: { meta: HeadInterface }) => {
   return (
     <Head>
-      <meta name="title" content={props.meta.title} />
+      <title>{props.meta.title}</title>
       <meta name='keywords' content={props.meta.keywords}/>
       <meta name='description' content={props.meta.description} />
       <meta charSet="utf-8" />

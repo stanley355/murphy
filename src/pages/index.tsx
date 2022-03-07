@@ -15,21 +15,13 @@ const Home = () => {
     keywords: "Shorten URL, API Service, Rust"
   }
 
+  useEffect(() =>{
+    Router.push('/shortenurl');
+  })
+
   return (
     <div className={styles.home}>
-      <MetaHead meta={HomeMeta} />
-      <div className={styles.home__hero}>
-        <h1>Marph</h1>
-        <p>Powerful and Fastest Open Source API Service written in Rust</p>
-        <a href="#docs">Get Started</a>
-      </div>
-      <div className="container">
-        <div className={styles.home__cards}>
-          <ServiceCard />
-          <DocsCard />
-        </div>
-        <ShortenerForm />
-      </div>
+      
     </div>
   )
 }
