@@ -41,4 +41,50 @@
       }
     }
   }
+
+  &__bulkurlForm {
+    color: $color-black;
+    background: $color-yellow;
+
+    h1 {
+      margin: 0 0 $space--xs;
+      text-align: center;
+    }
+    h2 {
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__faq {
+    background: $color-white;
+    h1 {
+      text-align: center;
+    }
+
+    &__question {
+      span {
+        width: 100%;
+        font-size: $font--xl;
+        background: $color-grey-30;
+        padding: $space--md;
+        font-weight: bold;
+        margin-bottom: $space--sm;
+      }
+      ul {
+        padding-left: $space--md;
+      }
+
+      ul li {
+        list-style: none;
+        font-size: $font--md;
+        padding: $space--xs 0;
+      }
+    }
+  }
+
+  
 }
