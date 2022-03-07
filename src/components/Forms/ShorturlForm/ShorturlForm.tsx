@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaLink, FaPenAlt } from 'react-icons/fa';
-import { toast } from 'react-toastify';
 import getConfig from 'next/config';
 
 import RestClient from '../../../lib/RestClient';
@@ -41,7 +40,7 @@ const ShorturlForm = () => {
       setBtnLoading(false);
     }
   }
-  
+
   const copyToClipboard = (e: any) => {
     e.preventDefault();
     navigator.clipboard.writeText(e.target.final_url.value);
