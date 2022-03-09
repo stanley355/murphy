@@ -1,5 +1,6 @@
 import React from "react"
-import { FaSun } from 'react-icons/fa';
+import Link from "next/link";
+import { FaSun, FaGithub } from 'react-icons/fa';
 
 import ShorturlForm from "../../components/Forms/ShorturlForm/ShorturlForm";
 import MetaHead from "../../components/Head/Head";
@@ -30,13 +31,26 @@ const ShortenURL = () => {
         </div>
       </div>
 
-      {/* To do: Ponder the UI for file upload */}
-      {/* <div className={styles.shortenurl__bulkurlForm}>
-        <div className={classNames(isDesktop ? "container" : "")}>
-          <h1>Want to convert more URL to short links?</h1>
-          <h2>Rest easy, here comes the sun <FaSun /> </h2>
+      <div className={styles.shortenurl__devCopywriting}>
+        <div className={isDesktop ? "container" : ""}>
+          <span>Are you a developer? Wanna use our Shorten URL service on for your platform too?</span>
+          <span> Check out our
+            <Link href="/shortenurl/developer">
+              <a title="Shorten URL API for Developers"> Developer Page</a>
+            </Link> or check it directly
+            <a href="https://github.com/stanley355/shortenurl" title="Shorten URL API for Developers"> on Github <FaGithub /></a>
+          </span>
         </div>
-      </div> */}
+      </div>
+
+      {/* To do: Ponder the UI for file upload */}
+      <div className={styles.shortenurl__bulkurlForm}>
+        <div className={isDesktop ? "container" : ""}>
+          <div className={styles.shortenurl__bulkurlForm__title}>Want to convert more URL to short links?</div>
+          <div className={styles.shortenurl__bulkurlForm__subtitle}>Rest easy, here comes the sun <FaSun /> </div>
+        </div>
+      </div>
+
       <div className={styles.shortenurl__faq}>
         <div className={isDesktop ? "container" : ""}>
           <h1>Frequently asked questions</h1>
