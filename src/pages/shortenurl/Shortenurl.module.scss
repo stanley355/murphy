@@ -68,17 +68,22 @@
 
     &__title {
       font-size: $font--xxxl;
+      font-weight: bold;
       text-align: center;
     }
-    
+
     &__subtitle {
       text-align: center;
       font-size: $font--xl;
-      margin: $space--xs 0;
+      font-style: italic;
+      margin: $space--xs 0 $space--md;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      svg {
+        margin-left: $space--xs;
+      }
     }
   }
 
@@ -109,6 +114,4 @@
       }
     }
   }
-
-  
 }
