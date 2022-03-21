@@ -1,7 +1,7 @@
-name: Pull request Pipeline
+name: Build Pipeline
 
 on:
-  pull_request:
+  push:
     branches: 
       - main
       - develop
