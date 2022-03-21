@@ -3,7 +3,6 @@ import Link from "next/link";
 import { FaSun, FaGithub } from 'react-icons/fa';
 
 import ShorturlForm from "../../components/Forms/ShorturlForm/ShorturlForm";
-import BulkShorturlForm from "../../components/Forms/BulkShorturlForm/BulkShorturlForm";
 import MetaHead from "../../components/Head/Head";
 
 import useResponsive from "../../utils/useResponsive";
@@ -41,15 +40,6 @@ const ShortenURL = () => {
             </Link> or check it directly
             <a href="https://github.com/stanley355/shortenurl" title="Shorten URL API for Developers"> on Github <FaGithub /></a>
           </span>
-        </div>
-      </div>
-
-      {/* To do: Ponder the UI for file upload */}
-      <div className={styles.shortenurl__bulkurlForm}>
-        <div className={isDesktop ? "container" : ""}>
-          <div className={styles.shortenurl__bulkurlForm__title}>Want to convert more URL to short links?</div>
-          <div className={styles.shortenurl__bulkurlForm__subtitle}>Rest easy, here comes the sun <FaSun /> </div>
-          <BulkShorturlForm />
         </div>
       </div>
 

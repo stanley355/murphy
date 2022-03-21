@@ -61,40 +61,17 @@
      }
   }
 
-  &__bulkurlForm {
-    color: $color-black;
-    padding: $space--md;
-    background: $color-yellow;
-
-    &__title {
-      font-size: $font--xxxl;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    &__subtitle {
-      text-align: center;
-      font-size: $font--xl;
-      font-style: italic;
-      margin: $space--xs 0 $space--md;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      svg {
-        margin-left: $space--xs;
-      }
-    }
-  }
-
   &__faq {
     background: $color-white;
+    padding: $space--md 0;
     h1 {
-      margin-top: 0;
+      margin: 0;
+      padding-bottom: $space--xxl;
       text-align: center;
     }
 
     &__question {
+      margin-bottom: $space--xxl;
       span {
         width: 100%;
         font-size: $font--xl;
@@ -104,10 +81,11 @@
         margin-bottom: $space--sm;
       }
       ul {
-        padding-left: $space--md;
+        padding:0 $space--md;
       }
 
       ul li {
+        text-align: justify;
         list-style: none;
         font-size: $font--md;
         padding: $space--xs 0;
