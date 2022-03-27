@@ -1,9 +1,10 @@
-name: Pull request Pipeline
+
+  
+name: Staging Build Pipeline
 
 on:
-  pull_request:
+  push:
     branches: 
-      - main
       - develop
 
 jobs:
