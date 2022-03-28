@@ -1,6 +1,7 @@
 import React from "react"
 import Link from "next/link";
-import { FaSun, FaGithub } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
+import ShortenurlMeta from '../../../public/seo/shortenurl.json';
 
 import ShorturlForm from "../../components/Forms/ShorturlForm/ShorturlForm";
 import MetaHead from "../../components/Head/Head";
@@ -12,15 +13,9 @@ import styles from './Shortenurl.module.scss';
 const ShortenURL = () => {
   const { isDesktop } = useResponsive();
 
-  const ShorturlMeta = {
-    title: "Marph Shorten URL Service",
-    description: "Free URL shortener to create perfect URLs for your business. Bitly helps you create and share branded links with custom domains at scale. ✓ Check it out!",
-    keywords: "Shorten URL, Short link, Free API Service"
-  }
-
   return (
     <div className={styles.shortenurl}>
-      <MetaHead meta={ShorturlMeta} />
+      <MetaHead meta={ShortenurlMeta} />
       <div className={isDesktop ? "container" : ""}>
         <div className={styles.shortenurl__singleurlForm}>
           <div className={styles.shortenurl__singleurlForm__texts}>
