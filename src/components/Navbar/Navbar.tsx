@@ -8,11 +8,7 @@ const Navbar = () => {
 
   const NavbarDropdown = () => {
     return (
-      <div
-        className={classNames(
-          styles.navbar__dropdown,
-          showDropdown ? styles.navbar__dropdown__show : ""
-        )}>
+      <div className={styles.navbar__dropdown}>
         <div className={styles.navbar__dropdown__top}>
           <a href="/" className={styles.navbar__dropdown__top__logo}>Marph API</a>
           <button
@@ -28,7 +24,7 @@ const Navbar = () => {
 
   return (
     <header className={styles.navbar}>
-      <NavbarDropdown />
+      {showDropdown && <NavbarDropdown />}
       <a href="/" className={styles.navbar__logo}>Marph API</a>
       <button
         className={styles.navbar__burgerBtn}
