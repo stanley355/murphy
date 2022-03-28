@@ -1,4 +1,5 @@
 import React from 'react';
+import Hero from '../clients/Homepage/Hero/Hero';
 import styles from '../../styles/pages/home.module.scss'
 
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      
+      <Hero />
     </div>
   )
 }
