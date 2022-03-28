@@ -1,4 +1,4 @@
-@import './../../../styles/tokens/all.scss';
+@import "./../../../styles/tokens/all.scss";
 
 .navbar {
   width: 100%;
@@ -18,5 +18,43 @@
     font-size: $font--xl;
     background: none;
     border: none;
+  }
+}
+
+.navbar__dropdown {
+  display: none;
+  background: $color-yellow;
+  position: fixed;
+  top: -100;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease-in-out;
+
+  &__show {
+    display: block;
+    top:0;
+  }
+
+  &__top {
+    width: 100%;
+    padding: $space--md $space--md;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__logo {
+      font-weight: bold;
+      font-size: $font--xxxl;
+      color: $color-black;
+    }
+
+    &__closeBtn {
+      padding-top: $space--xs;
+      font-size: $font--xl;
+      background: none;
+      border: none;
+    }
   }
 }
