@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/pages/home.module.scss'
+import Hero from '../clients/Homepage/Hero/Hero';
 
 const Home = () => {
   const HomeMeta = {
@@ -9,8 +9,8 @@ const Home = () => {
   }
 
   return (
-    <div className={styles.home}>
-      
+    <div >
+      <Hero />
     </div>
   )
 }
