@@ -1,0 +1,31 @@
+@import '../../../../styles/tokens/all';
+
+.hero {
+  padding: $space--sm 0;
+  background-repeat: no-repeat;
+  background: url('/images/homepage/home_hero.webp');
+
+  &__title {
+    color: $color-white;
+    font-weight: 400;
+  }
+
+  &__subtitle {
+    color: $color-white;
+    margin-bottom: $space--sm;
+    font-size: $font--lg;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    svg {
+      font-size: $font--xxxl;
+      margin-right: $space--xs;
+    }
+  }
+
+  @include desktop-view {
+    &__subtitle {
+      font-size: $font--xl;
+    }
+  }
+}
