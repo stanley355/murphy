@@ -9,4 +9,4 @@ RUN yarn
 RUN yarn build
 
 # Run the binary
-CMD ["bash", "yarn start"]
+CMD ["yarn", "start"]
