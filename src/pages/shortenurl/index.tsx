@@ -29,10 +29,7 @@ const ShortenURL = () => {
       <div className={styles.shortenurl__devCopywriting}>
         <div className={isDesktop ? "container" : ""}>
           <span>Are you a developer? Wanna use our Shorten URL service on for your platform too?</span>
-          <span> Check out our
-            <Link href="/shortenurl/developer">
-              <a title="Shorten URL API for Developers"> Developer Page</a>
-            </Link> or check it directly
+          <span> Check out our Documentation
             <a href="https://github.com/stanley355/shortenurl" title="Shorten URL API for Developers"> on Github <FaGithub /></a>
           </span>
         </div>
