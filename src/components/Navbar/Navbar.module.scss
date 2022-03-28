@@ -19,6 +19,18 @@
     background: none;
     border: none;
   }
+
+  @include desktop-view {
+    padding: $space--md $space--xxl;
+    border-bottom: 3px solid $color-black;
+    &__logo {
+      font-size: 36px;
+    }
+
+    &__burgerBtn {
+      font-size: 30px;
+    }
+  }
 }
 
 .navbar__dropdown {
@@ -49,6 +61,50 @@
       font-size: $font--xl;
       background: none;
       border: none;
+    }
+
+    @include desktop-view {
+      padding: $space--md $space--xxl;
+      border-bottom: 3px dashed $color-black;
+      &__logo {
+        font-size: 36px;
+      }
+  
+      &__closeBtn {
+        font-size: 30px;
+      }
+    }
+  }
+
+  &__bottom {
+    padding: $space--md;
+    display: grid;
+    grid-gap: $space--sm;
+    grid-template-columns: auto auto;
+    a {
+      border:3px solid $color-white;
+      background: $color-blue;
+      color: $color-white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: $space--xs;
+      font-size: $font--xxl;
+      border-radius: $space--sm;
+      svg {
+        font-size: 36px;
+        margin: $space--sm;
+      }
+    }
+
+    @include desktop-view {
+      display: flex;
+      flex-wrap: wrap;
+
+      a {
+        width: 15%;
+      }
     }
   }
 }

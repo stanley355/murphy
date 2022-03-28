@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
+import Link from 'next/link';
 import styles from './Navbar.module.scss';
-import { FaBars, FaTimesCircle } from "react-icons/fa";
+import { FaBars, FaTimesCircle, FaLink, FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -10,13 +10,27 @@ const Navbar = () => {
     return (
       <div className={styles.navbar__dropdown}>
         <div className={styles.navbar__dropdown__top}>
-          <a href="/" className={styles.navbar__dropdown__top__logo}>Marph API</a>
+          <a href="/" title="Marph API" className={styles.navbar__dropdown__top__logo}>Marph API</a>
           <button
             className={styles.navbar__dropdown__top__closeBtn}
             onClick={() => setShowDropdown(false)}
           >
             <FaTimesCircle />
           </button>
+        </div>
+        <div className={styles.navbar__dropdown__bottom}>
+          <Link href="/shortenurl">
+            <a title='Shorten URL' onClick={()=>setShowDropdown(false)}>
+              <FaLink />
+              Shorten URL
+            </a>
+          </Link>
+          <Link href="/morphsearch">
+            <a title='Search API' onClick={()=>setShowDropdown(false)}>
+              <FaSearch />
+              Morph Search
+            </a>
+          </Link>
         </div>
       </div>
     );
@@ -25,7 +39,12 @@ const Navbar = () => {
   return (
     <header className={styles.navbar}>
       {showDropdown && <NavbarDropdown />}
-      <a href="/" className={styles.navbar__logo}>Marph API</a>
+      <a
+        href="/"
+        title="Marph API"
+        className={styles.navbar__logo} >
+        Marph API
+      </a>
       <button
         className={styles.navbar__burgerBtn}
         onClick={() => setShowDropdown(true)}
