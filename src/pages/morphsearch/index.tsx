@@ -2,20 +2,21 @@ import React from 'react';
 import Image from 'next/image';
 import { FaGithub } from "react-icons/fa";
 import styles from './morphsearch.module.scss';
-
+import MetaHead from '../../components/Head/Head';
 import morphsearchFeatures from '../../clients/json/morphsearch_feature.json';
 import useResponsive from '../../utils/useResponsive';
+import MorphsearchMeta from '../../../public/seo/morphsearch.json';
 
 const Morphsearch = () => {
   const { isDesktop } = useResponsive();
 
   return (
     <div className={styles.morphsearch}>
+      <MetaHead meta={MorphsearchMeta}/>
       <div className='container'>
         <h1 className={styles.morphsearch__title}>Morphsearch: The next generation of search</h1>
         <div className={styles.morphsearch__subtitle}>An open-source, lightning-fast, and hyper-relevant search engine that fits effortlessly into your apps, websites, and workflow.</div>
         
-
         <div className={styles.morphsearch__features}>
           {morphsearchFeatures.features.map((feature) => {
             return (
