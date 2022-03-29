@@ -39,7 +39,7 @@ const ShortenurlCopy = () => {
             Shorten URL API
           </div>
           <div className={styles.shortenurlCopy__top__subtitle}>
-            An open-source, lightning-fast, and hyper-relevant search engine that fits effortlessly into your apps, websites, and workflow.
+          URL shortener built with powerful tools to help you grow and protect your brand.
           </div>
         </div>
         <div className={styles.shortenurlCopy__bottom}>
@@ -48,7 +48,7 @@ const ShortenurlCopy = () => {
             <Image
               src="/images/homepage/shortenurl_example.webp"
               width={isDesktop ? 650 : 400}
-              height={isDesktop ? 400 : 350}
+              height={isDesktop ? 450 : 350}
             />
           </div>
         </div>
