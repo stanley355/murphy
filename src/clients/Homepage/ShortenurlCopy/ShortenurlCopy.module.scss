@@ -1,0 +1,76 @@
+@import '../../../../styles/tokens/all';
+
+.shortenurlCopy {
+  background: $color-white;
+}
+
+.shortenurlCopy__top {
+  &__title {
+    margin: $space--sm 0;
+    font-weight: bold;
+    font-size: $font--xxxl;
+  }
+
+  &__subtitle {
+    margin: $space--sm 0;
+    font-weight: 500;
+    font-size: $font--xl;
+  }
+}
+
+.shortenurlCopy__bottom {
+  display: grid;
+  grid-gap: 2%;
+  grid-template-columns: 49% 49%;
+}
+
+.shortenurlCopy__requestCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid $color-black;
+    border-radius: $space--xs;
+
+    span {
+      padding: $space--xs;
+    }
+
+    span:first-child {
+      border-right: 1px solid $color-black;
+      border-radius: $space--xs;
+      background: $color-purple;
+    }
+
+    span:last-child {
+      font-style: italic;
+    }
+  }
+
+  &__body {
+    padding: $space--xs 0;
+    ul {
+      padding-left: $space--lg;
+    }
+
+    ul li {
+      margin: $space--xs 0;
+    }
+  }
+
+  &__cta {
+    border-radius: $space--xs;
+    padding: $space--xs;
+    color: $color-white;
+    background: $color-blue;
+  }
+
+  @include desktop-view {
+    padding-top: $space--sm;
+    font-size: $font--xl;
+  }
+}
