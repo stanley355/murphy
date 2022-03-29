@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCheckCircle } from 'react-icons/fa';
-
+import ProductList from "../ProductList/ProductList";
 import styles from './Hero.module.scss';
 
 const Hero = () => {
@@ -14,7 +14,9 @@ const Hero = () => {
         <div className={styles.hero__subtitle}>
           <FaCheckCircle /> Connect any architecture, any data plane, and deploy anywhere
         </div>
+        
       </div>
+      <ProductList />
     </div>
   );
 }
