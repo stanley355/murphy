@@ -21,11 +21,11 @@ const MorphsearchCopy = () => {
             <li>word_array (Array of String): [...] (List of word that you want to search through) </li>
           </ul>
         </div>
-        <Link href="/morphsearch">
+        {isDesktop && <Link href="/morphsearch">
           <a title="Morph Search" className={styles.morphsearchCopy__requestCopy__cta}>
             See more
           </a>
-        </Link>
+        </Link>}
       </div>
     )
   }
@@ -50,7 +50,15 @@ const MorphsearchCopy = () => {
               height={isDesktop ? 400 : 350}
             />
           </div>
+
+          {!isDesktop && <Link href="/morphsearch">
+          <a title="Morph Search" className={styles.morphsearchCopy__requestCopy__cta}>
+            See more
+          </a>
+        </Link>}
         </div>
+
+        
       </div>
     </div>
   )
