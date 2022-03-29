@@ -1,0 +1,21 @@
+{
+  "title": "Morphsearch API",
+  "name": "Morphsearch API",
+  "description": "An open-source, blazingly fast, and hyper-relevant search engine that will improve your search experience",
+  "url": "https://marph.herokuapp.com/morphsearch/",
+  "keywords": "Search API, Search Engine, Morphsearch, Free API Service",
+  "openGraph": {
+    "locale": "id_ID",
+    "type": "website",
+    "title": "Morphsearch API",
+    "description": "An open-source, blazingly fast, and hyper-relevant search engine that will improve your search experience",
+    "modifiedTime": "2022-03-29T06:41:53+00:00",
+    "publishedTime": "2022-03-29T06:41:53+00:00"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "https://marph.herokuapp.com/morphsearch/",
+    "title": "Marph Shorten URL API",
+    "description": "An open-source, blazingly fast, and hyper-relevant search engine that will improve your search experience"
+  }
+}
