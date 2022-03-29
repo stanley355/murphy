@@ -12,7 +12,7 @@ const ShortenurlCopy = () => {
       <div className={styles.shortenurlCopy__requestCopy}>
         <div className={styles.shortenurlCopy__requestCopy__head}>
           <span>POST</span>
-          <span>https://shortenurl.herokuapp.com/api/v1/</span>
+          <span>https://morphurl.herokuapp.com/api/v1/</span>
         </div>
         <div className={styles.shortenurlCopy__requestCopy__body}>
           <div>Body:</div>
@@ -22,11 +22,11 @@ const ShortenurlCopy = () => {
             <li>custom_url (String): ... (any custom URL, leave it blank if you don't want it) </li>
           </ul>
         </div>
-        <Link href="/shortenurl">
+        {isDesktop && <Link href="/shortenurl">
           <a title="Marph Shorten URL API" className={styles.shortenurlCopy__requestCopy__cta}>
             See more
           </a>
-        </Link>
+        </Link>}
       </div>
     )
   }
@@ -39,7 +39,7 @@ const ShortenurlCopy = () => {
             Shorten URL API
           </div>
           <div className={styles.shortenurlCopy__top__subtitle}>
-          URL shortener built with powerful tools to help you grow and protect your brand.
+            URL shortener built with powerful tools to help you grow and protect your brand.
           </div>
         </div>
         <div className={styles.shortenurlCopy__bottom}>
@@ -51,6 +51,11 @@ const ShortenurlCopy = () => {
               height={isDesktop ? 450 : 350}
             />
           </div>
+          {!isDesktop && <Link href="/shortenurl">
+            <a title="Marph Shorten URL API" className={styles.shortenurlCopy__requestCopy__cta}>
+              See more
+            </a>
+          </Link>}
         </div>
       </div>
     </div>
