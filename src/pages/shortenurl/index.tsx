@@ -30,7 +30,7 @@ const ShortenURL = () => {
         <div className={isDesktop ? "container" : ""}>
           <span>Are you a developer? Wanna use our Shorten URL API on for your platform too?</span>
           <span> Check out our Documentation
-            <a href="https://github.com/stanley355/shortenurl" title="Shorten URL API for Developers"> on Github <FaGithub /></a>
+            <a href="https://github.com/stanley355/murphurl" title="Shorten URL API for Developers"> on Github <FaGithub /></a>
           </span>
         </div>
       </div>

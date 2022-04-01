@@ -51,7 +51,7 @@ const Morphsearch = () => {
           />
         </div>
 
-        <div className={styles.morphsearch__note}>*: The search feature hasn't been optimized, please help for optimization and update by raising a Pull Request to <a href="https://github.com/arkstart/morphsearch">Morphsearch Github <FaGithub /></a> </div>
+        <div className={styles.morphsearch__note}>*: The search feature hasn't been optimized, please help for optimization and update by raising a Pull Request to <a href="https://github.com/stanley355/murphsearch">Morphsearch Github <FaGithub /></a> </div>
       </div>
     </div>
   )
