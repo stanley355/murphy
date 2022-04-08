@@ -1,9 +1,8 @@
 import React from "react"
-import Link from "next/link";
 import { FaGithub } from 'react-icons/fa';
 import ShortenurlMeta from '../../../public/seo/shortenurl.json';
 
-import ShorturlForm from "../../components/Forms/ShorturlForm/ShorturlForm";
+import ShorturlForm from "../../clients/pages/shortenurl/ShorturlForm/ShorturlForm";
 import MetaHead from "../../components/Head/Head";
 
 import useResponsive from "../../utils/useResponsive";

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useResponsive from "../../../utils/useResponsive";
+import useResponsive from "../../../../utils/useResponsive";
 import styles from './ShortenurlCopy.module.scss';
 
 const ShortenurlCopy = () => {

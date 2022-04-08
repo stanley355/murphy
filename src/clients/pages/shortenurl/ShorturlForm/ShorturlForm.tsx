@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaLink, FaPenAlt } from 'react-icons/fa';
 import getConfig from 'next/config';
 
-import RestClient from '../../../lib/RestClient';
+import RestClient from '../../../../lib/RestClient';
 
 import styles from './ShorturlForm.module.scss';
 
