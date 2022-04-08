@@ -2,17 +2,18 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import getConfig from 'next/config';
 
 import RestClient from '../../../lib/RestClient';
-const { MORPHURL_URL } = getConfig().publicRuntimeConfig;
+const { MORPHCLOUDS_URL } = getConfig().publicRuntimeConfig;
 
-const RedirecturlHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const SingleurlHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const config = {
-    method: 'GET',
-    url: `${MORPHURL_URL}/api/v1/${req.query.url}`,
+    method: req.method,
+    url: `${MORPHCLOUDS_URL}/api/hosts/`,
   };
+
   let response: any;
 
   try {
-    response = await RestClient(config, {});
+    response = await RestClient(config, req.body);
   } catch (err) {
     console.error(err);
     response = {};
@@ -23,4 +24,4 @@ const RedirecturlHandler = async (req: NextApiRequest, res: NextApiResponse) => 
   res.json(response);
 };
 
-export default RedirecturlHandler;
+export default SingleurlHandler;

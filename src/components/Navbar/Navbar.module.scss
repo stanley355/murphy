@@ -1,4 +1,4 @@
-@import "./../../../styles/tokens/all.scss";
+@import './../../../styles/tokens/all.scss';
 
 .navbar {
   width: 100%;
@@ -69,7 +69,7 @@
       &__logo {
         font-size: 36px;
       }
-  
+
       &__closeBtn {
         font-size: 30px;
       }
@@ -82,7 +82,7 @@
     grid-gap: $space--sm;
     grid-template-columns: auto auto;
     a {
-      border:3px solid $color-white;
+      border: 3px solid $color-white;
       background: $color-blue;
       color: $color-white;
       display: flex;
@@ -111,12 +111,12 @@
 }
 
 @keyframes slide-down {
-	0% {
-		transform: translateY(-500px);
-		opacity: 0;
-	}
-	100% {
-		transform: translateY(0px);
-		opacity: 1;
-	}
+  0% {
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }

@@ -1,0 +1,52 @@
+@import '../../../../../../styles/tokens/all';
+
+.hosts__list {
+  display: flex;
+  flex-wrap: wrap;
+  &__card {
+    border-radius: $space--xs;
+    width: 46%;
+    background: $color-white;
+    margin: 0 2%;
+    padding: $space--xs;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      font-size: $font--xl;
+      font-weight: bold;
+      margin: $space--xs 0;
+    }
+
+    &__imgContainer {
+      border-radius: $space--xs;
+      img {
+        border-radius: $space--xs;
+        width: 100%;
+        height: 100px;
+      }
+    }
+
+    &__websiteLink {
+      background: $color-green-dark;
+      padding: $space--xs;
+      border-radius: $space--xs;
+      color: $color-white;
+      font-weight: bold;
+      margin: $space--xxs 0;
+    }
+
+    &__productLink {
+      background: $color-blue;
+      padding: $space--xs;
+      border-radius: $space--xs;
+      color: $color-white;
+      font-weight: bold;
+      margin: $space--xxs 0;
+    }
+    @include desktop-view {
+      width: 20%;
+      margin: 0 1%;
+    }
+  }
+}

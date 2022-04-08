@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      The Open Source Service and Code is authored by 
+      The Open Source Service and Code is authored by
       <a href="https://github.com/stanley355">
         winatastanley355
         <FaGithub />

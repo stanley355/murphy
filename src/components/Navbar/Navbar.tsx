@@ -20,19 +20,19 @@ const Navbar = () => {
         </div>
         <div className={styles.navbar__dropdown__bottom}>
           <Link href="/shortenurl">
-            <a title='Shorten URL' onClick={()=>setShowDropdown(false)}>
+            <a title='Shorten URL' onClick={() => setShowDropdown(false)}>
               <FaLink />
               Shorten URL
             </a>
           </Link>
           <Link href="/morphsearch">
-            <a title='Search API' onClick={()=>setShowDropdown(false)}>
+            <a title='Search API' onClick={() => setShowDropdown(false)}>
               <FaSearch />
               Morph Search
             </a>
           </Link>
           <Link href="/clouds">
-            <a title='Clouds Hosting Service' onClick={()=>setShowDropdown(false)}>
+            <a title='Clouds Hosting Service' onClick={() => setShowDropdown(false)}>
               <FaCloud />
               Clouds Hosting Calculator
             </a>

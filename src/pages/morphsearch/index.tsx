@@ -12,15 +12,15 @@ const Morphsearch = () => {
 
   return (
     <div className={styles.morphsearch}>
-      <MetaHead meta={MorphsearchMeta}/>
+      <MetaHead meta={MorphsearchMeta} />
       <div className='container'>
         <h1 className={styles.morphsearch__title}>Morphsearch: The next generation of search</h1>
         <div className={styles.morphsearch__subtitle}>An open-source, lightning-fast, and hyper-relevant search engine that fits effortlessly into your apps, websites, and workflow.</div>
-        
+
         <div className={styles.morphsearch__features}>
           {morphsearchFeatures.features.map((feature) => {
             return (
-              <div className={styles.morphsearch__features__card}  key={feature.title}>
+              <div className={styles.morphsearch__features__card} key={feature.title}>
                 <div className={styles.morphsearch__features__card__title}>{feature.title}</div>
                 <div className={styles.morphsearch__features__card__subtitle}>{feature.subtitle}</div>
               </div>

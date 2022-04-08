@@ -1,4 +1,4 @@
-@import "../../../styles/tokens/all";
+@import '../../../styles/tokens/all';
 
 .morphsearch {
   background: $color-purple-2;
@@ -28,18 +28,18 @@
 
     &__subtitle {
       font-size: $font--xxl;
-    } 
+    }
   }
 }
 
 .morphsearch__features {
   margin: $space--sm 0;
   display: grid;
-  grid-gap:2%;
+  grid-gap: 2%;
   grid-template-columns: 49% 49%;
 
   &__card {
-    background: $color-green;
+    background: $color-green-dark;
     padding: $space--xs;
     color: $color-white;
     border-radius: $space--xs;
@@ -59,7 +59,6 @@
     grid-template-columns: 23% 23% 23% 23%;
   }
 }
-
 
 .morphsearch__requestCopy {
   display: flex;
