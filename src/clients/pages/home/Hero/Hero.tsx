@@ -14,7 +14,7 @@ const Hero = () => {
         <div className={styles.hero__subtitle}>
           <FaCheckCircle /> Connect any architecture, any data plane, and deploy anywhere
         </div>
-        
+
       </div>
       <ProductList />
     </div>

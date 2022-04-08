@@ -1,5 +1,5 @@
-import axios from "axios";
-import getConfig from "next/config";
+import axios from 'axios';
+import getConfig from 'next/config';
 
 interface RestClientConfig {
   method: any;
@@ -17,7 +17,7 @@ const RestClient = async (config: RestClientConfig, data: any) => {
     });
   } catch (err) {
     response = {
-      data: {}
+      data: {},
     };
   }
 

@@ -1,4 +1,4 @@
-@import "../../../../../styles/tokens/all";
+@import '../../../../../styles/tokens/all';
 
 .shortenurlForm {
   background: $color-white;
@@ -23,7 +23,8 @@
       }
     }
 
-    &__originurlInput, &__finalurlInput {
+    &__originurlInput,
+    &__finalurlInput {
       width: 100%;
       background: none;
       border: 1px solid $border-grey;
@@ -84,6 +85,6 @@
     background: transparent;
     color: $color-green;
     border-radius: $space--xs;
-    padding: $space--sm $space--xs; 
+    padding: $space--sm $space--xs;
   }
 }

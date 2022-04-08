@@ -1,4 +1,4 @@
-@import "../../../styles/tokens/all";
+@import '../../../styles/tokens/all';
 
 .shortenurl {
   &__singleurlForm {
@@ -47,18 +47,18 @@
     background: $color-purple-2;
     padding: $space--md;
     line-height: 1.5;
-     a{
-       font-weight: bolder;
-       text-decoration: underline;
-       text-decoration-thickness: 3px;
-       svg {
+    a {
+      font-weight: bolder;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      svg {
         text-decoration: underline;
-       }
-     }
+      }
+    }
 
-     @include desktop-view {
-       font-size: $font--xxl;
-     }
+    @include desktop-view {
+      font-size: $font--xxl;
+    }
   }
 
   &__faq {
@@ -81,7 +81,7 @@
         margin-bottom: $space--sm;
       }
       ul {
-        padding:0 $space--md;
+        padding: 0 $space--md;
       }
 
       ul li {
