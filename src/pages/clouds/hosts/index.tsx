@@ -24,10 +24,10 @@ export const getStaticProps: GetStaticProps = async () => {
     url: `${BASE_URL}/api/clouds/hosts/`
   }
   const data = await RestClient(config, {});
-
+  
   return {
     props: {
-      hostsList: data
+      hostsList: data && data
     }
   }
 }

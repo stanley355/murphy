@@ -4,7 +4,18 @@ import { FaLink, FaDiceD6 } from 'react-icons/fa'
 
 import styles from './list.module.scss';
 
-const HostsList = (props: any) => {
+interface HostsListInterface {
+  list: [
+    {
+      id: string,
+      name: string,
+      description: string,
+      url: string
+    }
+  ]
+}
+
+const HostsList = (props: HostsListInterface) => {
   const { list } = props;
 
   return (

@@ -17,7 +17,7 @@ const RestClient = async (config: RestClientConfig, data: any) => {
     });
   } catch (err) {
     response = {
-      data: {},
+      data: null,
     };
   }
 
