@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
-import { FaBars, FaTimesCircle, FaLink, FaSearch } from "react-icons/fa";
+import { FaBars, FaTimesCircle, FaLink, FaSearch, FaCloud } from "react-icons/fa";
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -29,6 +29,12 @@ const Navbar = () => {
             <a title='Search API' onClick={()=>setShowDropdown(false)}>
               <FaSearch />
               Morph Search
+            </a>
+          </Link>
+          <Link href="/clouds">
+            <a title='Clouds Hosting Service' onClick={()=>setShowDropdown(false)}>
+              <FaCloud />
+              Clouds Hosting Calculator
             </a>
           </Link>
         </div>
