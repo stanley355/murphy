@@ -1,6 +1,6 @@
 import React from 'react';
 import getConfig from 'next/config';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 
 import HostsList from '../../../clients/pages/clouds/hosts/list';
 import styles from './hosts.module.scss';
@@ -9,6 +9,7 @@ import RestClient from '../../../lib/RestClient';
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
 const Hosts = ({ hostsList }: any) => {
+  
   return (
     <div className={styles.hosts}>
       <div className="container">
@@ -18,7 +19,7 @@ const Hosts = ({ hostsList }: any) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const config = {
     method: 'GET',
     url: `${BASE_URL}/api/clouds/hosts/`
