@@ -1,0 +1,26 @@
+@import '../../../../../styles/tokens/all';
+
+.hero__content {
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url('/images/hosts/cloud-host-bg.jpg');
+
+  &__title {
+    color: $color-white;
+    font-weight: bold;
+    margin: 0;
+    padding: $space--xs 0 $space--md;
+    line-height: 1.5;
+  }
+
+  &__subtitle {
+    color: $color-white;
+    margin-bottom: $space--sm;
+    font-size: $font--lg;
+    line-height: 1.8;
+
+    @include desktop-view {
+      width: 70%;
+    }
+  }
+}

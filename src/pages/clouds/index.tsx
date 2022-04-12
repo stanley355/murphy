@@ -1,10 +1,9 @@
 import React from 'react';
 import getConfig from 'next/config';
 import { GetStaticProps } from 'next';
-
-import HostsList from '../../../clients/pages/clouds/hosts/list';
-import styles from './hosts.module.scss';
-import RestClient from '../../../lib/RestClient';
+import HeroContent from '../../clients/pages/clouds/Hero/Hero';
+import styles from './clouds.module.scss';
+import RestClient from '../../lib/RestClient';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
@@ -12,9 +11,10 @@ const Hosts = ({ hostsList }: any) => {
   
   return (
     <div className={styles.hosts}>
-      <div className="container">
+      <HeroContent />
+      {/* <div className="container">
         <HostsList list={hostsList} />
-      </div>
+      </div> */}
     </div>
   )
 }
