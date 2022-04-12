@@ -2,16 +2,18 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import getConfig from 'next/config';
 
 import RestClient from '../../../lib/RestClient';
-const { MORPHCLOUDS_URL } = getConfig().publicRuntimeConfig;
+const { MORPHCLOUDS_URL, MORPHCLOUDS_TOKEN } = getConfig().publicRuntimeConfig;
 
-const SingleurlHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const CloudsHostsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const config = {
     method: req.method,
     url: `${MORPHCLOUDS_URL}/api/hosts/`,
+    headers: {
+      Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`
+    }
   };
 
   let response: any;
-
   try {
     response = await RestClient(config, req.body);
   } catch (err) {
@@ -24,4 +26,4 @@ const SingleurlHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.json(response);
 };
 
-export default SingleurlHandler;
+export default CloudsHostsHandler;
