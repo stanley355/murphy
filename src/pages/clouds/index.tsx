@@ -1,7 +1,7 @@
 import React from 'react';
 import getConfig from 'next/config';
 import { GetStaticProps } from 'next';
-import HeroContent from '../../clients/pages/clouds/Hero/Hero';
+import HeroContent from '../../clients/pages/clouds/Home/Hero/Hero';
 import styles from './clouds.module.scss';
 import RestClient from '../../lib/RestClient';
 
@@ -12,6 +12,9 @@ const Hosts = ({ hostsList }: any) => {
   return (
     <div className={styles.hosts}>
       <HeroContent />
+      <div className="container">
+        
+      </div>
       {/* <div className="container">
         <HostsList list={hostsList} />
       </div> */}
