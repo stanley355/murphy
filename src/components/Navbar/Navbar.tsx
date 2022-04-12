@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
       <div className={styles.navbar__dropdown}>
         <div className={styles.navbar__dropdown__top}>
-          <a href="/" title="Marph API" className={styles.navbar__dropdown__top__logo}>Marph API</a>
+          <a href="/" title="Marph API" className={styles.navbar__dropdown__top__logo}>Marph</a>
           <button
             className={styles.navbar__dropdown__top__closeBtn}
             onClick={() => setShowDropdown(false)}
@@ -47,9 +47,9 @@ const Navbar = () => {
       {showDropdown && <NavbarDropdown />}
       <a
         href="/"
-        title="Marph API"
+        title="Marph"
         className={styles.navbar__logo} >
-        Marph API
+        Marph
       </a>
       <button
         className={styles.navbar__burgerBtn}
