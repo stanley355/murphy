@@ -4,18 +4,22 @@ import { GetStaticProps } from 'next';
 
 import HeroContent from '../../clients/pages/clouds/Home/Hero/Hero';
 import CloudFilter from '../../clients/pages/clouds/Home/CloudFilter/CloudFilter';
+import CloudList from '../../clients/pages/clouds/Home/CloudList/CloudList';
 import styles from './clouds.module.scss';
 import RestClient from '../../lib/RestClient';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
-const Hosts = ({ host_list }: any) => {
-  
+const Hosts = ({ hostList }: any) => {
+
   return (
-    <div className={styles.hosts}>
+    <div className={styles.clouds}>
       <HeroContent />
       <div className="container">
-        <CloudFilter />
+        <div className={styles.clouds__listContainer}>
+          <CloudFilter />
+          <CloudList hosts={hostList} />
+        </div>
       </div>
     </div>
   )
@@ -26,12 +30,12 @@ export const getStaticProps: GetStaticProps = async () => {
     method: 'GET',
     url: `${BASE_URL}/api/clouds/hosts`
   }
-  
+
   const data = await RestClient(config, {});
-  
+
   return {
     props: {
-      host_list: data && data
+      hostList: data
     }
   }
 }

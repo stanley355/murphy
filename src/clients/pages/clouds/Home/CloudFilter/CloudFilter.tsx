@@ -1,14 +1,16 @@
 import React, { useState, useRef } from 'react';
 import { FaGitter } from 'react-icons/fa';
-
 import { FilterItems } from './FilterMenu';
+
+import useResponsive from '../../../../../utils/useResponsive';
 import styles from './CloudFilter.module.scss';
 
 const CloudFilter = () => {
+  const { isDesktop } = useResponsive();
   const filterRef = useRef<HTMLDivElement>(null);
-  const [showFilterMenu, setShowFilterMenu] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const FilterMenu = () => {
+  const MobileMenu = () => {
     return (
       <div className={styles.cloud__filter__mobile} >
         {
@@ -19,7 +21,22 @@ const CloudFilter = () => {
             </div>)
         }
         <button className={styles.cloud__filter__mobile__ctaBtn}  >Filter</button>
-        <button className={styles.cloud__filter__mobile__backBtn}>Back</button>
+        <button className={styles.cloud__filter__mobile__backBtn} onClick={() => setShowMobileMenu(false)}>Back</button>
+      </div>
+    );
+  }
+
+  const DesktopMenu = () => {
+    return (
+      <div className={styles.cloud__filter__desktop} >
+        {
+          FilterItems.map((item) =>
+            <div className={styles.cloud__filter__desktop__input}>
+              <input type="checkbox" name={item.param} id={item.param} />
+              <label htmlFor={item.param}>{item.title}</label>
+            </div>)
+        }
+        <button className={styles.cloud__filter__desktop__ctaBtn}  >Filter</button>
       </div>
     );
   }
@@ -27,15 +44,20 @@ const CloudFilter = () => {
   return (
     <div className={styles.cloud__filter}>
       <div className={styles.cloud__filter__title} ref={filterRef}>Filter By: </div>
-      <button
-        className={styles.cloud__filter__popupBtn}
-        onClick={() => {
-          filterRef.current?.scrollIntoView();
-          setShowFilterMenu(true);
-        }}>
-        Filter < FaGitter />
-      </button>
-      {showFilterMenu && <FilterMenu />}
+      {isDesktop ?
+        <DesktopMenu /> :
+        <>
+          <button
+            className={styles.cloud__filter__popupBtn}
+            onClick={() => {
+              filterRef.current?.scrollIntoView();
+              setShowMobileMenu(true);
+            }}>
+            Filter < FaGitter />
+          </button>
+          {showMobileMenu && <MobileMenu />}
+        </>
+      }
     </div >
   )
 }
