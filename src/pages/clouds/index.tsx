@@ -1,23 +1,22 @@
 import React from 'react';
 import getConfig from 'next/config';
 import { GetStaticProps } from 'next';
+
 import HeroContent from '../../clients/pages/clouds/Home/Hero/Hero';
+import CloudFilter from '../../clients/pages/clouds/Home/CloudFilter/CloudFilter';
 import styles from './clouds.module.scss';
 import RestClient from '../../lib/RestClient';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
-const Hosts = ({ hostsList }: any) => {
+const Hosts = ({ host_list }: any) => {
   
   return (
     <div className={styles.hosts}>
       <HeroContent />
       <div className="container">
-        
+        <CloudFilter />
       </div>
-      {/* <div className="container">
-        <HostsList list={hostsList} />
-      </div> */}
     </div>
   )
 }
@@ -32,7 +31,7 @@ export const getStaticProps: GetStaticProps = async () => {
   
   return {
     props: {
-      hostsList: data && data
+      host_list: data && data
     }
   }
 }
