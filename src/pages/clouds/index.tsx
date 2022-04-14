@@ -5,6 +5,7 @@ import { GetServerSideProps } from 'next';
 import HeroContent from '../../clients/pages/clouds/Home/Hero/Hero';
 import CloudFilter from '../../clients/pages/clouds/Home/CloudFilter/CloudFilter';
 import CloudList from '../../clients/pages/clouds/Home/CloudList/CloudList';
+import { setCloudFilterQuery } from '../../clients/pages/clouds/Home/Lib/setCloudFilterQuery';
 import styles from './clouds.module.scss';
 import RestClient from '../../lib/RestClient';
 
@@ -27,11 +28,11 @@ const Hosts = ({ hostList }: any) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
-  console.log(query);
+  const filterQuery = setCloudFilterQuery(query);
 
   const config = {
     method: 'GET',
-    url: `${BASE_URL}/api/clouds/hosts`
+    url: `${BASE_URL}/api/clouds/hosts/${filterQuery}`
   }
 
   const data = await RestClient(config, {});

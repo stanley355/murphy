@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import getConfig from 'next/config';
-
+import { setCloudFilterQuery } from '../../../clients/pages/clouds/Home/Lib/setCloudFilterQuery';
 import RestClient from '../../../lib/RestClient';
 const { MORPHCLOUDS_URL, MORPHCLOUDS_TOKEN } = getConfig().publicRuntimeConfig;
 
 const CloudsHostsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const config = {
     method: req.method,
-    url: `${MORPHCLOUDS_URL}/api/hosts/`,
+    url: `${MORPHCLOUDS_URL}/api/hosts/${setCloudFilterQuery(req.query)}`,
     headers: {
       Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`
     }
