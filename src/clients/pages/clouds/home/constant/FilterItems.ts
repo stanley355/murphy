@@ -17,6 +17,6 @@ export const FilterItems = [
   },
   {
     title: "Database Support",
-    param: "databse_support"
+    param: "database_support"
   },
 ]

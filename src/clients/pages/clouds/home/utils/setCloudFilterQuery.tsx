@@ -9,6 +9,7 @@ interface ICloudFilterQuery {
 export const setCloudFilterQuery = (query: ICloudFilterQuery) => {
   if (query !== {}) {
     let filterQuery = '?';
+
     if (query.always_free) {
       filterQuery += `&always_free=${query.always_free}`
     }
