@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { FaGitter } from 'react-icons/fa';
-import { FilterItems } from './FilterMenu';
+import { FilterItems } from '../../constant/FilterItems';
 
-import useResponsive from '../../../../../utils/useResponsive';
+import useResponsive from '../../../../../../utils/useResponsive';
 import styles from './CloudFilter.module.scss';
 
 const CloudFilter = () => {
