@@ -28,7 +28,7 @@ const CloudList = (props: CloudListInterface) => {
   return (
     <div className={styles.cloud__list}>
       {hosts && hosts.map((host: any) =>
-        <div className={styles.cloud__list__card}>
+        <div className={styles.cloud__list__card} key={host.name}>
           <div className={styles.cloud__list__card__imgContainer}>
             <img
               src={`/images/clouds/${slugify(host.name.toLowerCase())}.webp`}
@@ -55,7 +55,7 @@ const CloudList = (props: CloudListInterface) => {
             </Link>
 
             <Link href={host.url} >
-              <a title={host.name} className={styles.cloud__list__card__productlink}>
+              <a title={host.name} className={styles.cloud__list__card__productlink} >
                 Products
               </a>
             </Link>

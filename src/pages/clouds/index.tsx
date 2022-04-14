@@ -1,6 +1,6 @@
 import React from 'react';
 import getConfig from 'next/config';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
 import HeroContent from '../../clients/pages/clouds/Home/Hero/Hero';
 import CloudFilter from '../../clients/pages/clouds/Home/CloudFilter/CloudFilter';
@@ -25,7 +25,10 @@ const Hosts = ({ hostList }: any) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { query } = context;
+  console.log(query);
+
   const config = {
     method: 'GET',
     url: `${BASE_URL}/api/clouds/hosts`

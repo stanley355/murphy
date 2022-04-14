@@ -31,7 +31,7 @@ const CloudFilter = () => {
       <div className={styles.cloud__filter__desktop} >
         {
           FilterItems.map((item) =>
-            <div className={styles.cloud__filter__desktop__input}>
+            <div className={styles.cloud__filter__desktop__input} key={item.title}>
               <input type="checkbox" name={item.param} id={item.param} />
               <label htmlFor={item.param}>{item.title}</label>
             </div>)
