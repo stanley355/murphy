@@ -1,16 +1,19 @@
 @import '../../../../../styles/tokens/all';
 
 .landing__hero {
-  background: rgba(255, 255, 255, 0.6);
-  padding: $space--sm;
-  border-radius: $space--sm;
+  background: url('/images/landing/sky-bg.webp');
+
+  &__content {
+    background: rgba(255, 255, 255, 0.6);
+    padding: $space--sm;
+    border-radius: $space--sm;
+  }
 
   &__cta {
-    
     font-size: $font--lg;
     border: none;
     border-radius: $space--xxs;
-    color:$color-white;
+    color: $color-white;
     padding: $space--xs $space--sm;
     background: $color-black;
   }
