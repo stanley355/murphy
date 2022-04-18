@@ -1,1 +1,11 @@
 @import '../../../styles/tokens/all';
+
+.clouds {
+  &__listContainer {
+    @include desktop-view {
+      display: grid;
+      grid-gap: 2%;
+      grid-template-columns:23% 75% ;
+    }
+  }
+}
