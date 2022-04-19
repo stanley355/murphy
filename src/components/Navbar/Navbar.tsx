@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
-import { FaBars, FaCloud } from "react-icons/fa";
+import { FaCloud } from "react-icons/fa";
 
 const Navbar = () => {
-
   return (
     <header className={styles.navbar}>
       <Link href="/">
@@ -14,11 +13,13 @@ const Navbar = () => {
           Marph
         </a>
       </Link>
-      <button
-        className={styles.navbar__cloudBtn}
-      >
-        <FaCloud />
-      </button>
+      <Link href="/clouds">
+        <a
+          title="Marph"
+          className={styles.navbar__cloudBtn} >
+          <FaCloud />
+        </a>
+      </Link>
     </header>
   );
 }
