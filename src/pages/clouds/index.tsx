@@ -2,10 +2,10 @@ import React from 'react';
 import getConfig from 'next/config';
 import { GetServerSideProps } from 'next';
 
-import HeroContent from '../../clients/pages/clouds/home/components/Hero/Hero';
-import CloudFilter from '../../clients/pages/clouds/home/components/CloudFilter/CloudFilter';
-import CloudList from '../../clients/pages/clouds/home/components/CloudList/CloudList';
-import { setCloudFilterQuery } from '../../clients/pages/clouds/home/utils/setCloudFilterQuery';
+import HeroContent from '../../clients/pages/clouds/components/Hero/Hero';
+import CloudFilter from '../../clients/pages/clouds/components/CloudFilter/CloudFilter';
+import CloudList from '../../clients/pages/clouds/components/CloudList/CloudList';
+import { setCloudFilterQuery } from '../../clients/pages/clouds/utils/setCloudFilterQuery';
 import styles from './clouds.module.scss';
 import RestClient from '../../lib/RestClient';
 

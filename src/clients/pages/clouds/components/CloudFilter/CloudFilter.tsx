@@ -3,7 +3,7 @@ import { FaGitter } from 'react-icons/fa';
 import Router from 'next/router';
 import { FilterItems } from '../../constant/FilterItems';
 import { setCloudFilterQuery } from '../../utils/setCloudFilterQuery';
-import useResponsive from '../../../../../../utils/useResponsive';
+import useResponsive from '../../../../../utils/useResponsive';
 import styles from './CloudFilter.module.scss';
 
 const CloudFilter = () => {
