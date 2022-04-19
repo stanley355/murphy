@@ -25,4 +25,28 @@
       border-radius: $space--xs;
     }
   }
+
+  @include desktop-view {
+    &__title {
+      font-size: $font--xxxl;
+    }
+
+    &__subtitle {
+      font-size: $font--xxl;
+    }
+
+    &__list {
+      justify-content: unset;
+    }
+
+    &__card {
+      width: auto;
+      margin: 1%;
+      border-radius: $space--xs;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $color-white-transparent;
+    }
+  }
 }

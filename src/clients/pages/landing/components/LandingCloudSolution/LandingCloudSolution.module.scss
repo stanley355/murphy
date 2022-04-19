@@ -8,7 +8,7 @@
   }
 
   &__subtitle {
-    font-size: $font--lg  ;
+    font-size: $font--lg;
     margin-bottom: $space--sm;
   }
 
@@ -44,6 +44,30 @@
 
     &__subtitle {
       line-height: 1.5;
+    }
+  }
+
+  @include desktop-view {
+    padding-bottom: $space--md;
+
+    &__subtitle {
+      font-size: $font--xl;
+    }
+    &__list {
+      display: grid;
+      grid-template-columns: 45% 10% 45%;
+    }
+
+    &__card {
+      padding: $space--sm;
+      &__title {
+        margin: $space--xs 0;
+        font-size: $font--xl;
+      }
+
+      &__subtitle {
+        font-size: $font--lg;
+      }
     }
   }
 }

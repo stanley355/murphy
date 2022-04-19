@@ -23,4 +23,16 @@
       font-size: $font--xxxl;
     }
   }
+
+  @include desktop-view {
+    &__logo {
+      font-size: 36px;
+    }
+
+    &__cloudBtn {
+      svg {
+        font-size: 42px;
+      }
+    }
+  }
 }
