@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Link from 'next/link';
 import styles from './LandingHero.module.scss';
 
 const LandingHero = () => {
@@ -14,7 +14,9 @@ const LandingHero = () => {
             alternatives for your application,
             websites, or online stores
           </h3>
-          <button className={styles.landing__hero__cta}>Let's fly</button>
+          <Link href="/clouds">
+            <a title="Cloud Services" className={styles.landing__hero__cta}>Let's fly</a>
+          </Link>
         </div>
       </div>
     </div>

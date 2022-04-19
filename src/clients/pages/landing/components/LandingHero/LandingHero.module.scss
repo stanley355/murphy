@@ -17,4 +17,26 @@
     padding: $space--xs $space--sm;
     background: $color-black;
   }
+
+  @include desktop-view {
+    padding-bottom: $space--lg;
+    &__content {
+      width: 75%;
+      margin: auto;
+      background: unset;
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h3 {
+        font-size: $font--xxl;
+        margin-bottom: $space--xxl;
+      }
+    }
+
+    &__cta {
+      font-size: $font--xxl;
+    }
+  }
 }
