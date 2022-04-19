@@ -31,7 +31,7 @@ const LandingCloudSolution = () => {
                 alt="Cloud Recommendation"
               />
               <div className={styles.landing__cloudsolution__card__title}>Recommended Solution</div>
-              <div className={styles.landing__cloudsolution__card__subtitle}>Fill in your application needs and pick the most suitable Cloud from our recommendation</div>
+              <div className={styles.landing__cloudsolution__card__subtitle}>Fill in your application needs and select the most suitable Cloud from our recommendation</div>
             </a>
           </Link>
         </div>
