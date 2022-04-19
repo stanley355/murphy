@@ -14,7 +14,7 @@ const LandingHero = () => {
             alternatives for your application,
             websites, or online stores
           </h3>
-          <button className={styles.landing__hero__cta}>Let's Go</button>
+          <button className={styles.landing__hero__cta}>Let's fly</button>
         </div>
       </div>
     </div>
