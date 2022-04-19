@@ -1,0 +1,29 @@
+@import '../../../../../../styles/tokens/all';
+
+.landing__cloudlist {
+  background: url('/images/landing/sky-bg.webp');
+
+  &__title {
+    font-size: $font--xxl;
+    font-style: italic;
+    margin: $space--xs 0;
+  }
+
+  &__subtitle {
+    font-size: $font--lg;
+    margin: $space--xs 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__card {
+    padding: $space--xs;
+    img {
+      border-radius: $space--xs;
+    }
+  }
+}
