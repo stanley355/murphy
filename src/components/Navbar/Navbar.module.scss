@@ -10,113 +10,29 @@
   &__logo {
     font-weight: bold;
     font-size: $font--xxxl;
-    color: $color-black;
+    color: $color-white;
   }
 
-  &__burgerBtn {
+  &__cloudBtn {
     padding-top: $space--xs;
-    font-size: $font--xl;
     background: none;
     border: none;
+    color: $color-white;
+
+    svg {
+      font-size: $font--xxxl;
+    }
   }
 
   @include desktop-view {
-    padding: $space--md $space--xxl;
-    border-bottom: 3px solid $color-black;
     &__logo {
       font-size: 36px;
     }
 
-    &__burgerBtn {
-      font-size: 30px;
-    }
-  }
-}
-
-.navbar__dropdown {
-  background: $color-yellow;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  width: 100%;
-  height: 100%;
-  animation: slide-down 0.5s;
-
-  &__top {
-    width: 100%;
-    padding: $space--md $space--md;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    &__logo {
-      font-weight: bold;
-      font-size: $font--xxxl;
-      color: $color-black;
-    }
-
-    &__closeBtn {
-      padding-top: $space--xs;
-      font-size: $font--xl;
-      background: none;
-      border: none;
-    }
-
-    @include desktop-view {
-      padding: $space--md $space--xxl;
-      border-bottom: 3px dashed $color-black;
-      &__logo {
-        font-size: 36px;
-      }
-
-      &__closeBtn {
-        font-size: 30px;
-      }
-    }
-  }
-
-  &__bottom {
-    padding: $space--md;
-    display: grid;
-    grid-gap: $space--sm;
-    grid-template-columns: auto auto;
-    a {
-      border: 3px solid $color-white;
-      background: $color-blue;
-      color: $color-white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: $space--xs;
-      font-size: $font--xxl;
-      border-radius: $space--sm;
+    &__cloudBtn {
       svg {
-        font-size: 36px;
-        margin: $space--sm;
+        font-size: 42px;
       }
     }
-
-    @include desktop-view {
-      display: flex;
-      flex-wrap: wrap;
-
-      a {
-        width: 15%;
-      }
-    }
-  }
-}
-
-@keyframes slide-down {
-  0% {
-    transform: translateY(-500px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
   }
 }

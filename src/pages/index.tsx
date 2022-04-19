@@ -1,19 +1,37 @@
 import React from 'react';
-import MetaHead from '../components/Head/Head';
-import HomepageMeta from '../../public/seo/homepage.json';
-import MorphsearchCopy from '../clients/pages/homepage/MorphsearchCopy/MorphsearchCopy';
-import ShortenurlCopy from '../clients/pages/homepage/ShortenurlCopy/ShortenurlCopy';
-import Hero from '../clients/pages/homepage/Hero/Hero';
+import { GetStaticProps } from 'next';
+import getConfig from 'next/config';
 
-const Home = () => {
+import LandingHero from '../clients/pages/landing/components/LandingHero/LandingHero';
+import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution/LandingCloudSolution';
+import LandingCloudList from '../clients/pages/landing/components/LandingCloudList/LandingCloudList';
+import RestClient from '../lib/RestClient';
+
+const { BASE_URL } = getConfig().publicRuntimeConfig;
+
+const Home = ({ cloudList }: any) => {
   return (
-    <div className='home'>
-      <MetaHead meta={HomepageMeta} />
-      <Hero />
-      <MorphsearchCopy />
-      <ShortenurlCopy />
+    <div>
+      <LandingHero />
+      <LandingCloudSolution />
+      <LandingCloudList cloudList={cloudList} />
     </div>
   )
 }
 
-export default Home
+export const getStaticProps: GetStaticProps = async () => {
+  const config = {
+    method: 'GET',
+    url: `${BASE_URL}/api/clouds/hosts/`
+  }
+
+  const data = await RestClient(config, {});
+  return {
+    props: {
+      cloudList: data
+    }
+  }
+}
+
+
+export default Home;
