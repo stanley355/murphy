@@ -11,7 +11,7 @@ const LandingCloudList = (props: any) => {
     <div className={styles.landing__cloudlist}>
       <div className="container">
         <h4 className={styles.landing__cloudlist__title}>You'll never wander lonely to find your clouds, again!</h4>
-        <div className={styles.landing__cloudlist__subtitle}>Here are the clouds you have found:</div>
+        <div className={styles.landing__cloudlist__subtitle}>Here are the best pick for web hosting providers in 2022:</div>
         <div className={styles.landing__cloudlist__list}>
           {cloudList && cloudList.map((cloud: any) =>
           // TODO: The href should be directed to its plan or product page

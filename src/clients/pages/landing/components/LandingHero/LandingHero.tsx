@@ -4,15 +4,13 @@ import styles from './LandingHero.module.scss';
 
 const LandingHero = () => {
   return (
-
     <div className={styles.landing__hero}>
       <div className='container'>
         <div className={styles.landing__hero__content}>
-          <h1>Cloud Platforms</h1>
+          <h1>Cloud Hosting Services</h1>
           <h3>
-            Find the best cloud hosting
-            alternatives for your application,
-            websites, or online stores
+            Find the best cloud and web hosting
+            solution that can grow with your site as traffic scales.
           </h3>
           <Link href="/clouds">
             <a title="Cloud Services" className={styles.landing__hero__cta}>Let's fly</a>

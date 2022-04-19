@@ -4,20 +4,17 @@ import Head from 'next/head';
 interface IMeta {
   meta: {
     title: string,
-    name: string;
+    siteName: string;
     description: string;
     url: string;
     keywords: string;
     openGraph: {
-      locale: string;
-      type: string;
       title: string;
       description: string;
       modifiedTime: string;
       publishedTime: string;
     };
     twitter: {
-      card: string;
       site: string;
       title: string;
       description: string;
@@ -40,16 +37,16 @@ const MetaHead = (props: IMeta) => {
       <meta name="theme-color" media="(prefers-color-scheme: #cbdaff)" content="#cbdaff"></meta>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
       <meta name="robots" content="index, follow" />
-      <meta property="og:locale" content={meta.openGraph.locale} />
-      <meta property="og:type" content={meta.openGraph.type} />
+      <meta property="og:locale" content="en_EN" />
+      <meta property="og:type" content="website" />
       <meta property="og:title" content={meta.openGraph.title} />
       <meta property="og:description" content={meta.openGraph.description} />
       <meta property="og:url" content={meta.url} />
-      <meta property="og:site_name" content={meta.name} />
+      <meta property="og:site_name" content={meta.siteName} />
       <meta property="article:publisher" content="https://marph.herokuapp.com/" />
       <meta property="article:published_time" content={meta.openGraph.publishedTime} />
       <meta property="article:modified_time" content={meta.openGraph.modifiedTime} />
-      <meta name="twitter:card" content={meta.twitter.card} />
+      <meta name="twitter:card" content="@marph" />
       <meta name="twitter:title" content={meta.twitter.title} />
       <meta name="twitter:description" content={meta.twitter.description} />
       <meta name="twitter:creator" content="@marph" />

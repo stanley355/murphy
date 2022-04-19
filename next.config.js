@@ -2,6 +2,7 @@
 module.exports = {
   reactStrictMode: true,
   publicRuntimeConfig: {
+    APP_ENV: process.env.APP_ENV,
     HOST: process.env.HOST,
     BASE_URL: process.env.BASE_URL,
     MORPHURL_URL: process.env.MORPHURL_URL,

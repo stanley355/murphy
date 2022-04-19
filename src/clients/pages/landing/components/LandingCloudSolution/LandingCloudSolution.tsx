@@ -9,7 +9,7 @@ const LandingCloudSolution = () => {
     <div className={styles.landing__cloudsolution}>
       <div className="container">
         <h2>Cloud Solutions</h2>
-        <div className={styles.landing__cloudsolution__subtitle}>Marph offers two ways to solve your Cloud Hosting Problems:</div>
+        <div className={styles.landing__cloudsolution__subtitle}>Marph offers two ways to solve your Web Hosting Problems:</div>
 
         <div className={styles.landing__cloudsolution__list}>
           <Link href="/plans">
@@ -19,7 +19,7 @@ const LandingCloudSolution = () => {
                 alt="Cloud Products"
               />
               <div className={styles.landing__cloudsolution__card__title}>Product/Plan Solution</div>
-              <div className={styles.landing__cloudsolution__card__subtitle}>Compare various cloud products or plans from Cloud Hosting Services</div>
+              <div className={styles.landing__cloudsolution__card__subtitle}>Compare various web hosting plans or products from cloud hosting providers</div>
             </a>
           </Link>
           <div className={styles.landing__cloudsolution__or}><FaGripLines /> <FaGripLines /> OR <FaGripLines /> <FaGripLines /></div>
@@ -31,7 +31,7 @@ const LandingCloudSolution = () => {
                 alt="Cloud Recommendation"
               />
               <div className={styles.landing__cloudsolution__card__title}>Recommended Solution</div>
-              <div className={styles.landing__cloudsolution__card__subtitle}>Fill in your application needs and select the most suitable Cloud from our recommendation</div>
+              <div className={styles.landing__cloudsolution__card__subtitle}>Fill in your application needs and select the most suitable cloud providers from our recommendation</div>
             </a>
           </Link>
         </div>

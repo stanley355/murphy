@@ -9,14 +9,15 @@ import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-const { 
-  FIREBASE_APIKEY, 
-  FIREBASE_AUTHDOMAIN, 
-  FIREBASE_PROJECTID, 
-  FIREBASE_STORAGEBUCKET, 
-  FIREBASE_MESSAGINGSENDERID, 
-  FIREBASE_APPID, 
-  FIREBASE_MEASUREMENTID 
+const {
+  APP_ENV,
+  FIREBASE_APIKEY,
+  FIREBASE_AUTHDOMAIN,
+  FIREBASE_PROJECTID,
+  FIREBASE_STORAGEBUCKET,
+  FIREBASE_MESSAGINGSENDERID,
+  FIREBASE_APPID,
+  FIREBASE_MEASUREMENTID
 } = getConfig().publicRuntimeConfig;
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -34,10 +35,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   // Initialize Firebase
   if (typeof window !== 'undefined') {
-    const app = initializeApp(firebaseConfig);
-    getAnalytics(app);
+    if (APP_ENV === 'production') {
+      const app = initializeApp(firebaseConfig);
+      getAnalytics(app);
+    }
   }
-
 
   return (
     <Layout>
