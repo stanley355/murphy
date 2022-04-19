@@ -10,7 +10,7 @@ const LandingCloudList = (props: any) => {
   return (
     <div className={styles.landing__cloudlist}>
       <div className="container">
-        <h4 className={styles.landing__cloudlist__title}>You'll never wander lonely to find your clouds, again!</h4>
+        <div className={styles.landing__cloudlist__title}>You'll never wander lonely to find your clouds, again!</div>
         <div className={styles.landing__cloudlist__subtitle}>Here are the best pick for web hosting providers in 2022:</div>
         <div className={styles.landing__cloudlist__list}>
           {cloudList && cloudList.map((cloud: any) =>
@@ -19,6 +19,7 @@ const LandingCloudList = (props: any) => {
               <a title={cloud.name} className={styles.landing__cloudlist__card}>
                 <img
                   src={`/images/clouds/${slugify(cloud.name.toLowerCase())}.webp`}
+                  alt={cloud.name}
                   width={125}
                   height={125}
                 />

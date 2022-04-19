@@ -17,6 +17,8 @@ const LandingCloudSolution = () => {
               <img
                 src="/images/landing/cloud-solution-products.webp"
                 alt="Cloud Products"
+                width={275}
+                height={135}
               />
               <div className={styles.landing__cloudsolution__card__title}>Product/Plan Solution</div>
               <div className={styles.landing__cloudsolution__card__subtitle}>Compare various web hosting plans or products from cloud hosting providers</div>
@@ -29,6 +31,8 @@ const LandingCloudSolution = () => {
               <img
                 src="/images/landing/cloud-solution-checklist.webp"
                 alt="Cloud Recommendation"
+                width={275}
+                height={135}
               />
               <div className={styles.landing__cloudsolution__card__title}>Recommended Solution</div>
               <div className={styles.landing__cloudsolution__card__subtitle}>Fill in your application needs and select the most suitable cloud providers from our recommendation</div>
