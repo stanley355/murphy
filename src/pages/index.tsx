@@ -2,16 +2,20 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import getConfig from 'next/config';
 
+import MetaHead from '../components/Head/Head';
+import { LandingMeta } from '../clients/pages/landing/constant/meta';
 import LandingHero from '../clients/pages/landing/components/LandingHero/LandingHero';
 import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution/LandingCloudSolution';
 import LandingCloudList from '../clients/pages/landing/components/LandingCloudList/LandingCloudList';
+
 import RestClient from '../lib/RestClient';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
 const Home = ({ cloudList }: any) => {
   return (
-    <div>
+    <div className='landing'>
+      <MetaHead meta={LandingMeta} />
       <LandingHero />
       <LandingCloudSolution />
       <LandingCloudList cloudList={cloudList} />
