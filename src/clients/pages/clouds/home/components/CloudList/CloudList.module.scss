@@ -1,0 +1,70 @@
+@import '../../../../../../../styles/tokens/all';
+
+.cloud__list {
+  &__card {
+    width: 100%;
+    background: $color-white;
+    margin: $space--xs 0;
+    padding: $space--xs;
+    border-radius: $space--xs;
+    display: flex;
+    flex-direction: column;
+
+    &__imgContainer {
+      padding: $space--xs 0;
+      display: flex;
+      justify-content: center;
+      img {
+        border-radius: $space--xs;
+      }
+    }
+
+    &__title {
+      font-size: $font--lg;
+      padding: 0 $space--xs;
+      color: $color-blue;
+    }
+
+    &__description {
+      padding: $space--xs;
+
+      &__seemore {
+        color: $color-blue;
+      }
+    }
+
+    &__linkcontainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      a {
+        padding: $space--xs;
+        width: 100%;
+        margin: 0 $space--xxs;
+        text-align: center;
+        color:$color-white;
+        border-radius: $space--xxs;
+        font-weight: bold;
+      }
+    }
+
+    &__weblink {
+      background: $color-green-dark;
+    }
+    &__productlink {
+      background: $color-blue;
+    }
+  }
+}
+
+.cloud__list {
+  @include desktop-view {
+    display: flex;
+    flex-wrap: wrap;
+    &__card {
+      width: 31%;
+      margin: 1%;
+    }
+    
+  }
+}
