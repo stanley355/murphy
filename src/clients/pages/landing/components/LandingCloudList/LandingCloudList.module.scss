@@ -4,6 +4,7 @@
   background: url('/images/landing/sky-bg.webp');
 
   &__title {
+    font-weight: bold;
     font-size: $font--xxl;
     margin: $space--xs 0;
   }

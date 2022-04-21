@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import getConfig from 'next/config';
 
 import MetaHead from '../components/Head/Head';
@@ -23,7 +23,7 @@ const Home = ({ cloudList }: any) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const config = {
     method: 'GET',
     url: `${BASE_URL}/api/clouds/hosts/`

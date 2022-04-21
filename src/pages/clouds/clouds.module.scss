@@ -1,11 +1,13 @@
 @import '../../../styles/tokens/all';
 
 .clouds {
-  &__listContainer {
+  background: $color-white-transparent;
+
+  &__menu {
     @include desktop-view {
       display: grid;
-      grid-gap: 2%;
-      grid-template-columns:23% 75% ;
+      grid-gap: 1%;
+      grid-template-columns: 24% 75%;
     }
   }
 }

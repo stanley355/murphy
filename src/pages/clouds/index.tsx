@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import getConfig from 'next/config';
 import { GetServerSideProps } from 'next';
 
-import HeroContent from '../../clients/pages/clouds/home/components/Hero/Hero';
-import CloudFilter from '../../clients/pages/clouds/home/components/CloudFilter/CloudFilter';
-import CloudList from '../../clients/pages/clouds/home/components/CloudList/CloudList';
-import { setCloudFilterQuery } from '../../clients/pages/clouds/home/utils/setCloudFilterQuery';
-import styles from './clouds.module.scss';
+import CloudNavbar from '../../clients/pages/clouds/components/CloudNavbar/CloudNavbar';
+import CloudHero from '../../clients/pages/clouds/components/CloudHero/CloudHero';
+import CloudList from '../../clients/pages/clouds/components/CloudList/CloudList';
+import CloudFilterMobile from '../../clients/pages/clouds/components/CloudFilter/Mobile/CloudFilterMobile';
+import CloudFilterDesktop from '../../clients/pages/clouds/components/CloudFilter/Desktop/CloudFilterDesktop';
+import { setCloudFilterQuery } from '../../clients/pages/clouds/module/setCloudFilterQuery';
+
+import useResponsive from '../../utils/hooks/useResponsive';
 import RestClient from '../../lib/RestClient';
+
+import styles from './clouds.module.scss';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
 const Hosts = ({ hostList }: any) => {
+  const { isDesktop } = useResponsive();
+  const [showMobileFilter, setShowMobileFilter] = useState(false);
 
   return (
     <div className={styles.clouds}>
-      <HeroContent />
+      {!isDesktop && <CloudNavbar onFilterClick={() => setShowMobileFilter(true)} />}
+      <CloudHero />
       <div className="container">
-        <div className={styles.clouds__listContainer}>
-          <CloudFilter />
+        <div className={styles.clouds__menu}>
+          {isDesktop && <CloudFilterDesktop />}
           <CloudList hosts={hostList} />
         </div>
       </div>
+      {!isDesktop && showMobileFilter && <CloudFilterMobile onCloseClick={() => setShowMobileFilter(false)} />}
     </div>
   )
 }
