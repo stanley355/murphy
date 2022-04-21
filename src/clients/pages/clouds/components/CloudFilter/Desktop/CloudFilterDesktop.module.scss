@@ -1,0 +1,61 @@
+@import '../../../../../../../styles/tokens/all';
+
+.cloudfilter__desktop {
+  background: $color-white;
+  width: 100%;
+  padding: $space--xs $space--sm;
+  border-radius: $space--md;
+  box-shadow: 0 0 4px 2px $primary-color;
+  height: 22%;
+  position: sticky;
+  top: 20px;
+
+  &__closeBtn {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    border: none;
+    background: none;
+    font-size: $font--xxl;
+  }
+
+  &__title {
+    margin: $space--sm 0;
+    font-size: $font--lg;
+    font-weight: bold;
+  }
+
+  &__segment {
+    margin: $space--xs 0;
+    &__title {
+      font-size: $font--md;
+    }
+  }
+
+  &__input {
+    padding: $space--xs 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    input {
+      width: 20px;
+      height: 20px;
+    }
+    label {
+      font-size: $font--md;
+      margin-left: $space--xs;
+    }
+  }
+
+  &__cta {
+    width: 100%;
+    border: none;
+    border-radius: $space--xs;
+    padding: $space--xs;
+    background: $color-blue;
+    margin: $space--xs 0;
+    font-size: $font--md;
+    font-weight: bold;
+    color: $color-white;
+  }
+}

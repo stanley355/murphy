@@ -1,0 +1,14 @@
+@import '../../../../../../styles/tokens/all';
+
+.cloud__hero {
+  &__title {
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  &__subtitle {
+    font-size: $font--lg;
+    line-height: 1.5;
+  }
+}
