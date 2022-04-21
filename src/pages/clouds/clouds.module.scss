@@ -2,4 +2,12 @@
 
 .clouds {
   background: $color-white-transparent;
+
+  &__menu {
+    @include desktop-view {
+      display: grid;
+      grid-gap: 1%;
+      grid-template-columns: 24% 75%;
+    }
+  }
 }

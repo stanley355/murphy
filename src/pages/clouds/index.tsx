@@ -6,6 +6,7 @@ import CloudNavbar from '../../clients/pages/clouds/components/CloudNavbar/Cloud
 import CloudHero from '../../clients/pages/clouds/components/CloudHero/CloudHero';
 import CloudList from '../../clients/pages/clouds/components/CloudList/CloudList';
 import CloudFilterMobile from '../../clients/pages/clouds/components/CloudFilter/Mobile/CloudFilterMobile';
+import CloudFilterDesktop from '../../clients/pages/clouds/components/CloudFilter/Desktop/CloudFilterDesktop';
 import { setCloudFilterQuery } from '../../clients/pages/clouds/module/setCloudFilterQuery';
 
 import useResponsive from '../../utils/hooks/useResponsive';
@@ -21,12 +22,15 @@ const Hosts = ({ hostList }: any) => {
 
   return (
     <div className={styles.clouds}>
-      <CloudNavbar onFilterClick={() => setShowMobileFilter(true)} />
+      {!isDesktop && <CloudNavbar onFilterClick={() => setShowMobileFilter(true)} />}
       <CloudHero />
       <div className="container">
-        <CloudList hosts={hostList} />
+        <div className={styles.clouds__menu}>
+          {isDesktop && <CloudFilterDesktop />}
+          <CloudList hosts={hostList} />
+        </div>
       </div>
-      {!isDesktop && showMobileFilter && <CloudFilterMobile onCloseClick={()=> setShowMobileFilter(false)} />}
+      {!isDesktop && showMobileFilter && <CloudFilterMobile onCloseClick={() => setShowMobileFilter(false)} />}
     </div>
   )
 }

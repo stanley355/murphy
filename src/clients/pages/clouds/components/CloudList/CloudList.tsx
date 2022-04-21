@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from './CloudList.module.scss';
 import { slugify } from '../../../../../utils/slugify';
-
 interface CloudListInterface {
   hosts: [
     {

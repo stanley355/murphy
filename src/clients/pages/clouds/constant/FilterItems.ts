@@ -15,11 +15,11 @@ export const ProductFilter = [
     param: 'frontend_support',
   },
   {
-    title: 'Backend Development (e.g PHP, Go, Ruby)',
+    title: 'Backend Development',
     param: 'backend_support',
   },
   {
-    title: 'Database (e.g Mysql, Postgre, Mongo)',
+    title: 'Database',
     param: 'database_support',
   },
 ];
