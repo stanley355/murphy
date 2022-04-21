@@ -2,11 +2,14 @@ import React from 'react';
 import getConfig from 'next/config';
 import { GetServerSideProps } from 'next';
 
+import CloudNavbar from '../../clients/pages/clouds/components/CloudNavbar/CloudNavbar';
 import CloudHero from '../../clients/pages/clouds/components/CloudHero/CloudHero';
 import CloudList from '../../clients/pages/clouds/components/CloudList/CloudList';
 import { setCloudFilterQuery } from '../../clients/pages/clouds/utils/setCloudFilterQuery';
-import styles from './clouds.module.scss';
+
 import RestClient from '../../lib/RestClient';
+
+import styles from './clouds.module.scss';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
@@ -14,9 +17,10 @@ const Hosts = ({ hostList }: any) => {
 
   return (
     <div className={styles.clouds}>
+      <CloudNavbar onFilterClick={() => { }} />
       <CloudHero />
       <div className="container">
-          <CloudList hosts={hostList} />
+        <CloudList hosts={hostList} />
       </div>
     </div>
   )
