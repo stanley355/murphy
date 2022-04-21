@@ -56,9 +56,8 @@ const CloudList = (props: CloudListInterface) => {
   }
 
   return (
-    <div className={styles.cloud__list}>
+    <div className={styles.cloud__list} id="cloud-list">
       {hosts && hosts.map((host: any) =>
-
         <div className={styles.cloud__list__card} key={host.name}>
           <CloudListCardHead host={host} />
           <div className={styles.cloud__list__card__description}>
@@ -71,7 +70,6 @@ const CloudList = (props: CloudListInterface) => {
                 </>
             }
           </div>
-
         </div>)}
     </div>
   );

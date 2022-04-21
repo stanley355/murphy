@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import getConfig from 'next/config';
 import { GetServerSideProps } from 'next';
 
 import CloudNavbar from '../../clients/pages/clouds/components/CloudNavbar/CloudNavbar';
 import CloudHero from '../../clients/pages/clouds/components/CloudHero/CloudHero';
 import CloudList from '../../clients/pages/clouds/components/CloudList/CloudList';
-import { setCloudFilterQuery } from '../../clients/pages/clouds/utils/setCloudFilterQuery';
+import CloudFilterMobile from '../../clients/pages/clouds/components/CloudFilter/Mobile/CloudFilterMobile';
+import { setCloudFilterQuery } from '../../clients/pages/clouds/module/setCloudFilterQuery';
 
+import useResponsive from '../../utils/hooks/useResponsive';
 import RestClient from '../../lib/RestClient';
 
 import styles from './clouds.module.scss';
@@ -14,14 +16,17 @@ import styles from './clouds.module.scss';
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
 const Hosts = ({ hostList }: any) => {
+  const { isDesktop } = useResponsive();
+  const [showMobileFilter, setShowMobileFilter] = useState(false);
 
   return (
     <div className={styles.clouds}>
-      <CloudNavbar onFilterClick={() => { }} />
+      <CloudNavbar onFilterClick={() => setShowMobileFilter(true)} />
       <CloudHero />
       <div className="container">
         <CloudList hosts={hostList} />
       </div>
+      {!isDesktop && showMobileFilter && <CloudFilterMobile onCloseClick={()=> setShowMobileFilter(false)} />}
     </div>
   )
 }

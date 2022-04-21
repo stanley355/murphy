@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import getConfig from 'next/config';
-import { setCloudFilterQuery } from '../../../clients/pages/clouds/utils/setCloudFilterQuery';
+import { setCloudFilterQuery } from '../../../clients/pages/clouds/module/setCloudFilterQuery';
 import RestClient from '../../../lib/RestClient';
 const { MORPHCLOUDS_URL, MORPHCLOUDS_TOKEN } = getConfig().publicRuntimeConfig;
 
