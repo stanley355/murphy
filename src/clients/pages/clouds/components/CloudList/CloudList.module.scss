@@ -12,6 +12,7 @@
 
     &__description {
       padding: $space--xs;
+      line-height: 1.5;
 
       &__seemore {
         color: $color-blue;
@@ -43,7 +44,7 @@
   &__title {
     font-size: $font--xxl;
     margin: $space--sm 0;
-    padding: 0 $space--xxs;
+    padding: 0 $space--xs;
     color: $color-blue;
   }
 

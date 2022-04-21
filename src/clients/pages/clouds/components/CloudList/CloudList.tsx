@@ -66,7 +66,7 @@ const CloudList = (props: CloudListInterface) => {
               expandingDesc.includes(host.name) ?
                 host.description :
                 <>
-                  <span>{host.description.substring(0, 225).concat('...')}</span>
+                  <span>{host.description.substring(0, 200).concat('...')}</span>
                   <span className={styles.cloud__list__card__description__seemore} onClick={() => updateExpandingDesc(host.name)}>See More</span>
                 </>
             }
