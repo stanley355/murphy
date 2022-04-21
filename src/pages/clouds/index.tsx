@@ -3,7 +3,6 @@ import getConfig from 'next/config';
 import { GetServerSideProps } from 'next';
 
 import HeroContent from '../../clients/pages/clouds/components/Hero/Hero';
-import CloudFilter from '../../clients/pages/clouds/components/CloudFilter/CloudFilter';
 import CloudList from '../../clients/pages/clouds/components/CloudList/CloudList';
 import { setCloudFilterQuery } from '../../clients/pages/clouds/utils/setCloudFilterQuery';
 import styles from './clouds.module.scss';
@@ -18,7 +17,6 @@ const Hosts = ({ hostList }: any) => {
       <HeroContent />
       <div className="container">
         <div className={styles.clouds__listContainer}>
-          <CloudFilter />
           <CloudList hosts={hostList} />
         </div>
       </div>

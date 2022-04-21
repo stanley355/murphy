@@ -1,6 +1,7 @@
 @import '../../../styles/tokens/all';
 
 .clouds {
+  background: $color-white-transparent;
   &__listContainer {
     @include desktop-view {
       display: grid;

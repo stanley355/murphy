@@ -25,41 +25,53 @@ const CloudList = (props: CloudListInterface) => {
     setExpandingDesc(newExpandingDesc);
   }
 
-  return (
-    <div className={styles.cloud__list}>
-      {hosts && hosts.map((host: any) =>
-        <div className={styles.cloud__list__card} key={host.name}>
-          <div className={styles.cloud__list__card__imgContainer}>
-            <img
-              src={`/images/clouds/${slugify(host.name.toLowerCase())}.webp`}
-              width={125}
-              height={125}
-            />
-          </div>
-          <div className={styles.cloud__list__card__title}>{host.name}</div>
-          <div className={styles.cloud__list__card__description}>
-            {
-              expandingDesc.includes(host.name) ?
-                host.description :
-                <>
-                  <span>{host.description.substring(0, 100).concat('...')}</span>
-                  <span className={styles.cloud__list__card__description__seemore} onClick={() => updateExpandingDesc(host.name)}>See More</span>
-                </>
-            }
-          </div>
-          <div className={styles.cloud__list__card__linkcontainer}>
+  const CloudListCardHead = ({ host }: any) => {
+    return (
+      <div className={styles.cloud__list__card__head}>
+        <div className={styles.cloud__list__card__head__logo}>
+          <img
+            src={`/images/clouds/${slugify(host.name.toLowerCase())}.webp`}
+            width={80}
+            height={80}
+          />
+        </div>
+        <div className={styles.cloud__list__card__head__texts}>
+          <div className={styles.cloud__list__card__head__title}>{host.name}</div>
+          <div className={styles.cloud__list__card__head__linkcontainer}>
             <Link href={host.url}>
-              <a title={host.name} className={styles.cloud__list__card__weblink}>
+              <a title={host.name} className={styles.cloud__list__card__head__weblink}>
                 Website
               </a>
             </Link>
 
             <Link href={host.url} >
-              <a title={host.name} className={styles.cloud__list__card__productlink} >
+              <a title={host.name} className={styles.cloud__list__card__head__productlink} >
                 Products
               </a>
             </Link>
           </div>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className={styles.cloud__list}>
+      {hosts && hosts.map((host: any) =>
+
+        <div className={styles.cloud__list__card} key={host.name}>
+          <CloudListCardHead host={host} />
+          <div className={styles.cloud__list__card__description}>
+            {
+              expandingDesc.includes(host.name) ?
+                host.description :
+                <>
+                  <span>{host.description.substring(0, 225).concat('...')}</span>
+                  <span className={styles.cloud__list__card__description__seemore} onClick={() => updateExpandingDesc(host.name)}>See More</span>
+                </>
+            }
+          </div>
+
         </div>)}
     </div>
   );
