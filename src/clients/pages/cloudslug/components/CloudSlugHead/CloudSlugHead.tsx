@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { slugify } from '../../../../utils/slugify';
+import { slugify } from '../../../../../utils/slugify';
 
 import styles from './CloudSlugHead.module.scss';
 
