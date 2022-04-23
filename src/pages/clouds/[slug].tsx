@@ -2,21 +2,21 @@ import React from 'react';
 import getConfig from 'next/config';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
+import CloudSlugHead from '../../clients/pages/cloudslug/components/CloudSlugHead';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import RestClient from '../../lib/RestClient';
 import styles from './cloudslug.module.scss';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
-const SingleCloud = ({ hostData }: any) => {
-  
+const CloudSlug = ({ hostData, hostPlans }: any) => {
+
   return (
     <div className='container'>
-      <div className={styles.cloudslug} >
-        {hostData.name}
-
+      <div className={styles.cloudslug}>
+        <CloudSlugHead name={hostData.name} url={hostData.url} />
+        <div className={styles.cloudslug__description}>{hostData.description}</div>
       </div>
-
     </div>
   )
 }
@@ -26,16 +26,24 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const hostName = params && params.slug;
 
-  const config = {
+  const singleHostConfig = {
     method: 'GET',
-    url: `${BASE_URL}/api/clouds/hosts-single/?hostname=${capitalizeFirstLetter(hostName)}`
+    url: `${BASE_URL}/api/clouds/host-single/?hostname=${capitalizeFirstLetter(hostName)}`
   }
 
-  const hostData = await RestClient(config, {});
+  const hostData = await RestClient(singleHostConfig, {});
+
+  const hostPlanConfig = {
+    method: 'GET',
+    url: `${BASE_URL}/api/clouds/host-plans/?hostname=${capitalizeFirstLetter(hostName)}`
+  }
+
+  const hostPlans = await RestClient(hostPlanConfig, {});
 
   return {
     props: {
-      hostData: hostData ?? null
+      hostData: hostData ?? null,
+      hostPlans: hostPlans ?? []
     },
     revalidate: 2 * 60, // cache API response for 2 minutes
   };
@@ -52,4 +60,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export default SingleCloud;
+export default CloudSlug;

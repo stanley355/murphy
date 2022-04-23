@@ -4,7 +4,7 @@ import RestClient from '../../../lib/RestClient';
 
 const { MORPHCLOUDS_URL, MORPHCLOUDS_TOKEN } = getConfig().publicRuntimeConfig;
 
-const SingleCloudsHostsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const SingleHostHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const config = {
     method: req.method,
     url: `${MORPHCLOUDS_URL}/api/hosts/${req.query.hostname}`,
@@ -26,4 +26,4 @@ const SingleCloudsHostsHandler = async (req: NextApiRequest, res: NextApiRespons
   res.json(response);
 };
 
-export default SingleCloudsHostsHandler;
+export default SingleHostHandler;

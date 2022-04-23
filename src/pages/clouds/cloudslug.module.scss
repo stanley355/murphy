@@ -4,4 +4,9 @@
   background: $color-white;
   border-radius: $space--xxs;
   padding: $space--xs;
+
+  &__description {
+    padding: $space--xs $space--xxs;
+    line-height: 1.5;
+  }
 }
