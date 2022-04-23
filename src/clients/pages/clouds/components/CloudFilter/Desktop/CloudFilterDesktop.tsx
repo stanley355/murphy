@@ -2,6 +2,7 @@ import React from 'react';
 
 import { PricingFilter, ProductFilter } from '../../../constant/FilterItems';
 import { filterRedirect } from '../../../module/filterRedirect';
+
 import styles from './CloudFilterDesktop.module.scss';
 
 const CloudFilterDesktop = () => {
