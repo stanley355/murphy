@@ -16,7 +16,7 @@ import styles from './clouds.module.scss';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
-const Hosts = ({ hostList }: any) => {
+const Clouds = ({ hostList }: any) => {
   const { isDesktop } = useResponsive();
   const [showMobileFilter, setShowMobileFilter] = useState(false);
 
@@ -53,4 +53,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-export default Hosts;
+export default Clouds;
