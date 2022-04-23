@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import getConfig from 'next/config';
 import { GetServerSideProps } from 'next';
 
-import CloudNavbar from '../../clients/pages/clouds/components/CloudNavbar/CloudNavbar';
-import CloudHero from '../../clients/pages/clouds/components/CloudHero/CloudHero';
-import CloudList from '../../clients/pages/clouds/components/CloudList/CloudList';
-import CloudFilterMobile from '../../clients/pages/clouds/components/CloudFilter/Mobile/CloudFilterMobile';
-import CloudFilterDesktop from '../../clients/pages/clouds/components/CloudFilter/Desktop/CloudFilterDesktop';
+import CloudNavbar from '../../clients/pages/clouds/components/CloudNavbar';
+import CloudHero from '../../clients/pages/clouds/components/CloudHero';
+import CloudList from '../../clients/pages/clouds/components/CloudList';
+import CloudFilterMobile from '../../clients/pages/clouds/components/CloudFilter/Mobile';
+import CloudFilterDesktop from '../../clients/pages/clouds/components/CloudFilter/Desktop';
 import { setCloudFilterQuery } from '../../clients/pages/clouds/module/setCloudFilterQuery';
 
 import useResponsive from '../../utils/hooks/useResponsive';

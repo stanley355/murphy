@@ -1,7 +1,7 @@
 import '../../styles/globals.scss';
 import type { AppProps } from 'next/app';
 import getConfig from 'next/config';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/Layout';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
