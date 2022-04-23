@@ -44,9 +44,9 @@ const CloudList = (props: CloudListInterface) => {
               </a>
             </Link>
 
-            <Link href={host.url} >
+            <Link href={`/clouds/${slugify(host.name)}`} >
               <a title={host.name} className={styles.cloud__list__card__head__productlink} >
-                Products
+                {host.product_based ? ' Products' : 'Plans'}
               </a>
             </Link>
           </div>
