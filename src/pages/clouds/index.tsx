@@ -4,12 +4,12 @@ import { GetServerSideProps } from 'next';
 
 import MetaHead from '../../components/Head/Head';
 import { CloudPageMeta } from '../../clients/pages/clouds/constant/meta';
-import CloudNavbar from '../../clients/pages/clouds/components/CloudNavbar/CloudNavbar';
-import CloudHero from '../../clients/pages/clouds/components/CloudHero/CloudHero';
-import CloudList from '../../clients/pages/clouds/components/CloudList/CloudList';
-import CloudFilterMobile from '../../clients/pages/clouds/components/CloudFilter/Mobile/CloudFilterMobile';
-import CloudFilterDesktop from '../../clients/pages/clouds/components/CloudFilter/Desktop/CloudFilterDesktop';
-import CloudCalculatorCopy from '../../clients/pages/clouds/components/CloudCalculatorCopy/CloudCalculatorCopy';
+import CloudNavbar from '../../clients/pages/clouds/components/CloudNavbar';
+import CloudHero from '../../clients/pages/clouds/components/CloudHero';
+import CloudList from '../../clients/pages/clouds/components/CloudList';
+import CloudFilterMobile from '../../clients/pages/clouds/components/CloudFilter/Mobile';
+import CloudFilterDesktop from '../../clients/pages/clouds/components/CloudFilter/Desktop';
+import CloudCalculatorCopy from '../../clients/pages/clouds/components/CloudCalculatorCopy/';
 import { setCloudFilterQuery } from '../../clients/pages/clouds/module/setCloudFilterQuery';
 
 import useResponsive from '../../utils/hooks/useResponsive';
@@ -19,7 +19,7 @@ import styles from './clouds.module.scss';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
-const Hosts = ({ hostList }: any) => {
+const Clouds = ({ hostList }: any) => {
   const { isDesktop } = useResponsive();
   const [showMobileFilter, setShowMobileFilter] = useState(false);
 
@@ -62,4 +62,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 }
 
-export default Hosts;
+export default Clouds;
