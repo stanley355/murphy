@@ -11,4 +11,8 @@
     color: $color-blue;
     margin: 0;
   }
+
+  @include desktop-view {
+    padding: 0 $space--xxl;
+  }
 }

@@ -1,0 +1,30 @@
+@import '../../../../../../../styles/tokens/all';
+
+.cloudslug__plansdesktop {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    text-align: center;
+    padding: $space--sm 0;
+  }
+
+  th:not(:first-child),
+  td:not(:first-child) {
+    border: 1px solid $color-black;
+  }
+
+  &__purchaserow {
+    td {
+      border: none !important;
+    }
+    a {
+      background: $color-green-dark;
+      color: $color-white;
+      padding: $space--xs;
+    }
+  }
+}
