@@ -1,0 +1,40 @@
+@import '../../../../../../../styles/tokens/all';
+
+.cloudslug__plansmobile {
+  &__card {
+    border: 1px solid $color-blue;
+    border-radius: $space--xs;
+    margin: $space--xs 0;
+
+    &__head {
+      padding: $space--xs;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: $font--lg;
+
+      &__title {
+        color: $color-blue;
+        margin-bottom: $space--xxs;
+      }
+
+      &__price {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        svg {
+          color: $color-green-dark;
+          margin-right: $space--xxs;
+        }
+      }
+
+      &__link {
+        background: $color-green-dark;
+        padding: $space--xs;
+        color:$color-white;
+        border-radius: $space--xs;
+      }
+    }
+  }
+}

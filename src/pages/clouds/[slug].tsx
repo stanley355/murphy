@@ -3,6 +3,7 @@ import getConfig from 'next/config';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import CloudSlugHead from '../../clients/pages/cloudslug/components/CloudSlugHead';
+import CloudSlugPlansMobile from '../../clients/pages/cloudslug/components/CloudSlugPlans/Mobile/';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import RestClient from '../../lib/RestClient';
 import styles from './cloudslug.module.scss';
@@ -16,6 +17,7 @@ const CloudSlug = ({ hostData, hostPlans }: any) => {
       <div className={styles.cloudslug}>
         <CloudSlugHead name={hostData.name} url={hostData.url} />
         <div className={styles.cloudslug__description}>{hostData.description}</div>
+        <CloudSlugPlansMobile plans={hostPlans} />
       </div>
     </div>
   )
