@@ -6,6 +6,7 @@ import CloudSlugHead from '../../clients/pages/cloudslug/components/CloudSlugHea
 import CloudSlugPlansMobile from '../../clients/pages/cloudslug/components/CloudSlugPlans/Mobile/';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import RestClient from '../../lib/RestClient';
+import { slugify } from '../../utils/slugify';
 import styles from './cloudslug.module.scss';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
@@ -16,7 +17,7 @@ const CloudSlug = ({ hostData, hostPlans }: any) => {
     <div className='container'>
       <div className={styles.cloudslug}>
         <CloudSlugHead name={hostData.name} url={hostData.url} />
-        <div className={styles.cloudslug__description}>{hostData.description}</div>
+        <div className={styles.cloudslug__description}>{hostData.description}</div> 
         <CloudSlugPlansMobile plans={hostPlans} />
       </div>
     </div>
@@ -43,6 +44,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const hostPlans = await RestClient(hostPlanConfig, {});
 
   return {
+    notFound: !hostData,
     props: {
       hostData: hostData ?? null,
       hostPlans: hostPlans ?? []
@@ -54,10 +56,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
+  const hostListConfig = {
+    method: 'GET',
+    url: `${BASE_URL}/api/clouds/host-names/`
+  }
+
+  const hostList = await RestClient(hostListConfig, {});
+  const hostPaths = hostList && hostList.map((host: string) => { return { params: { slug: slugify(host) } } });
+
   return {
-    paths: [
-      { params: { slug: 'vercel' } }
-    ],
+    paths: hostPaths ?? [],
     fallback: true,
   };
 };

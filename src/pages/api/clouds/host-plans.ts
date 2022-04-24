@@ -6,7 +6,7 @@ const { MORPHCLOUDS_URL, MORPHCLOUDS_TOKEN } = getConfig().publicRuntimeConfig;
 
 const HostPlansHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const config = {
-    method: req.method,
+    method: 'GET',
     url: `${MORPHCLOUDS_URL}/api/plans/hosts/${req.query.hostname}`,
     headers: {
       Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`

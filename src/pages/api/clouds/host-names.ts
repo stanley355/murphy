@@ -4,10 +4,10 @@ import RestClient from '../../../lib/RestClient';
 
 const { MORPHCLOUDS_URL, MORPHCLOUDS_TOKEN } = getConfig().publicRuntimeConfig;
 
-const SingleHostHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const HostNamesHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const config = {
     method: 'GET',
-    url: `${MORPHCLOUDS_URL}/api/hosts/${req.query.hostname}`,
+    url: `${MORPHCLOUDS_URL}/api/hosts/names`,
     headers: {
       Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`
     }
@@ -26,4 +26,4 @@ const SingleHostHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   res.json(response);
 };
 
-export default SingleHostHandler;
+export default HostNamesHandler;
