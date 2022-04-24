@@ -24,9 +24,9 @@ const CloudSlugHead = (props: ICloudSlugHead) => {
         />
       </div>
       <Link href={url}>
-        <a title={name} className={styles.cloudslug__head__title}>
+        <h1 title={name} className={styles.cloudslug__head__title}>
           {name}
-        </a>
+        </h1>
       </Link>
     </div>
   )

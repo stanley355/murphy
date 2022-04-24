@@ -44,7 +44,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const hostPlans = await RestClient(hostPlanConfig, {});
 
   return {
-    notFound: !hostData,
     props: {
       hostData: hostData ?? null,
       hostPlans: hostPlans ?? []
