@@ -1,6 +1,6 @@
 import React from 'react';
 import getConfig from 'next/config';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetServerSideProps } from 'next';
 
 import CloudSlugHead from '../../clients/pages/cloudslug/components/CloudSlugHead';
 import CloudSlugPlansMobile from '../../clients/pages/cloudslug/components/CloudSlugPlans/Mobile/';
@@ -24,7 +24,7 @@ const CloudSlug = ({ hostData, hostPlans }: any) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
 
   const hostName = params && params.slug;
@@ -48,25 +48,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       hostData: hostData ?? null,
       hostPlans: hostPlans ?? []
     },
-    revalidate: 2 * 60, // cache API response for 2 minutes
   };
 }
-
-
-export const getStaticPaths: GetStaticPaths = async () => {
-
-  const hostListConfig = {
-    method: 'GET',
-    url: `${BASE_URL}/api/clouds/host-names/`
-  }
-
-  const hostList = await RestClient(hostListConfig, {});
-  const hostPaths = hostList && hostList.map((host: string) => { return { params: { slug: slugify(host) } } });
-
-  return {
-    paths: hostPaths ?? [],
-    fallback: true,
-  };
-};
 
 export default CloudSlug;

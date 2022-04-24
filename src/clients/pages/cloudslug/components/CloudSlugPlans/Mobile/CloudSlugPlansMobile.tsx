@@ -22,8 +22,6 @@ interface ICloudSlugPlans {
 const CloudSlugPlansMobile = (props: ICloudSlugPlans) => {
   const { plans } = props;
 
-  console.log(plans[0]);
-
   const PlanCardHead = ({ plan }: any) => {
     return (
       <div className={styles.cloudslug__plansmobile__card__head}>
