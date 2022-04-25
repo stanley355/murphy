@@ -38,65 +38,64 @@ interface ICloudSlugPlans {
 const CloudSlugPlansDesktop = (props: ICloudSlugPlans) => {
   const { plans } = props;
 
-  console.log(plans[0]);
-
   return (
     <div className={styles.cloudslug__plansdesktop}>
       <table>
-        <tr>
-          <th>Plan Name:</th>
-          {plans.map((plan) => <th>{plan.name}</th>)}
-        </tr>
-        <tr>
-          <td>Price: </td>
-          {plans.map((plan) =>
-            <td>
-              <div>{setPlanPriceDisplay(plan)}</div>
-              <div>{plan.price_desc !== "custom" ? plan.price_desc : ""}</div>
-            </td>)}
-        </tr>
-        <tr>
-          <td>Bandwidth: </td>
-          {plans.map((plan) =>
-            <td>
-              <div>{setPlanBandwidthDisplay(plan)}</div>
-              <div>{plan.bandwidth_desc !== "custom" ? plan.bandwidth_desc : ""}</div>
-            </td>)}
-        </tr>
-        <tr>
-          <td>Build: </td>
-          {plans.map((plan) =>
-            <td>
-              <div>{setPlanBuildDisplay(plan)}</div>
-              <div>{plan.build_desc !== "custom" ? plan.build_desc : ""}</div>
-            </td>)}
-        </tr>
-        <tr>
-          <td>Concurrent Build: </td>
-          {plans.map((plan) =>
-            <td>
-              <div>{setPlanConcurrentBuildDisplay(plan)}</div>
-              <div>{plan.concurrent_build_desc !== "custom" ? plan.concurrent_build_desc : ""}</div>
-            </td>)}
-        </tr>
+        <tbody>
+          <tr>
+            <th>Plan Name:</th>
+            {plans.map((plan) => <th key={plan.name}>{plan.name}</th>)}
+          </tr>
+          <tr>
+            <td>Price: </td>
+            {plans.map((plan) =>
+              <td key={plan.name}>
+                <div>{setPlanPriceDisplay(plan)}</div>
+                <div>{plan.price_desc !== "custom" ? plan.price_desc : ""}</div>
+              </td>)}
+          </tr>
+          <tr>
+            <td>Bandwidth: </td>
+            {plans.map((plan) =>
+              <td key={plan.name}>
+                <div>{setPlanBandwidthDisplay(plan)}</div>
+                <div>{plan.bandwidth_desc !== "custom" ? plan.bandwidth_desc : ""}</div>
+              </td>)}
+          </tr>
+          <tr>
+            <td>Build: </td>
+            {plans.map((plan) =>
+              <td key={plan.name}>
+                <div>{setPlanBuildDisplay(plan)}</div>
+                <div>{plan.build_desc !== "custom" ? plan.build_desc : ""}</div>
+              </td>)}
+          </tr>
+          <tr>
+            <td>Concurrent Build: </td>
+            {plans.map((plan) =>
+              <td key={plan.name}>
+                <div>{setPlanConcurrentBuildDisplay(plan)}</div>
+                <div>{plan.concurrent_build_desc !== "custom" ? plan.concurrent_build_desc : ""}</div>
+              </td>)}
+          </tr>
 
-        <tr>
-          <td>Analytic: </td>
-          {plans.map((plan) =>
-            <td>
-              <div>{setPlanAnalyticDisplay(plan)}</div>
-              <div>{plan.analytic_desc !== "custom" ? plan.analytic_desc : ""}</div>
-            </td>)}
-        </tr>
+          <tr>
+            <td>Analytic: </td>
+            {plans.map((plan) =>
+              <td key={plan.name}>
+                <div>{setPlanAnalyticDisplay(plan)}</div>
+                <div>{plan.analytic_desc !== "custom" ? plan.analytic_desc : ""}</div>
+              </td>)}
+          </tr>
 
-        <tr className={styles.cloudslug__plansdesktop__purchaserow}>
-          <td></td>
-          {plans.map((plan) =>
-            <td>
-              <a href={plan.plan_url}>Purchase</a>
-              
-            </td>)}
-        </tr>
+          <tr className={styles.cloudslug__plansdesktop__purchaserow}>
+            <td></td>  {/* Dont remove this td */}
+            {plans.map((plan) =>
+              <td key={plan.name}>
+                <a href={plan.plan_url}>Purchase</a>
+              </td>)}
+          </tr>
+        </tbody>
       </table>
     </div>
   )

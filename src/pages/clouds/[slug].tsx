@@ -2,9 +2,11 @@ import React from 'react';
 import getConfig from 'next/config';
 import { GetServerSideProps } from 'next';
 
+import MetaHead from '../../components/Head/Head';
 import CloudSlugHead from '../../clients/pages/cloudslug/components/CloudSlugHead';
 import CloudSlugPlansMobile from '../../clients/pages/cloudslug/components/CloudSlugPlans/Mobile/';
 import CloudSlugPlansDesktop from '../../clients/pages/cloudslug/components/CloudSlugPlans/Desktop/';
+import { setCloudSlugMeta } from '../../clients/pages/cloudslug/modules/setCloudSlugMeta';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 
 import RestClient from '../../lib/RestClient';
@@ -18,6 +20,7 @@ const CloudSlug = ({ hostData, hostPlans }: any) => {
 
   return (
     <div className='container'>
+      <MetaHead meta={setCloudSlugMeta(hostData)} />
       <div className={styles.cloudslug}>
         <CloudSlugHead name={hostData.name} url={hostData.url} />
         <div className={styles.cloudslug__description}>{hostData.description}</div>
