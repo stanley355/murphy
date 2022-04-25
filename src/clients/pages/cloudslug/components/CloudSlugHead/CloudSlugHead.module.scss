@@ -1,0 +1,18 @@
+@import '../../../../../../styles/tokens/all';
+
+.cloudslug__head {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  &__title {
+    padding: 0 $space--sm;
+    font-size: 72px;
+    color: $color-blue;
+    margin: 0;
+  }
+
+  @include desktop-view {
+    padding: 0 $space--xxl;
+  }
+}

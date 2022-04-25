@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /*
 Allow: /clouds
-Allow: /plans
+Allow: /clouds/*

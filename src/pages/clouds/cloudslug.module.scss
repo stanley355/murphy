@@ -1,0 +1,16 @@
+@import '../../../styles/tokens/all';
+
+.cloudslug {
+  background: $color-white;
+  border-radius: $space--xs;
+  padding: $space--xs;
+
+  &__description {
+    padding: $space--xs $space--xxs;
+    line-height: 1.5;
+
+    @include desktop-view {
+      padding: $space--xs $space--xxl;
+    }
+  }
+}
