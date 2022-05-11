@@ -14,8 +14,7 @@ const LandingCloudList = (props: any) => {
         <div className={styles.landing__cloudlist__subtitle}>Here are the best pick for web hosting providers in 2022:</div>
         <div className={styles.landing__cloudlist__list}>
           {cloudList && cloudList.map((cloud: any) =>
-          // TODO: The href should be directed to its plan or product page
-            <Link href={cloud.url} key={cloud.name}>
+            <Link href={`/clouds/${slugify(cloud.name.toLowerCase())}`} key={cloud.name}>
               <a title={cloud.name} className={styles.landing__cloudlist__card}>
                 <img
                   src={`/images/clouds/${slugify(cloud.name.toLowerCase())}.webp`}

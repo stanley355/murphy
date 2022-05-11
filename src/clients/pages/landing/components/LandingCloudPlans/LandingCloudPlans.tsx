@@ -25,8 +25,8 @@ const LandingCloudPlans = (props: any) => {
     },
     tablet: {
       breakpoint: {
-        max: 1000,
-        min: 464,
+        max: 1024,
+        min: 465,
       },
       items: 2,
       partialVisibilityGutter: 30,
@@ -34,7 +34,7 @@ const LandingCloudPlans = (props: any) => {
     desktop: {
       breakpoint: {
         max: 3000,
-        min: 1000,
+        min: 1025,
       },
       items: 4,
       partialVisibilityGutter: 40,
@@ -68,7 +68,7 @@ const LandingCloudPlans = (props: any) => {
               <div>Build: {setPlanBuildDisplay(plan)} </div>
               <div>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
               <div>Analytic: {setPlanAnalyticDisplay(plan)} </div>
-              <a href={plan.url} className={styles.landing__cloudplans__card__cta}>
+              <a href={plan.plan_url} className={styles.landing__cloudplans__card__cta}>
                 Purchase
               </a>
             </div>

@@ -2,6 +2,7 @@
 
 .landing__cloudlist {
   background: url('/images/landing/sky-bg.webp');
+  background-attachment: fixed;
 
   &__title {
     font-weight: bold;

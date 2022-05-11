@@ -5,15 +5,15 @@
     padding: $space--sm;
 
     &__title {
-        font-size: $font--xxxl;
+        font-size: $font--lg;
         font-weight: bold;
-        padding: 0 $space--sm;
+        padding: 0 $space--xxs;
     }
 
     &__subtitle {
-        font-size: $font--xxl;
+        font-size: $font--lg;
         font-weight: bolder;
-        padding: $space--xs $space--sm;
+        padding: $space--xxs;
     }
 
     &__card {
@@ -48,6 +48,10 @@
 
     @include desktop-view{
         padding: $space--md $space--xxl;
+        &__title, &__subtitle {
+            font-size: $font--xxl;
+            padding: $space--xs $space--sm;
+        }
         &__card {
             margin: 0 2%;
         }
