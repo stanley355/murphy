@@ -1,15 +1,52 @@
 @import '../../../styles/tokens/all.scss';
 
 .footer {
-  background: $color-white;
+  background: $color-black;
+  color:$color-white;
   width: 100%;
   padding: $space--xs;
-  text-align: center;
-  a {
-    margin-left: $space--xxs;
+  
+  &__top {
+    border-bottom: 1px solid $color-white;
+    padding-bottom: $space--xs;
+    &__section {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: $space--xs;
+      &__title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: $font--lg;
+        font-weight: bold;
+        margin-bottom: $space--xs;
+        svg {
+          margin-right: $space--xs;
+        }
+      }
+      a {
+        margin-bottom: $space--xs;
+      }
+      div {
+        margin-bottom: $space--xs;
+      }
+    }
+
+    @include desktop-view {
+      display: grid;
+      grid-gap: 1%;
+      grid-template-columns: 33% 33% 33%;
+    }
   }
 
-  a:hover {
-    text-decoration: underline;
+  &__bottom {
+    padding: $space--sm 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      margin: $space--xs;
+    }
   }
 }
