@@ -1,0 +1,12 @@
+@import '../../../../../../styles/tokens/all';
+
+.landing__cloudplans {
+    background: $color-white;
+    padding: $space--sm;
+
+    &__Card {
+        border: 1px solid $color-black;
+        border-radius: $space--xs;
+        padding: $space--xs;
+    }
+}

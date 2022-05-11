@@ -7,6 +7,7 @@ import { LandingMeta } from '../clients/pages/landing/constant/meta';
 import LandingHero from '../clients/pages/landing/components/LandingHero';
 import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution';
 import LandingCloudList from '../clients/pages/landing/components/LandingCloudList';
+import LandingCloudPlans from '../clients/pages/landing/components/LandingCloudPlans';
 
 import RestClient from '../lib/RestClient';
 
@@ -21,6 +22,7 @@ const Home = (props: any) => {
       <LandingHero />
       <LandingCloudSolution />
       <LandingCloudList cloudList={cloudList} />
+      <LandingCloudPlans planList={planList} />
     </div>
   );
 };
