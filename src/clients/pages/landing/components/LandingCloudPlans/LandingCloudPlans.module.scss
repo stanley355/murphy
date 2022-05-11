@@ -4,9 +4,40 @@
     background: $color-white;
     padding: $space--sm;
 
-    &__Card {
+    &__card {
         border: 1px solid $color-black;
         border-radius: $space--xs;
         padding: $space--xs;
+        height: 350px;
+        position: relative;
+
+        &__title {
+            font-size: $font--xl;
+            font-weight: bold;
+            color: $color-blue;
+        }
+        div {
+            margin-bottom: $space--xs;
+        }
+
+        a {
+            position: absolute;
+            left:5%;
+            bottom: 5%;
+            background: $color-green-dark;
+            color: $color-white;
+            padding: $space--xs;
+            width: 90%;
+            text-align: center;
+        }
+
+        
+    }
+
+    @include desktop-view{
+        padding: $space--md $space--lg;
+        &__card {
+            margin: 0 2%;
+        }
     }
 }

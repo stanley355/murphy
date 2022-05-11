@@ -5,6 +5,8 @@ import 'react-multi-carousel/lib/styles.css';
 import { setPlanBandwidthDisplay } from '../../../cloudslug/modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../cloudslug/modules/setPlanBuildDisplay';
 import { setPlanConcurrentBuildDisplay } from '../../../cloudslug/modules/setPlanConcurrentBuildDisplay';
+import { setPlanAnalyticDisplay } from '../../../cloudslug/modules/setPlanAnalyticDispla';
+import { setPlanPriceDisplay } from '../../../cloudslug/modules/setPlanPriceDisplay';
 import styles from './LandingCloudPlans.module.scss';
 
 const LandingCloudPlans = (props: any) => {
@@ -23,7 +25,7 @@ const LandingCloudPlans = (props: any) => {
     },
     tablet: {
       breakpoint: {
-        max: 1024,
+        max: 1000,
         min: 464,
       },
       items: 2,
@@ -32,9 +34,9 @@ const LandingCloudPlans = (props: any) => {
     desktop: {
       breakpoint: {
         max: 3000,
-        min: 1024,
+        min: 1000,
       },
-      items: 3,
+      items: 4,
       partialVisibilityGutter: 40,
     },
   };
@@ -44,20 +46,23 @@ const LandingCloudPlans = (props: any) => {
       <Carousel
         infinite
         swipeable
-        autoPlay
-        autoPlaySpeed={3000}
+        autoPlay={false}
+        // autoPlaySpeed={3000}
         responsive={carouselResponsiveness}
         arrows={false}
         showDots={true}
       >
         {planList &&
           planList.map((plan: any) => (
-            <div className={styles.landing__cloudplans__Card} key={plan.name}>
-              <div>{plan.name}</div>
+            <div className={styles.landing__cloudplans__card} key={plan.name}>
+              <div className={styles.landing__cloudplans__card__title}>{plan.name}</div>
               <div>{plan.description}</div>
+              <div>Price: {setPlanPriceDisplay(plan)} </div>
               <div>Bandwidth: {setPlanBandwidthDisplay(plan)} </div>
               <div>Build: {setPlanBuildDisplay(plan)} </div>
               <div>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
+              <div>Analytic: {setPlanAnalyticDisplay(plan)} </div>
+              <a href={plan.url}>Purchase</a>
             </div>
           ))}
       </Carousel>
