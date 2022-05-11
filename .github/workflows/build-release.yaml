@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Rust shorten url project
+    name: Marph project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

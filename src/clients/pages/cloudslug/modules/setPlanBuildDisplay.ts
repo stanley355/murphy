@@ -14,6 +14,6 @@ export const setPlanBuildDisplay = (plan: IPlanBuild) => {
   } else if (plan.build_desc) {
     return plan.build_desc;
   } else {
-    return 'Not Available';
+    return 'Data N/A';
   }
 };

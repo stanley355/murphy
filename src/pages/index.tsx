@@ -7,35 +7,47 @@ import { LandingMeta } from '../clients/pages/landing/constant/meta';
 import LandingHero from '../clients/pages/landing/components/LandingHero';
 import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution';
 import LandingCloudList from '../clients/pages/landing/components/LandingCloudList';
+import LandingCloudPlans from '../clients/pages/landing/components/LandingCloudPlans';
 
 import RestClient from '../lib/RestClient';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
-const Home = ({ cloudList }: any) => {
+const Home = (props: any) => {
+  const { cloudList, planList } = props;
+
   return (
-    <div className='landing'>
+    <div className="landing">
       <MetaHead meta={LandingMeta} />
       <LandingHero />
       <LandingCloudSolution />
       <LandingCloudList cloudList={cloudList} />
+      <LandingCloudPlans planList={planList} />
     </div>
-  )
-}
+  );
+};
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const config = {
+  const cloudListRequest = {
     method: 'GET',
-    url: `${BASE_URL}/api/clouds/hosts/`
-  }
+    url: `${BASE_URL}/api/clouds/hosts/`,
+  };
 
-  const data = await RestClient(config, {});
+  const cloudData = await RestClient(cloudListRequest, {});
+
+  const cloudPlansRequest = {
+    method: 'GET',
+    url: `${BASE_URL}/api/clouds/plans/all/`,
+  };
+
+  const cloudPlansData = await RestClient(cloudPlansRequest, {});
+
   return {
     props: {
-      cloudList: data
-    }
-  }
-}
-
+      cloudList: cloudData,
+      planList: cloudPlansData,
+    },
+  };
+};
 
 export default Home;
