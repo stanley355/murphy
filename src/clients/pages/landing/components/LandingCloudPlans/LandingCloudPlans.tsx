@@ -2,6 +2,9 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
+import { setPlanBandwidthDisplay } from '../../../cloudslug/modules/setPlanBandwidthDisplay';
+import { setPlanBuildDisplay } from '../../../cloudslug/modules/setPlanBuildDisplay';
+import { setPlanConcurrentBuildDisplay } from '../../../cloudslug/modules/setPlanConcurrentBuildDisplay';
 import styles from './LandingCloudPlans.module.scss';
 
 const LandingCloudPlans = (props: any) => {
@@ -52,6 +55,9 @@ const LandingCloudPlans = (props: any) => {
             <div className={styles.landing__cloudplans__Card} key={plan.name}>
               <div>{plan.name}</div>
               <div>{plan.description}</div>
+              <div>Bandwidth: {setPlanBandwidthDisplay(plan)} </div>
+              <div>Build: {setPlanBuildDisplay(plan)} </div>
+              <div>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
             </div>
           ))}
       </Carousel>

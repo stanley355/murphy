@@ -14,6 +14,6 @@ export const setPlanBandwidthDisplay = (plan: IPlanBandwidth) => {
   } else if (plan.bandwidth_desc) {
     return plan.bandwidth_desc;
   } else {
-    return 'Not Available';
+    return 'Data N/A';
   }
 };

@@ -14,6 +14,6 @@ export const setPlanConcurrentBuildDisplay = (plan: IPlanConcurrentBuild) => {
   } else if (plan.concurrent_build_desc) {
     return plan.concurrent_build_desc;
   } else {
-    return 'Not Available';
+    return 'Data N/A';
   }
 };

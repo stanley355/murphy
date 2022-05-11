@@ -17,6 +17,6 @@ export const setPlanAnalyticDisplay = (plan: IPlanAnalytic) => {
       return plan.analytic_desc;
     }
   } else {
-    return 'Not Available';
+    return 'Data N/A';
   }
 };
