@@ -1,18 +1,18 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Link from 'next/link';
 
 import { setPlanBandwidthDisplay } from '../../../cloudslug/modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../cloudslug/modules/setPlanBuildDisplay';
 import { setPlanConcurrentBuildDisplay } from '../../../cloudslug/modules/setPlanConcurrentBuildDisplay';
 import { setPlanAnalyticDisplay } from '../../../cloudslug/modules/setPlanAnalyticDispla';
 import { setPlanPriceDisplay } from '../../../cloudslug/modules/setPlanPriceDisplay';
+import { setPlanHostURL } from '../../../cloudslug/modules/setPlanHostURL';
 import styles from './LandingCloudPlans.module.scss';
 
 const LandingCloudPlans = (props: any) => {
   const { planList } = props;
-
-  console.log(planList[0]);
 
   const carouselResponsiveness = {
     mobile: {
@@ -43,11 +43,15 @@ const LandingCloudPlans = (props: any) => {
 
   return (
     <div className={styles.landing__cloudplans}>
+      <div className={styles.landing__cloudplans__title}>Plans</div>
+      <div className={styles.landing__cloudplans__subtitle}>
+        Check out various providers' plans to host your web:
+      </div>
       <Carousel
         infinite
         swipeable
-        autoPlay={false}
-        // autoPlaySpeed={3000}
+        autoPlay={true}
+        autoPlaySpeed={3000}
         responsive={carouselResponsiveness}
         arrows={false}
         showDots={true}
@@ -55,14 +59,18 @@ const LandingCloudPlans = (props: any) => {
         {planList &&
           planList.map((plan: any) => (
             <div className={styles.landing__cloudplans__card} key={plan.name}>
-              <div className={styles.landing__cloudplans__card__title}>{plan.name}</div>
+              <Link href={setPlanHostURL(plan.name)}>
+                <a className={styles.landing__cloudplans__card__title}>{plan.name}</a>
+              </Link>
               <div>{plan.description}</div>
               <div>Price: {setPlanPriceDisplay(plan)} </div>
               <div>Bandwidth: {setPlanBandwidthDisplay(plan)} </div>
               <div>Build: {setPlanBuildDisplay(plan)} </div>
               <div>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
               <div>Analytic: {setPlanAnalyticDisplay(plan)} </div>
-              <a href={plan.url}>Purchase</a>
+              <a href={plan.url} className={styles.landing__cloudplans__card__cta}>
+                Purchase
+              </a>
             </div>
           ))}
       </Carousel>

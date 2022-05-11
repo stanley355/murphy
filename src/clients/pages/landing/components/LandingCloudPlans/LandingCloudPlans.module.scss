@@ -4,6 +4,18 @@
     background: $color-white;
     padding: $space--sm;
 
+    &__title {
+        font-size: $font--xxxl;
+        font-weight: bold;
+        padding: 0 $space--sm;
+    }
+
+    &__subtitle {
+        font-size: $font--xxl;
+        font-weight: bolder;
+        padding: $space--xs $space--sm;
+    }
+
     &__card {
         border: 1px solid $color-black;
         border-radius: $space--xs;
@@ -20,7 +32,7 @@
             margin-bottom: $space--xs;
         }
 
-        a {
+        &__cta {
             position: absolute;
             left:5%;
             bottom: 5%;
@@ -35,7 +47,7 @@
     }
 
     @include desktop-view{
-        padding: $space--md $space--lg;
+        padding: $space--md $space--xxl;
         &__card {
             margin: 0 2%;
         }
