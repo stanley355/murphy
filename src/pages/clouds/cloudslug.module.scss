@@ -1,9 +1,10 @@
 @import '../../../styles/tokens/all';
 
 .cloudslug {
-  &__head {
+  &__top {
     background: url('/images/landing/sky-bg.webp');
-    background-attachment: fixed;  
+    background-attachment: fixed;
+    padding-bottom: $space--md;  
   }
 
   &__hostbox {
