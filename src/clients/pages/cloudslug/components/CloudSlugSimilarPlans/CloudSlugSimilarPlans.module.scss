@@ -2,12 +2,12 @@
 
 .cloudslug__similarplans {
   background: url('/images/landing/sky-bg.webp');
-    background-attachment: fixed;
+  background-attachment: fixed;
 
   &__title {
     font-size: $font--lg;
     font-weight: bold;
-    padding: $space--sm 0 ;
+    padding: $space--sm 0;
   }
 
   &__card {

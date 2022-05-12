@@ -1,24 +1,18 @@
 @import '../../../../../../styles/tokens/all';
 
 .landing__cloudplans {
-    background: $color-white;
+    background: url('/images/landing/sky-bg.webp');
+    background-attachment: fixed;
     padding: $space--sm;
 
     &__title {
-        text-decoration: underline;
-        font-size: $font--lg;
-        font-weight: bold;
-        padding: 0 $space--xxs;
-    }
-
-    &__subtitle {
         font-size: $font--lg;
         font-weight: bolder;
         padding: $space--xxs;
     }
 
     &__card {
-        background: $color-blue;
+        background: $color-black;
         border-radius: $space--xs;
         padding: $space--xs;
         margin-bottom: $space--xs;
@@ -56,10 +50,8 @@
     @include desktop-view{
         padding: $space--md $space--xxl;
         &__title {
-            font-size: 36px;
-        }
-        &__subtitle {
-            font-size: $font--xxl;
+            font-size: $font--xxxl;
+            padding-bottom: $space--sm;
         }
 
         &__cardList {
