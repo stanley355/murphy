@@ -13,8 +13,7 @@ const LandingCloudPlans = (props: any) => {
   return (
     <div className={styles.landing__cloudplans}>
       <div className="container">
-        <div className={styles.landing__cloudplans__title}>Plans</div>
-        <div className={styles.landing__cloudplans__subtitle}>
+        <div className={styles.landing__cloudplans__title}>
           Check various hosting plans for your web:
         </div>
         <div className={styles.landing__cloudplans__cardList}>

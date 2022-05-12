@@ -1,9 +1,17 @@
 @import '../../../styles/tokens/all';
 
 .cloudslug {
-  background: $color-white;
-  border-radius: $space--xs;
-  padding: $space--xs;
+  &__top {
+    background: url('/images/landing/sky-bg.webp');
+    background-attachment: fixed;
+    padding-bottom: $space--md;  
+  }
+
+  &__hostbox {
+    background: $color-white;
+    border-radius: $space--xs;
+    padding: $space--xs;
+  }
 
   &__description {
     padding: $space--xs $space--xxs;
