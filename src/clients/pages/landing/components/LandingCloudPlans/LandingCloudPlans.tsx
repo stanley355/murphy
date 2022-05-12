@@ -1,79 +1,44 @@
 import React from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 import Link from 'next/link';
+import { FaBuffer } from 'react-icons/fa';
 
-import { setPlanBandwidthDisplay } from '../../../cloudslug/modules/setPlanBandwidthDisplay';
-import { setPlanBuildDisplay } from '../../../cloudslug/modules/setPlanBuildDisplay';
-import { setPlanConcurrentBuildDisplay } from '../../../cloudslug/modules/setPlanConcurrentBuildDisplay';
-import { setPlanAnalyticDisplay } from '../../../cloudslug/modules/setPlanAnalyticDispla';
 import { setPlanPriceDisplay } from '../../../cloudslug/modules/setPlanPriceDisplay';
 import { setPlanHostURL } from '../../../cloudslug/modules/setPlanHostURL';
 import styles from './LandingCloudPlans.module.scss';
 
 const LandingCloudPlans = (props: any) => {
   const { planList } = props;
-
-  const carouselResponsiveness = {
-    mobile: {
-      breakpoint: {
-        max: 464,
-        min: 0,
-      },
-      items: 1,
-      partialVisibilityGutter: 30,
-    },
-    tablet: {
-      breakpoint: {
-        max: 1024,
-        min: 465,
-      },
-      items: 2,
-      partialVisibilityGutter: 30,
-    },
-    desktop: {
-      breakpoint: {
-        max: 3000,
-        min: 1025,
-      },
-      items: 4,
-      partialVisibilityGutter: 40,
-    },
-  };
+  const filteredPlan = planList && planList.filter((plan: any, i: number) => i < 8);
 
   return (
     <div className={styles.landing__cloudplans}>
-      <div className={styles.landing__cloudplans__title}>Plans</div>
-      <div className={styles.landing__cloudplans__subtitle}>
-        Check out various providers' plans to host your web:
+      <div className="container">
+        <div className={styles.landing__cloudplans__title}>Plans</div>
+        <div className={styles.landing__cloudplans__subtitle}>
+          Check various hosting plans for your web:
+        </div>
+        <div className={styles.landing__cloudplans__cardList}>
+          {filteredPlan.length > 0 &&
+            filteredPlan.map((plan: any) => (
+              <div className={styles.landing__cloudplans__card} key={plan.name}>
+                <div className={styles.landing__cloudplans__card__head}>
+                  <div>
+                    <Link href={setPlanHostURL(plan.name)}>
+                      <a title={plan.name}>{plan.name}</a>
+                    </Link>
+                    <div>Price: {setPlanPriceDisplay(plan)} </div>
+                  </div>
+                  <Link href={setPlanHostURL(plan.name)}>
+                    <a className={styles.landing__cloudplans__card__cta} title={plan.name}>
+                      <FaBuffer /> Specs
+                    </a>
+                  </Link>
+                </div>
+                <div>{plan.description}</div>
+              </div>
+            ))}
+        </div>
       </div>
-      <Carousel
-        infinite
-        swipeable
-        autoPlay={true}
-        autoPlaySpeed={3000}
-        responsive={carouselResponsiveness}
-        arrows={false}
-        showDots={true}
-      >
-        {planList &&
-          planList.map((plan: any) => (
-            <div className={styles.landing__cloudplans__card} key={plan.name}>
-              <Link href={setPlanHostURL(plan.name)}>
-                <a className={styles.landing__cloudplans__card__title}>{plan.name}</a>
-              </Link>
-              <div>{plan.description}</div>
-              <div>Price: {setPlanPriceDisplay(plan)} </div>
-              <div>Bandwidth: {setPlanBandwidthDisplay(plan)} </div>
-              <div>Build: {setPlanBuildDisplay(plan)} </div>
-              <div>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
-              <div>Analytic: {setPlanAnalyticDisplay(plan)} </div>
-              <a href={plan.plan_url} className={styles.landing__cloudplans__card__cta}>
-                Purchase
-              </a>
-            </div>
-          ))}
-      </Carousel>
     </div>
   );
 };

@@ -5,6 +5,7 @@
     padding: $space--sm;
 
     &__title {
+        text-decoration: underline;
         font-size: $font--lg;
         font-weight: bold;
         padding: 0 $space--xxs;
@@ -17,43 +18,56 @@
     }
 
     &__card {
-        border: 1px solid $color-black;
+        background: $color-blue;
         border-radius: $space--xs;
         padding: $space--xs;
-        height: 350px;
-        position: relative;
+        margin-bottom: $space--xs;
+        color:$color-white;
 
-        &__title {
-            font-size: $font--xl;
-            font-weight: bold;
-            color: $color-blue;
-        }
-        div {
+        &__head {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: $space--sm;
             margin-bottom: $space--xs;
+            border-bottom: 1px solid $color-white;
+
+            div:first-child {
+                a {
+                    font-size: $font--lg;
+                    font-weight: bold;
+                }
+            }
         }
 
         &__cta {
-            position: absolute;
-            left:5%;
-            bottom: 5%;
             background: $color-green-dark;
-            color: $color-white;
-            padding: $space--xs;
-            width: 90%;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            padding: $space--xs $space--xs;
+            border-radius: $space--xs;
+            svg {
+                margin-right: $space--xxs;
+            }
         }
-
-        
     }
 
     @include desktop-view{
         padding: $space--md $space--xxl;
-        &__title, &__subtitle {
+        &__title {
+            font-size: 36px;
+        }
+        &__subtitle {
             font-size: $font--xxl;
-            padding: $space--xs $space--sm;
         }
-        &__card {
-            margin: 0 2%;
+
+        &__cardList {
+            display: grid;
+            grid-gap: 1%;
+            grid-template-columns: 25% 25% 25% 25%;
         }
+
+
     }
 }
