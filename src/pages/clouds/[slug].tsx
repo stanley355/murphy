@@ -19,16 +19,24 @@ const CloudSlug = ({ hostData, hostPlans }: any) => {
   const { isDesktop } = useResponsive();
 
   return (
-    <div className='container'>
+    <div className={styles.cloudslug}>
       <MetaHead meta={setCloudSlugMeta(hostData)} />
-      <div className={styles.cloudslug}>
-        <CloudSlugHead name={hostData.name} url={hostData.url} />
-        <div className={styles.cloudslug__description}>{hostData.description}</div>
-        {isDesktop ? <CloudSlugPlansDesktop plans={hostPlans} /> : <CloudSlugPlansMobile plans={hostPlans} />}
+      <div className={styles.cloudslug__head}>
+        <div className="container">
+          <div className={styles.cloudslug__hostbox}>
+            <CloudSlugHead name={hostData.name} url={hostData.url} />
+            <div className={styles.cloudslug__description}>{hostData.description}</div>
+            {isDesktop ? (
+              <CloudSlugPlansDesktop plans={hostPlans} />
+            ) : (
+              <CloudSlugPlansMobile plans={hostPlans} />
+            )}
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
@@ -37,24 +45,24 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const singleHostConfig = {
     method: 'GET',
-    url: `${BASE_URL}/api/clouds/host-single/?hostname=${capitalizeFirstLetter(hostName)}`
-  }
+    url: `${BASE_URL}/api/clouds/host-single/?hostname=${capitalizeFirstLetter(hostName)}`,
+  };
 
   const hostData = await RestClient(singleHostConfig, {});
 
   const hostPlanConfig = {
     method: 'GET',
-    url: `${BASE_URL}/api/clouds/host-plans/?hostname=${capitalizeFirstLetter(hostName)}`
-  }
+    url: `${BASE_URL}/api/clouds/host-plans/?hostname=${capitalizeFirstLetter(hostName)}`,
+  };
 
   const hostPlans = await RestClient(hostPlanConfig, {});
 
   return {
     props: {
       hostData: hostData ?? null,
-      hostPlans: hostPlans ?? []
+      hostPlans: hostPlans ?? [],
     },
   };
-}
+};
 
 export default CloudSlug;
