@@ -9,8 +9,8 @@ const HostsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     method: 'GET',
     url: `${MORPHCLOUDS_URL}/api/hosts/${setCloudFilterQuery(req.query)}`,
     headers: {
-      Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`
-    }
+      Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`,
+    },
   };
 
   let response: any;
