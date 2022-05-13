@@ -8,7 +8,7 @@ ENV MORPHCLOUDS_TOKEN=wysiati
 # 2. Copy the files in your machine to the Docker image
 COPY ./ ./
 
-RUN echo $MORPHCLOUDS_TOKEN
+RUN echo $MORPHCLOUDS_URL
 
 # Build your program for release
 RUN yarn
