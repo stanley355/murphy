@@ -4,27 +4,25 @@ on:
   push:
     branches: 
       - main
+      - develop
 
 jobs:
   build:
-    name: Marph project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
 
       - name: Build Docker image
-        with:
-          build-args: |
-            MORPHCLOUDS_URL=${{ secrets.MORPCLOUDS_URL }}
-            MORPHCLOUDS_TOKEN=${{ secrets.MORPCLOUDS_TOKEN }}
-          run: docker build -t registry.heroku.com/${{ secrets.HEROKU_APP }}/web:latest .
+        run: docker build -t registry.heroku.com/${{ secrets.HEROKU_APP }}/web:latest .
 
       - name: Docker image info
         run: docker images
 
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: [ build ]
+    steps:
       - name: Login to container registry
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
