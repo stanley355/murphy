@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import getConfig from 'next/config';
 
 import MetaHead from '../components/Head';
@@ -8,7 +8,8 @@ import LandingHero from '../clients/pages/landing/components/LandingHero';
 import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution';
 import LandingCloudList from '../clients/pages/landing/components/LandingCloudList';
 import LandingCloudPlans from '../clients/pages/landing/components/LandingCloudPlans';
-
+import { fetchAllHosts } from '../lib/api-fetcher/morphclouds/hosts';
+import { fetchAllPlans } from '../lib/api-fetcher/morphclouds/plans';
 import RestClient from '../lib/RestClient';
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
@@ -27,25 +28,14 @@ const Home = (props: any) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const cloudListRequest = {
-    method: 'GET',
-    url: `${BASE_URL}/api/clouds/hosts/`,
-  };
-
-  const cloudData = await RestClient(cloudListRequest, {});
-
-  const cloudPlansRequest = {
-    method: 'GET',
-    url: `${BASE_URL}/api/clouds/plans/all/`,
-  };
-
-  const cloudPlansData = await RestClient(cloudPlansRequest, {});
+export const getStaticProps: GetStaticProps = async () => {
+  const hostsData = await fetchAllHosts();
+  const plansData = await fetchAllPlans();
 
   return {
     props: {
-      cloudList: cloudData,
-      planList: cloudPlansData,
+      cloudList: hostsData,
+      planList: plansData,
     },
   };
 };
