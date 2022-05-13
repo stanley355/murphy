@@ -1,9 +1,9 @@
-name: Release Build Pipeline
+name: Build Pipeline
 
 on:
   push:
-    branches: 
-      - main
+    branches:
+      - develop
 
 jobs:
   build:
@@ -20,21 +20,25 @@ jobs:
           build-args: |
             MORPHCLOUDS_URL=${{ secrets.MORPCLOUDS_URL }}
             MORPHCLOUDS_TOKEN=${{ secrets.MORPCLOUDS_TOKEN }}
-          run: docker build -t registry.heroku.com/${{ secrets.HEROKU_APP }}/web:latest .
+        run: docker build -t registry.heroku.com/${{ secrets.HEROKU_APP }}/web:latest .
 
       - name: Docker image info
         run: docker images
 
+      # Prod Only
       - name: Login to container registry
+        if: github.ref == 'refs/heads/main'
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
         run: heroku container:login
 
       - name: Push Docker image
+        if: github.ref == 'refs/heads/main'
         # see here for the details of the release phase https://devcenter.heroku.com/articles/container-registry-and-runtime#release-phase
         run: docker push registry.heroku.com/${{ secrets.HEROKU_APP }}/web
 
       - name: Release
+        if: github.ref == 'refs/heads/main'
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_TOKEN }}
         run: heroku container:release -a ${{ secrets.HEROKU_APP }} web
