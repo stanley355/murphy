@@ -20,7 +20,7 @@ jobs:
         env:
           MORPHCLOUDS_URL: ${{ secrets.MORPHCLOUDS_URL }}
           MORPHCLOUDS_TOKEN: ${{ secrets.MORPHCLOUDS_TOKEN }}
-        run: docker build -t registry.heroku.com/${{ secrets.HEROKU_APP }}/web:latest .
+        run: docker build --build-arg MORPHCLOUDS_URL=$MORPHCLOUDS_URL MORPHCLOUDS_TOKEN=$MORPHCLOUDS_TOKEN  -t registry.heroku.com/${{ secrets.HEROKU_APP }}/web:latest .
 
       - name: Docker image info
         run: docker images
