@@ -17,9 +17,6 @@ jobs:
           toolchain: stable
 
       - name: Build Docker image
-        env:
-          MORPHCLOUDS_URL: ${{ secrets.MORPHCLOUDS_URL }}
-          MORPHCLOUDS_TOKEN: ${{ secrets.MORPHCLOUDS_TOKEN }}
         run: docker build -t registry.heroku.com/${{ secrets.HEROKU_APP }}/web:latest .
 
       - name: Docker image info
