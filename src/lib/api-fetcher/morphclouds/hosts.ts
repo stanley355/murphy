@@ -11,7 +11,5 @@ export const fetchAllHosts = async () => {
     }
   };
 
-  const a = await RestClient(allHostRequest, {});
-  console.log("The a is" , a);
-  return a;
+  return await RestClient(allHostRequest, {});
 };
