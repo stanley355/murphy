@@ -1,15 +1,16 @@
 # 1. This tells docker to use the official image
 FROM node:14-stretch as builder
 
-ARG MORPHCLOUDS_URL
-ENV MORPHCLOUDS_URL=$MORPHCLOUDS_URL
+# ARG MORPHCLOUDS_URL
+# ENV MORPHCLOUDS_URL=$MORPHCLOUDS_URL
 
-ARG MORPHCLOUDS_TOKEN
-ENV MORPHCLOUDS_TOKEN=$MORPHCLOUDS_TOKEN
+# ARG MORPHCLOUDS_TOKEN
+# ENV MORPHCLOUDS_TOKEN=$MORPHCLOUDS_TOKEN
 
 # 2. Copy the files in your machine to the Docker image
 COPY ./ ./
 
+RUN --mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env
 RUN echo $MORPHCLOUDS_URL
 
 # Build your program for release
