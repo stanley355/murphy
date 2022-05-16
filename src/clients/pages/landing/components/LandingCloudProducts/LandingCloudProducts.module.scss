@@ -1,0 +1,65 @@
+@import '../../../../../../styles/tokens/all';
+
+.landing__cloudproducts {
+  background: url('/images/landing/sky-bg.webp');
+  background-attachment: fixed;
+  background-position: bottom;
+
+  &__title {
+    font-size: $font--lg;
+    font-weight: bold;
+    padding: $space--sm 0;
+  }
+
+  &__card {
+    background: $color-black;
+    border-radius: $space--xs;
+    padding: $space--xs;
+    margin-bottom: $space--xs;
+    color: $color-white;
+
+    &__head {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: $space--xs;
+      border-bottom: 1px solid $color-white;
+
+      div {
+        margin-bottom: $space--xxs;
+      }
+
+      div:first-child {
+        a {
+          font-size: $font--lg;
+          font-weight: bold;
+        }
+      }
+    }
+
+    &__cta {
+      background: $color-green-dark;
+      display: flex;
+      align-items: center;
+      padding: $space--xs $space--xs;
+      border-radius: $space--xs;
+      svg {
+        margin-right: $space--xxs;
+      }
+    }
+  }
+
+  @include desktop-view {
+    padding: $space--md $space--xxl 100px;
+    &__title {
+      font-size: $font--xxl;
+    }
+
+    &__cardList {
+      display: grid;
+      grid-gap: 1%;
+      grid-template-columns: 33% 33% 33%;
+    }
+  }
+}
