@@ -7,11 +7,13 @@ import LandingHero from '../clients/pages/landing/components/LandingHero';
 import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution';
 import LandingCloudList from '../clients/pages/landing/components/LandingCloudList';
 import LandingCloudPlans from '../clients/pages/landing/components/LandingCloudPlans';
+import LandingCloudProducts from '../clients/pages/landing/components/LandingCloudProducts';
 import { fetchAllHosts } from '../lib/api-fetcher/morphclouds/hosts';
 import { fetchAllPlans } from '../lib/api-fetcher/morphclouds/plans';
+import { fetchAllProducts } from '../lib/api-fetcher/morphclouds/products';
 
 const Home = (props: any) => {
-  const { cloudList, planList } = props;
+  const { cloudList, planList, productList } = props;
 
   return (
     <div className="landing">
@@ -20,6 +22,7 @@ const Home = (props: any) => {
       <LandingCloudSolution />
       <LandingCloudList cloudList={cloudList} />
       <LandingCloudPlans planList={planList} />
+      <LandingCloudProducts productList={productList} />
     </div>
   );
 };
@@ -27,11 +30,13 @@ const Home = (props: any) => {
 export const getStaticProps: GetStaticProps = async () => {
   const hostsData = await fetchAllHosts();
   const plansData = await fetchAllPlans();
+  const productsData = await fetchAllProducts();
 
   return {
     props: {
       cloudList: hostsData,
       planList: plansData,
+      productList: productsData
     },
   };
 };

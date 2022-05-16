@@ -1,5 +1,4 @@
 import React from 'react';
-import getConfig from 'next/config';
 import { GetServerSideProps } from 'next';
 
 import MetaHead from '../../components/Head/Head';
@@ -7,19 +6,28 @@ import CloudSlugHead from '../../clients/pages/cloudslug/components/CloudSlugHea
 import CloudSlugPlansMobile from '../../clients/pages/cloudslug/components/CloudSlugPlans/Mobile/';
 import CloudSlugPlansDesktop from '../../clients/pages/cloudslug/components/CloudSlugPlans/Desktop/';
 import CloudSlugSimilarPlans from '../../clients/pages/cloudslug/components/CloudSlugSimilarPlans';
+import CloudSlugProducts from '../../clients/pages/cloudslug/components/CloudSlugProducts';
+import CloudSlugSimilarProducts from '../../clients/pages/cloudslug/components/CloudSlugSimilarProducts';
 import { setCloudSlugMeta } from '../../clients/pages/cloudslug/modules/setCloudSlugMeta';
-import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
+
 import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
 import { fetchHostPlans, fetchAllPlans } from '../../lib/api-fetcher/morphclouds/plans';
+import { fetchHostProducts, fetchAllProducts } from '../../lib/api-fetcher/morphclouds/products';
 
-import RestClient from '../../lib/RestClient';
+import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import useResponsive from '../../utils/hooks/useResponsive';
 import styles from './cloudslug.module.scss';
 
-const { BASE_URL } = getConfig().publicRuntimeConfig;
+interface ICloudSlug {
+  hostData: any;
+  hostPlans: any;
+  allPlans: any;
+  hostProducts: any;
+  allProducts: any;
+}
 
-const CloudSlug = (props: any) => {
-  const { hostData, hostPlans, allPlans } = props;
+const CloudSlug = (props: ICloudSlug) => {
+  const { hostData, hostPlans, allPlans, hostProducts, allProducts } = props;
   const { isDesktop } = useResponsive();
 
   const setCloudSlugCard = () => {
@@ -31,7 +39,7 @@ const CloudSlug = (props: any) => {
           <CloudSlugPlansMobile plans={hostPlans} />
         );
       default:
-        return '';
+        return <CloudSlugProducts products={hostProducts} />;
     }
   };
 
@@ -47,11 +55,10 @@ const CloudSlug = (props: any) => {
           </div>
         </div>
       </div>
-      {/* TODO: Put similar products */}
       {hostData.template === 'Plan' ? (
         <CloudSlugSimilarPlans hostID={hostData.id} planList={allPlans} />
       ) : (
-        ''
+        <CloudSlugSimilarProducts hostID={hostData.id} productList={allProducts} />
       )}
     </div>
   );
@@ -71,11 +78,21 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     allPlansData = await fetchAllPlans();
   }
 
+  let hostProducts = [];
+  let allProductsData = [];
+
+  if (hostData && hostData.template === 'Product') {
+    hostProducts = await fetchHostProducts(hostName);
+    allProductsData = await fetchAllProducts();
+  }
+
   return {
     props: {
       hostData: hostData ?? null,
       hostPlans: hostPlans,
       allPlans: allPlansData,
+      hostProducts: hostProducts,
+      allProducts: allProductsData,
     },
   };
 };

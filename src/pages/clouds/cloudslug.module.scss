@@ -10,7 +10,7 @@
   &__hostbox {
     background: $color-white;
     border-radius: $space--xs;
-    padding: $space--xs;
+    padding: $space--xs $space--xs $space--xl;
   }
 
   &__description {

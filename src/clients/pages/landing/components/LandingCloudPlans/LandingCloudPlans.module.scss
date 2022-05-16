@@ -3,6 +3,7 @@
 .landing__cloudplans {
     background: url('/images/landing/sky-bg.webp');
     background-attachment: fixed;
+    background-position: center;
     padding: $space--sm;
 
     &__title {
