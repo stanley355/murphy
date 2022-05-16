@@ -6,19 +6,28 @@ import CloudSlugHead from '../../clients/pages/cloudslug/components/CloudSlugHea
 import CloudSlugPlansMobile from '../../clients/pages/cloudslug/components/CloudSlugPlans/Mobile/';
 import CloudSlugPlansDesktop from '../../clients/pages/cloudslug/components/CloudSlugPlans/Desktop/';
 import CloudSlugSimilarPlans from '../../clients/pages/cloudslug/components/CloudSlugSimilarPlans';
+import CloudSlugProducts from '../../clients/pages/cloudslug/components/CloudSlugProducts';
 import CloudSlugSimilarProducts from '../../clients/pages/cloudslug/components/CloudSlugSimilarProducts';
 import { setCloudSlugMeta } from '../../clients/pages/cloudslug/modules/setCloudSlugMeta';
 
 import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
 import { fetchHostPlans, fetchAllPlans } from '../../lib/api-fetcher/morphclouds/plans';
-import { fetchAllProducts } from '../../lib/api-fetcher/morphclouds/products';
+import { fetchHostProducts, fetchAllProducts } from '../../lib/api-fetcher/morphclouds/products';
 
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import useResponsive from '../../utils/hooks/useResponsive';
 import styles from './cloudslug.module.scss';
 
-const CloudSlug = (props: any) => {
-  const { hostData, hostPlans, allPlans, allProducts } = props;
+interface ICloudSlug {
+  hostData: any;
+  hostPlans: any;
+  allPlans: any;
+  hostProducts: any;
+  allProducts: any;
+}
+
+const CloudSlug = (props: ICloudSlug) => {
+  const { hostData, hostPlans, allPlans, hostProducts, allProducts } = props;
   const { isDesktop } = useResponsive();
 
   const setCloudSlugCard = () => {
@@ -30,7 +39,7 @@ const CloudSlug = (props: any) => {
           <CloudSlugPlansMobile plans={hostPlans} />
         );
       default:
-        return '';
+        return <CloudSlugProducts products={hostProducts} />;
     }
   };
 
@@ -73,7 +82,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   let allProductsData = [];
 
   if (hostData && hostData.template === 'Product') {
-    // hostPlans = await fetchHostPrs(hostName);
+    hostProducts = await fetchHostProducts(hostName);
     allProductsData = await fetchAllProducts();
   }
 
@@ -82,6 +91,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       hostData: hostData ?? null,
       hostPlans: hostPlans,
       allPlans: allPlansData,
+      hostProducts: hostProducts,
       allProducts: allProductsData,
     },
   };

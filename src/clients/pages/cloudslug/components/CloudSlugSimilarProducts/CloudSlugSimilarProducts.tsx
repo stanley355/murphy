@@ -19,7 +19,6 @@ const CloudSlugSimilarProducts = (props: ICloudSlugSimilarProducts) => {
       .filter((product: any, i: number) => product.hosts_id !== hostID)
       .filter((product: any, i: number) => i < 6);
 
-      console.log(productList[0].category);
   return (
     <div className={styles.cloudslug__similarproducts}>
       <div className="container">
