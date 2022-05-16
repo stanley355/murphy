@@ -9,6 +9,8 @@ import CloudSlugPlansDesktop from '../../clients/pages/cloudslug/components/Clou
 import CloudSlugSimilarPlans from '../../clients/pages/cloudslug/components/CloudSlugSimilarPlans';
 import { setCloudSlugMeta } from '../../clients/pages/cloudslug/modules/setCloudSlugMeta';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
+import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
+import { fetchHostPlans, fetchAllPlans } from '../../lib/api-fetcher/morphclouds/plans';
 
 import RestClient from '../../lib/RestClient';
 import useResponsive from '../../utils/hooks/useResponsive';
@@ -33,15 +35,13 @@ const CloudSlug = (props: any) => {
     }
   };
 
-  console.log(hostData)
-
   return (
     <div className={styles.cloudslug}>
-      {/* <MetaHead meta={setCloudSlugMeta(hostData)} /> */}
+      <MetaHead meta={setCloudSlugMeta(hostData)} />
       <div className={styles.cloudslug__top}>
         <div className="container">
           <div className={styles.cloudslug__hostbox}>
-            {/* <CloudSlugHead name={hostData.name} url={hostData.url} /> */}
+            <CloudSlugHead name={hostData.name} url={hostData.url} />
             <div className={styles.cloudslug__description}>{hostData.description}</div>
             {setCloudSlugCard()}
           </div>
@@ -60,34 +60,22 @@ const CloudSlug = (props: any) => {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
 
-  const hostName = params && params.slug;
+  const hostName = params && capitalizeFirstLetter(params.slug);
+  const hostData = await fetchSingleHost(hostName);
 
-  const singleHostRequest = {
-    method: 'GET',
-    url: `${BASE_URL}/api/clouds/host-single/?hostname=${capitalizeFirstLetter(hostName)}`,
-  };
+  let hostPlans = [];
+  let allPlansData = [];
 
-  const hostData = await RestClient(singleHostRequest, {});
-
-  const hostPlanRequest = {
-    method: 'GET',
-    url: `${BASE_URL}/api/clouds/host-plans/?hostname=${capitalizeFirstLetter(hostName)}`,
-  };
-
-  const hostPlans = await RestClient(hostPlanRequest, {});
-
-  const allPlansRequest = {
-    method: 'GET',
-    url: `${BASE_URL}/api/clouds/plans/all/`,
-  };
-
-  const allPlansData = await RestClient(allPlansRequest, {});
+  if (hostData && hostData.template === 'Plan') {
+    hostPlans = await fetchHostPlans(hostName);
+    allPlansData = await fetchAllPlans();
+  }
 
   return {
     props: {
       hostData: hostData ?? null,
-      hostPlans: hostPlans ?? [],
-      allPlans: allPlansData ?? [],
+      hostPlans: hostPlans,
+      allPlans: allPlansData,
     },
   };
 };

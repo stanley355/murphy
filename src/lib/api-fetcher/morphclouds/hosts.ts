@@ -7,9 +7,21 @@ export const fetchAllHosts = async () => {
     method: 'GET',
     url: `${MORPHCLOUDS_URL}/api/hosts/`,
     headers: {
-      Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`
-    }
+      Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`,
+    },
   };
 
   return await RestClient(allHostRequest, {});
+};
+
+export const fetchSingleHost = async (hostName: string) => {
+  const singleHostRequest = {
+    method: 'GET',
+    url: `${MORPHCLOUDS_URL}/api/hosts/${hostName}`,
+    headers: {
+      Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`,
+    },
+  };
+
+  return await RestClient(singleHostRequest, {});
 };
