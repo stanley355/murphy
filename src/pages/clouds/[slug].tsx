@@ -1,5 +1,4 @@
 import React from 'react';
-import getConfig from 'next/config';
 import { GetServerSideProps } from 'next';
 
 import MetaHead from '../../components/Head/Head';
@@ -12,11 +11,8 @@ import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
 import { fetchHostPlans, fetchAllPlans } from '../../lib/api-fetcher/morphclouds/plans';
 
-import RestClient from '../../lib/RestClient';
 import useResponsive from '../../utils/hooks/useResponsive';
 import styles from './cloudslug.module.scss';
-
-const { BASE_URL } = getConfig().publicRuntimeConfig;
 
 const CloudSlug = (props: any) => {
   const { hostData, hostPlans, allPlans } = props;
