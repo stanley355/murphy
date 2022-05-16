@@ -33,13 +33,15 @@ const CloudSlug = (props: any) => {
     }
   };
 
+  console.log(hostData)
+
   return (
     <div className={styles.cloudslug}>
-      <MetaHead meta={setCloudSlugMeta(hostData)} />
+      {/* <MetaHead meta={setCloudSlugMeta(hostData)} /> */}
       <div className={styles.cloudslug__top}>
         <div className="container">
           <div className={styles.cloudslug__hostbox}>
-            <CloudSlugHead name={hostData.name} url={hostData.url} />
+            {/* <CloudSlugHead name={hostData.name} url={hostData.url} /> */}
             <div className={styles.cloudslug__description}>{hostData.description}</div>
             {setCloudSlugCard()}
           </div>
