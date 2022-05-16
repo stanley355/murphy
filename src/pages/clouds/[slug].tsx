@@ -8,11 +8,12 @@ import CloudSlugPlansDesktop from '../../clients/pages/cloudslug/components/Clou
 import CloudSlugSimilarPlans from '../../clients/pages/cloudslug/components/CloudSlugSimilarPlans';
 import CloudSlugSimilarProducts from '../../clients/pages/cloudslug/components/CloudSlugSimilarProducts';
 import { setCloudSlugMeta } from '../../clients/pages/cloudslug/modules/setCloudSlugMeta';
-import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
+
 import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
 import { fetchHostPlans, fetchAllPlans } from '../../lib/api-fetcher/morphclouds/plans';
 import { fetchAllProducts } from '../../lib/api-fetcher/morphclouds/products';
 
+import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import useResponsive from '../../utils/hooks/useResponsive';
 import styles from './cloudslug.module.scss';
 
@@ -45,7 +46,6 @@ const CloudSlug = (props: any) => {
           </div>
         </div>
       </div>
-      {/* TODO: Put similar products */}
       {hostData.template === 'Plan' ? (
         <CloudSlugSimilarPlans hostID={hostData.id} planList={allPlans} />
       ) : (

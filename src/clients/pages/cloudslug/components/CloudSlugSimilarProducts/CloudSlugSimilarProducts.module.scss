@@ -22,9 +22,12 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: $space--sm;
       margin-bottom: $space--xs;
       border-bottom: 1px solid $color-white;
+
+      div {
+        margin-bottom: $space--xxs;
+      }
 
       div:first-child {
         a {

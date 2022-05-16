@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaBuffer } from 'react-icons/fa';
+import { setProductCategory } from '../../modules/setProductCategory';
 import { setProductPriceDisplay } from '../../modules/setPriceDisplay';
 import styles from './CloudSlugSimilarProducts.module.scss';
 
@@ -18,6 +19,7 @@ const CloudSlugSimilarProducts = (props: ICloudSlugSimilarProducts) => {
       .filter((product: any, i: number) => product.hosts_id !== hostID)
       .filter((product: any, i: number) => i < 6);
 
+      console.log(productList[0].category);
   return (
     <div className={styles.cloudslug__similarproducts}>
       <div className="container">
@@ -31,7 +33,8 @@ const CloudSlugSimilarProducts = (props: ICloudSlugSimilarProducts) => {
                     <Link href={product.product_url}>
                       <a title={product.title}>{product.title}</a>
                     </Link>
-                    <div>Price: {setProductPriceDisplay(product)} </div>
+                    <div>Category: {setProductCategory(product.category)} </div>
+                    <div>Start Price: {setProductPriceDisplay(product)} </div>
                   </div>
                   <Link href={product.product_url}>
                     <a
