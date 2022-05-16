@@ -4,13 +4,13 @@ import { setCloudFilterQuery } from '../../../clients/pages/clouds/module/setClo
 import RestClient from '../../../lib/RestClient';
 const { MORPHCLOUDS_URL, MORPHCLOUDS_TOKEN } = getConfig().publicRuntimeConfig;
 
-const CloudsHostsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+const HostsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   const config = {
-    method: req.method,
+    method: 'GET',
     url: `${MORPHCLOUDS_URL}/api/hosts/${setCloudFilterQuery(req.query)}`,
     headers: {
-      Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`
-    }
+      Authorization: `Bearer ${MORPHCLOUDS_TOKEN}`,
+    },
   };
 
   let response: any;
@@ -26,4 +26,4 @@ const CloudsHostsHandler = async (req: NextApiRequest, res: NextApiResponse) => 
   res.json(response);
 };
 
-export default CloudsHostsHandler;
+export default HostsHandler;

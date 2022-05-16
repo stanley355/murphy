@@ -1,41 +1,44 @@
 import React from 'react';
-import { GetServerSideProps } from 'next';
-import getConfig from 'next/config';
+import { GetStaticProps } from 'next';
 
-import MetaHead from '../components/Head/Head';
+import MetaHead from '../components/Head';
 import { LandingMeta } from '../clients/pages/landing/constant/meta';
-import LandingHero from '../clients/pages/landing/components/LandingHero/LandingHero';
-import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution/LandingCloudSolution';
-import LandingCloudList from '../clients/pages/landing/components/LandingCloudList/LandingCloudList';
+import LandingHero from '../clients/pages/landing/components/LandingHero';
+import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution';
+import LandingCloudList from '../clients/pages/landing/components/LandingCloudList';
+import LandingCloudPlans from '../clients/pages/landing/components/LandingCloudPlans';
+import LandingCloudProducts from '../clients/pages/landing/components/LandingCloudProducts';
+import { fetchAllHosts } from '../lib/api-fetcher/morphclouds/hosts';
+import { fetchAllPlans } from '../lib/api-fetcher/morphclouds/plans';
+import { fetchAllProducts } from '../lib/api-fetcher/morphclouds/products';
 
-import RestClient from '../lib/RestClient';
+const Home = (props: any) => {
+  const { cloudList, planList, productList } = props;
 
-const { BASE_URL } = getConfig().publicRuntimeConfig;
-
-const Home = ({ cloudList }: any) => {
   return (
-    <div className='landing'>
+    <div className="landing">
       <MetaHead meta={LandingMeta} />
       <LandingHero />
       <LandingCloudSolution />
       <LandingCloudList cloudList={cloudList} />
+      <LandingCloudPlans planList={planList} />
+      <LandingCloudProducts productList={productList} />
     </div>
-  )
-}
+  );
+};
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const config = {
-    method: 'GET',
-    url: `${BASE_URL}/api/clouds/hosts/`
-  }
+export const getStaticProps: GetStaticProps = async () => {
+  const hostsData = await fetchAllHosts();
+  const plansData = await fetchAllPlans();
+  const productsData = await fetchAllProducts();
 
-  const data = await RestClient(config, {});
   return {
     props: {
-      cloudList: data
-    }
-  }
-}
-
+      cloudList: hostsData,
+      planList: plansData,
+      productList: productsData
+    },
+  };
+};
 
 export default Home;

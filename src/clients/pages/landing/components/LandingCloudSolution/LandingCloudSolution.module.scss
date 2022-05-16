@@ -59,7 +59,10 @@
     }
 
     &__card {
-      padding: $space--sm;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: $space--xs $space--sm;
       &__title {
         margin: $space--xs 0;
         font-size: $font--xl;

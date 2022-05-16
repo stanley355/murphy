@@ -1,6 +1,10 @@
 # 1. This tells docker to use the official image
 FROM node:14-stretch as builder
 
+ENV MORPHCLOUDS_URL https://morphclouds.herokuapp.com
+
+ENV MORPHCLOUDS_TOKEN wysiati
+
 # 2. Copy the files in your machine to the Docker image
 COPY ./ ./
 
