@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { FaBuffer } from 'react-icons/fa';
 import { setProductCategory } from '../../modules/setProductCategory';
 import { setProductPriceDisplay } from '../../modules/setPriceDisplay';
+import CloudProductDescription from '../CloudProductDescription/CloudProductDescription';
+
 import styles from './CloudSlugSimilarProducts.module.scss';
 
 interface ICloudSlugSimilarProducts {
@@ -44,7 +46,7 @@ const CloudSlugSimilarProducts = (props: ICloudSlugSimilarProducts) => {
                     </a>
                   </Link>
                 </div>
-                <div>{product.description}</div>
+                <CloudProductDescription title={product.title} desc={product.description} url={product.product_url} />
               </div>
             ))}
         </div>
