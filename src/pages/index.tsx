@@ -1,6 +1,5 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
-import getConfig from 'next/config';
 
 import MetaHead from '../components/Head';
 import { LandingMeta } from '../clients/pages/landing/constant/meta';
@@ -10,9 +9,6 @@ import LandingCloudList from '../clients/pages/landing/components/LandingCloudLi
 import LandingCloudPlans from '../clients/pages/landing/components/LandingCloudPlans';
 import { fetchAllHosts } from '../lib/api-fetcher/morphclouds/hosts';
 import { fetchAllPlans } from '../lib/api-fetcher/morphclouds/plans';
-import RestClient from '../lib/RestClient';
-
-const { BASE_URL } = getConfig().publicRuntimeConfig;
 
 const Home = (props: any) => {
   const { cloudList, planList } = props;

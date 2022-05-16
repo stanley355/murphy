@@ -1,7 +1,8 @@
 @import '../../../styles/tokens/all';
 
 .clouds {
-  background: $color-white-transparent;
+  background: url('/images/landing/sky-bg.webp');
+  background-attachment: fixed;
 
   &__menu {
     &__left {
@@ -11,7 +12,7 @@
     @include desktop-view {
       display: grid;
       grid-gap: 1%;
-      grid-template-columns: 24% 75%;      
+      grid-template-columns: 24% 75%;
     }
   }
 }
