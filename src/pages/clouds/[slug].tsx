@@ -6,16 +6,18 @@ import CloudSlugHead from '../../clients/pages/cloudslug/components/CloudSlugHea
 import CloudSlugPlansMobile from '../../clients/pages/cloudslug/components/CloudSlugPlans/Mobile/';
 import CloudSlugPlansDesktop from '../../clients/pages/cloudslug/components/CloudSlugPlans/Desktop/';
 import CloudSlugSimilarPlans from '../../clients/pages/cloudslug/components/CloudSlugSimilarPlans';
+import CloudSlugSimilarProducts from '../../clients/pages/cloudslug/components/CloudSlugSimilarProducts';
 import { setCloudSlugMeta } from '../../clients/pages/cloudslug/modules/setCloudSlugMeta';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
 import { fetchHostPlans, fetchAllPlans } from '../../lib/api-fetcher/morphclouds/plans';
+import { fetchAllProducts } from '../../lib/api-fetcher/morphclouds/products';
 
 import useResponsive from '../../utils/hooks/useResponsive';
 import styles from './cloudslug.module.scss';
 
 const CloudSlug = (props: any) => {
-  const { hostData, hostPlans, allPlans } = props;
+  const { hostData, hostPlans, allPlans, allProducts } = props;
   const { isDesktop } = useResponsive();
 
   const setCloudSlugCard = () => {
@@ -47,7 +49,7 @@ const CloudSlug = (props: any) => {
       {hostData.template === 'Plan' ? (
         <CloudSlugSimilarPlans hostID={hostData.id} planList={allPlans} />
       ) : (
-        ''
+        <CloudSlugSimilarProducts hostID={hostData.id} productList={allProducts} />
       )}
     </div>
   );
@@ -67,11 +69,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     allPlansData = await fetchAllPlans();
   }
 
+  let hostProducts = [];
+  let allProductsData = [];
+
+  if (hostData && hostData.template === 'Product') {
+    // hostPlans = await fetchHostPrs(hostName);
+    allProductsData = await fetchAllProducts();
+  }
+
   return {
     props: {
       hostData: hostData ?? null,
       hostPlans: hostPlans,
       allPlans: allPlansData,
+      allProducts: allProductsData,
     },
   };
 };

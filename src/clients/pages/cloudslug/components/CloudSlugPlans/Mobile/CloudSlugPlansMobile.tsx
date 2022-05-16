@@ -2,7 +2,7 @@ import React from 'react';
 import { FaMoneyCheckAlt } from 'react-icons/fa';
 import Link from 'next/link';
 
-import { setPlanPriceDisplay } from '../../../modules/setPlanPriceDisplay';
+import { setPlanPriceDisplay } from '../../../modules/setPriceDisplay';
 import { setPlanAnalyticDisplay } from '../../../modules/setPlanAnalyticDispla';
 import { setPlanBandwidthDisplay } from '../../../modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../modules/setPlanBuildDisplay';

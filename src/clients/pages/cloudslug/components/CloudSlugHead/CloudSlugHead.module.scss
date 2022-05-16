@@ -5,6 +5,10 @@
   align-items: center;
   flex-direction: row;
 
+  img {
+    border-radius: $space--xs;
+  }
+
   &__title {
     padding: 0 $space--sm;
     font-size: 72px;

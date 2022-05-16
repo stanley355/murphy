@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { setPlanPriceDisplay } from '../../../modules/setPlanPriceDisplay';
+import { setPlanPriceDisplay } from '../../../modules/setPriceDisplay';
 import { setPlanBandwidthDisplay } from '../../../modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../modules/setPlanBuildDisplay';
 import { setPlanConcurrentBuildDisplay } from '../../../modules/setPlanConcurrentBuildDisplay';

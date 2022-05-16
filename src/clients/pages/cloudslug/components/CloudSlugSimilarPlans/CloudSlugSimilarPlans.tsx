@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FaBuffer } from 'react-icons/fa';
 import { setPlanHostURL } from '../../modules/setPlanHostURL';
-import { setPlanPriceDisplay } from '../../modules/setPlanPriceDisplay';
+import { setPlanPriceDisplay } from '../../modules/setPriceDisplay';
 import styles from './CloudSlugSimilarPlans.module.scss';
 
 interface ICloudSlugSimilarPlans {

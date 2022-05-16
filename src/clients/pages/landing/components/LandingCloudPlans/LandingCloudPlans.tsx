@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FaBuffer } from 'react-icons/fa';
 
-import { setPlanPriceDisplay } from '../../../cloudslug/modules/setPlanPriceDisplay';
+import { setPlanPriceDisplay } from '../../../cloudslug/modules/setPriceDisplay';
 import { setPlanHostURL } from '../../../cloudslug/modules/setPlanHostURL';
 import styles from './LandingCloudPlans.module.scss';
 
