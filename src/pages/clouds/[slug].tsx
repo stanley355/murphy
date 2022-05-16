@@ -20,6 +20,19 @@ const CloudSlug = (props: any) => {
   const { hostData, hostPlans, allPlans } = props;
   const { isDesktop } = useResponsive();
 
+  const setCloudSlugCard = () => {
+    switch (hostData.template) {
+      case 'Plan':
+        return isDesktop ? (
+          <CloudSlugPlansDesktop plans={hostPlans} />
+        ) : (
+          <CloudSlugPlansMobile plans={hostPlans} />
+        );
+      default:
+        return '';
+    }
+  };
+
   return (
     <div className={styles.cloudslug}>
       <MetaHead meta={setCloudSlugMeta(hostData)} />
@@ -28,15 +41,16 @@ const CloudSlug = (props: any) => {
           <div className={styles.cloudslug__hostbox}>
             <CloudSlugHead name={hostData.name} url={hostData.url} />
             <div className={styles.cloudslug__description}>{hostData.description}</div>
-            {isDesktop ? (
-              <CloudSlugPlansDesktop plans={hostPlans} />
-            ) : (
-              <CloudSlugPlansMobile plans={hostPlans} />
-            )}
+            {setCloudSlugCard()}
           </div>
         </div>
       </div>
-      <CloudSlugSimilarPlans hostID={hostData.id} planList={allPlans} />
+      {/* TODO: Put similar products */}
+      {hostData.template === 'Plan' ? (
+        <CloudSlugSimilarPlans hostID={hostData.id} planList={allPlans} />
+      ) : (
+        ''
+      )}
     </div>
   );
 };
@@ -71,7 +85,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       hostData: hostData ?? null,
       hostPlans: hostPlans ?? [],
-      allPlans: allPlansData ?? []
+      allPlans: allPlansData ?? [],
     },
   };
 };
