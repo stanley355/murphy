@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaBuffer } from 'react-icons/fa';
+import classNames from 'classnames';
 import { setPlanHostURL } from '../../modules/setPlanHostURL';
 import { setPlanPriceDisplay } from '../../modules/setPriceDisplay';
 import styles from './CloudSlugSimilarPlans.module.scss';
@@ -35,7 +36,7 @@ const CloudSlugSimilarPlans = (props: ICloudSlugSimilarPlans) => {
                     <div>Price: {setPlanPriceDisplay(plan)} </div>
                   </div>
                   <Link href={setPlanHostURL(plan.name)}>
-                    <a className={styles.cloudslug__similarplans__card__cta} title={plan.name}>
+                    <a className={classNames(styles.cloudslug__similarplans__card__cta, "gtm_cta_redirection")} title={plan.name}>
                       <FaBuffer /> Specs
                     </a>
                   </Link>

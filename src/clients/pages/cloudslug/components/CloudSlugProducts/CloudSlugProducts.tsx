@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBuffer } from 'react-icons/fa';
-
+import classNames from 'classnames';
 import CloudProductDescription from '../CloudProductDescription/CloudProductDescription';
 import { setProductCategory } from '../../modules/setProductCategory';
 import { setProductPriceDisplay } from '../../modules/setPriceDisplay';
@@ -28,7 +28,7 @@ const CloudSlugProducts = (props: any) => {
                 </div>
                 <a
                   href={product.product_url}
-                  className={styles.cloudslug__products__card__cta}
+                  className={classNames(styles.cloudslug__products__card__cta, "gtm_cta_redirection")}
                   title={product.title}
                 >
                   <FaBuffer /> Specs

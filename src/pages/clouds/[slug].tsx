@@ -1,5 +1,5 @@
 import React from 'react';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 
 import MetaHead from '../../components/Head/Head';
 import CloudSlugHead from '../../clients/pages/cloudslug/components/CloudSlugHead';
@@ -10,13 +10,14 @@ import CloudSlugProducts from '../../clients/pages/cloudslug/components/CloudSlu
 import CloudSlugSimilarProducts from '../../clients/pages/cloudslug/components/CloudSlugSimilarProducts';
 import { setCloudSlugMeta } from '../../clients/pages/cloudslug/modules/setCloudSlugMeta';
 
-import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
+import { fetchSingleHost, fetchAllHostNames } from '../../lib/api-fetcher/morphclouds/hosts';
 import { fetchHostPlans, fetchAllPlans } from '../../lib/api-fetcher/morphclouds/plans';
 import { fetchHostProducts, fetchAllProducts } from '../../lib/api-fetcher/morphclouds/products';
 
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import useResponsive from '../../utils/hooks/useResponsive';
 import styles from './cloudslug.module.scss';
+import { slugify } from '../../utils/slugify';
 
 interface ICloudSlug {
   hostData: any;
@@ -38,8 +39,10 @@ const CloudSlug = (props: ICloudSlug) => {
         ) : (
           <CloudSlugPlansMobile plans={hostPlans} />
         );
-      default:
+      case 'Product':
         return <CloudSlugProducts products={hostProducts} />;
+      default:
+        return '';
     }
   };
 
@@ -64,7 +67,7 @@ const CloudSlug = (props: ICloudSlug) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
 
   const hostName = params && capitalizeFirstLetter(params.slug);
@@ -94,7 +97,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       hostProducts: hostProducts,
       allProducts: allProductsData,
     },
+    revalidate: 2 * 60 // 2 minutes
   };
 };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const hostNames = await fetchAllHostNames();
+  const pathList = hostNames && hostNames.map((hostName: string) => { return { params: { slug: slugify(hostName) } } });
+
+  return {
+    paths: pathList ?? [],
+    fallback: false,
+  }
+
+}
 
 export default CloudSlug;

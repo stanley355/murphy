@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { slugify } from '../../../../../utils/slugify';
-
+import classNames from 'classnames';
 import styles from './LandingCloudList.module.scss';
 
 const LandingCloudList = (props: any) => {
@@ -15,7 +15,7 @@ const LandingCloudList = (props: any) => {
         <div className={styles.landing__cloudlist__list}>
           {cloudList && cloudList.map((cloud: any) =>
             <Link href={`/clouds/${slugify(cloud.name.toLowerCase())}`} key={cloud.name}>
-              <a title={cloud.name} className={styles.landing__cloudlist__card}>
+              <a title={cloud.name} className={classNames(styles.landing__cloudlist__card, "gtm_img_redirection")}>
                 <img
                   src={`/images/clouds/${slugify(cloud.name.toLowerCase())}.webp`}
                   alt={cloud.name}

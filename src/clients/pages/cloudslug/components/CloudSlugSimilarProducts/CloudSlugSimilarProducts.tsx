@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaBuffer } from 'react-icons/fa';
+import classNames from 'classnames';
 import { setProductCategory } from '../../modules/setProductCategory';
 import { setProductPriceDisplay } from '../../modules/setPriceDisplay';
 import CloudProductDescription from '../CloudProductDescription/CloudProductDescription';
@@ -39,7 +40,7 @@ const CloudSlugSimilarProducts = (props: ICloudSlugSimilarProducts) => {
                   </div>
                   <Link href={product.product_url}>
                     <a
-                      className={styles.cloudslug__similarproducts__card__cta}
+                      className={classNames(styles.cloudslug__similarproducts__card__cta, "gtm_cta_redirection")}
                       title={product.title}
                     >
                       <FaBuffer /> Specs
