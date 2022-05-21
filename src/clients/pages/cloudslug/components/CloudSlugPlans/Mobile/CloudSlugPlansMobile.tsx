@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaMoneyCheckAlt } from 'react-icons/fa';
 import Link from 'next/link';
-
+import classNames from 'classnames';
 import { setPlanPriceDisplay } from '../../../modules/setPriceDisplay';
 import { setPlanAnalyticDisplay } from '../../../modules/setPlanAnalyticDispla';
 import { setPlanBandwidthDisplay } from '../../../modules/setPlanBandwidthDisplay';
@@ -33,7 +33,7 @@ const CloudSlugPlansMobile = (props: ICloudSlugPlans) => {
         </div>
 
         <Link href={plan.plan_url}>
-          <a title={plan.name} className={styles.cloudslug__plansmobile__card__head__link}>Purchase</a>
+          <a title={plan.name} className={classNames(styles.cloudslug__plansmobile__card__head__link, "gtm_cta_redirection")}>Purchase</a>
         </Link>
       </div>
     )

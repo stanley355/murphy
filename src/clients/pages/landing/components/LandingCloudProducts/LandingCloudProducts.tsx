@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaBuffer } from 'react-icons/fa';
+import classNames from 'classnames';
 import { setProductCategory } from '../../../cloudslug/modules/setProductCategory';
 import { setProductPriceDisplay } from '../../../cloudslug/modules/setPriceDisplay';
 import CloudProductDescription from '../../../cloudslug/components/CloudProductDescription/CloudProductDescription';
@@ -13,7 +14,7 @@ const LandingCloudProducts = (props: any) => {
   return (
     <div className={styles.landing__cloudproducts}>
       <div className="container">
-        <div className={styles.landing__cloudproducts__title}>Check customizable products for your App: </div>
+        <div className={styles.landing__cloudproducts__titl}>Check customizable products for your App: </div>
         <div className={styles.landing__cloudproducts__cardList}>
           {productList.length > 0 &&
             productList.map((product: any) => (
@@ -21,14 +22,14 @@ const LandingCloudProducts = (props: any) => {
                 <div className={styles.landing__cloudproducts__card__head}>
                   <div>
                     <Link href={product.product_url}>
-                      <a title={product.title}>{product.title}</a>
+                      <a title={product.title} >{product.title}</a>
                     </Link>
                     <div>Category: {setProductCategory(product.category)} </div>
                     <div>Start Price: {setProductPriceDisplay(product)} </div>
                   </div>
                   <Link href={product.product_url}>
                     <a
-                      className={styles.landing__cloudproducts__card__cta}
+                      className={classNames(styles.landing__cloudproducts__card__cta, "gtm_cta_redirection")}
                       title={product.title}
                     >
                       <FaBuffer /> Specs

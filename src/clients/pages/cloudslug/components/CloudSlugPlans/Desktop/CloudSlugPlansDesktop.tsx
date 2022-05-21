@@ -92,7 +92,7 @@ const CloudSlugPlansDesktop = (props: ICloudSlugPlans) => {
             <td></td>  {/* Dont remove this td */}
             {plans.map((plan) =>
               <td key={plan.name}>
-                <a href={plan.plan_url}>Purchase</a>
+                <a href={plan.plan_url} className="gtm_cta_redirection">Purchase</a>
               </td>)}
           </tr>
         </tbody>

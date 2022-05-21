@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import classNames from 'classnames';
 import styles from './CloudList.module.scss';
 import { slugify } from '../../../../../utils/slugify';
 interface CloudListInterface {
@@ -39,13 +40,13 @@ const CloudList = (props: CloudListInterface) => {
           <div className={styles.cloud__list__card__head__title}>{host.name}</div>
           <div className={styles.cloud__list__card__head__linkcontainer}>
             <Link href={host.url}>
-              <a title={host.name} className={styles.cloud__list__card__head__weblink}>
+              <a title={host.name} className={classNames(styles.cloud__list__card__head__weblink, "gtm_cta_redirection")}>
                 Website
               </a>
             </Link>
 
             <Link href={`/clouds/${slugify(host.name)}`} >
-              <a title={host.name} className={styles.cloud__list__card__head__productlink} >
+              <a title={host.name} className={classNames(styles.cloud__list__card__head__productlink, "gtm_cta_redirection")} >
                 {host.template === 'Plan' ? ' Plans' : 'Products'}
               </a>
             </Link>
