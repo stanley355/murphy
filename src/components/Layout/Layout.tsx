@@ -31,10 +31,10 @@ const Layout = ({ children }: any) => {
   };
 
   // Initialize Firebase
-  useEffect(() => {
     const app = initializeApp(firebaseConfig);
-    if (APP_ENV === 'production') getAnalytics(app);
-  }, []);
+    if (app.name && typeof window !== 'undefined') {
+      if (APP_ENV === 'production') getAnalytics(app);
+    }
 
   return (
     <div className="">
