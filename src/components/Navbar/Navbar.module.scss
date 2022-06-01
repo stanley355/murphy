@@ -2,15 +2,18 @@
 
 .navbar {
   background: $color-black;
-  width: 100%;
-  padding: $space--sm;
+  height: 65px;
 }
 
 
 .navbar__mobileNav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $space--sm;
+  }
 
   &__logo {
     font-weight: bold;
@@ -24,7 +27,6 @@
     font-size: $font--xxxl;
     color: $color-white;
     padding-top: $space--xs;
-
   }
 
 
