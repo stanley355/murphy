@@ -4,35 +4,3 @@
   background: $color-black;
   height: 65px;
 }
-
-
-.navbar__mobileNav {
-  position: relative;
-  &__head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: $space--sm;
-  }
-
-  &__logo {
-    font-weight: bold;
-    font-size: $font--xxxl;
-    color: $color-white;
-  }
-
-  &__menuBtn {
-    background: none;
-    border: none;
-    font-size: $font--xxxl;
-    color: $color-white;
-    padding-top: $space--xs;
-  }
-
-
-  @include desktop-view {
-    &__logo {
-      font-size: 36px;
-    }
-  }
-}
