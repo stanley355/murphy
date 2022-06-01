@@ -4,6 +4,10 @@
   background: $color-black;
   width: 100%;
   padding: $space--sm;
+}
+
+
+.navbar__mobileNav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,9 +22,9 @@
     background: none;
     border: none;
     font-size: $font--xxxl;
-    color:$color-white;
+    color: $color-white;
     padding-top: $space--xs;
-    
+
   }
 
 
