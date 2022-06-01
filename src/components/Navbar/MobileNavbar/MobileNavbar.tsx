@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaBuffer, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
-
+import { NAVIGATION_MENU } from '../../../lib/constant';
 import styles from './MobileNavbar.module.scss';
 
 const MobileNavbar = () => {
@@ -21,6 +21,19 @@ const MobileNavbar = () => {
 					<button className={styles.mobileNavbar__menu__closeBtn} onClick={() => setShowMobileMenu(false)}>
 						<FaTimes />
 					</button>
+				</div>
+				<div className={styles.mobileNavbar__menu__body}>
+					<ul>
+						{NAVIGATION_MENU.map((menu) =>
+							<li>
+								<Link href={menu.url}>
+									<a title={menu.title}>
+										{menu.title}
+									</a>
+								</Link>
+							</li>
+						)}
+					</ul>
 				</div>
 			</div>
 		);
