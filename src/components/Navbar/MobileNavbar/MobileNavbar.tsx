@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { FaBuffer, FaTimes, FaJsfiddle } from 'react-icons/fa';
 import Link from 'next/link';
+import { FaBuffer, FaTimes, FaJsfiddle } from 'react-icons/fa';
 import { NAVIGATION_MENU } from '../../../lib/constant';
 import styles from './MobileNavbar.module.scss';
 
