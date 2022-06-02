@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaBuffer, FaTimes } from 'react-icons/fa';
+import { FaBuffer, FaTimes, FaJsfiddle } from 'react-icons/fa';
 import Link from 'next/link';
 import { NAVIGATION_MENU } from '../../../lib/constant';
 import styles from './MobileNavbar.module.scss';
@@ -47,6 +47,7 @@ const MobileNavbar = () => {
 					<a
 						title="Marph"
 						className={styles.mobileNavbar__logo} >
+						<FaJsfiddle />
 						Marph
 					</a>
 				</Link>

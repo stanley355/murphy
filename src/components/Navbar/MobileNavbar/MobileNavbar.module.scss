@@ -6,28 +6,26 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: $space--sm;
+		padding: $space--sm $space--xs;
 	}
 
 	&__logo {
-		font-weight: bold;
 		font-size: $font--xxxl;
-		color: $color-white;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color:$color-black;
+		svg {
+			font-size: 32px;
+			margin-right: $space--xxs;
+		}
 	}
 
 	&__menuBtn {
 		background: none;
 		border: none;
-		font-size: $font--xxxl;
-		color: $color-white;
+		font-size: $font--xxl;
 		padding-top: $space--xs;
-	}
-
-
-	@include desktop-view {
-		&__logo {
-			font-size: 36px;
-		}
 	}
 }
 
