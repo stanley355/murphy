@@ -1,40 +1,6 @@
 @import './../../../styles/tokens/all.scss';
 
 .navbar {
-  background: url('/images/landing/sky-bg.webp');
-  background-attachment: fixed;
-  width: 100%;
-  padding: $space--md $space--md;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  &__logo {
-    font-weight: bold;
-    font-size: $font--xxxl;
-    color: $color-white;
-  }
-
-  &__cloudBtn {
-    padding-top: $space--xs;
-    background: none;
-    border: none;
-    color: $color-white;
-
-    svg {
-      font-size: $font--xxxl;
-    }
-  }
-
-  @include desktop-view {
-    &__logo {
-      font-size: 36px;
-    }
-
-    &__cloudBtn {
-      svg {
-        font-size: 42px;
-      }
-    }
-  }
+  background: $color-white;
+  height: 65px;
 }

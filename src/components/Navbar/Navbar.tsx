@@ -1,25 +1,17 @@
 import React from 'react';
-import Link from 'next/link';
 import styles from './Navbar.module.scss';
-import { FaCloud } from "react-icons/fa";
+
+import MobileNavbar from './MobileNavbar';
+import DesktopNavbar from './DesktopNavbar';
+import useResponsive from '../../utils/hooks/useResponsive';
 
 const Navbar = () => {
+
+  const { isDesktop } = useResponsive();
+
   return (
     <header className={styles.navbar}>
-      <Link href="/">
-        <a
-          title="Marph"
-          className={styles.navbar__logo} >
-          Marph
-        </a>
-      </Link>
-      <Link href="/clouds">
-        <a
-          title="Marph"
-          className={styles.navbar__cloudBtn} >
-          <FaCloud />
-        </a>
-      </Link>
+      {isDesktop ? <DesktopNavbar /> : <MobileNavbar />}
     </header>
   );
 }
