@@ -1,6 +1,7 @@
 @import './../../../styles/tokens/all.scss';
 
 .navbar {
-  background: $color-white;
-  height: 65px;
+  background: $color-blue;
+  box-shadow: $box-shadow-color;
+  height: 60px;
 }

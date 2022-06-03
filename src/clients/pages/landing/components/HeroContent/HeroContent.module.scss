@@ -1,0 +1,13 @@
+@import '../../../../../../styles/tokens/all';
+
+.heroContent {
+  background: $color-blue;
+  padding: $space--xs;
+
+  h1 {
+    margin: 0;
+    font-size: $font--xxl;
+    color:$color-white;
+    text-align: center;
+  }
+}
