@@ -11,13 +11,17 @@ import styles from './LandingCloudProducts.module.scss';
 const LandingCloudProducts = (props: any) => {
   const { productList } = props;
 
+  const filteredProductList =
+    productList.length > 0 ?
+      productList.filter((product: string, index: number) => index < 16) : []
+
   return (
     <div className={styles.landing__cloudproducts}>
       <div className="container">
-        <div className={styles.landing__cloudproducts__titl}>Check customizable products for your App: </div>
+        <div className={styles.landing__cloudproducts__title}>Check customizable products for your App: </div>
         <div className={styles.landing__cloudproducts__cardList}>
-          {productList.length > 0 &&
-            productList.map((product: any) => (
+          {filteredProductList.length > 0 &&
+            filteredProductList.map((product: any) => (
               <div className={styles.landing__cloudproducts__card} key={product.title}>
                 <div className={styles.landing__cloudproducts__card__head}>
                   <div>
