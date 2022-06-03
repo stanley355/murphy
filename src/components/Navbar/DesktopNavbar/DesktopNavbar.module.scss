@@ -1,0 +1,59 @@
+@import '../../../../styles/tokens/all.scss';
+
+.desktopNavbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space--xs $space--sm;
+
+	&__logo {
+		font-size: 30px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		color:$color-white;
+    padding: $space--xxs;
+    border-radius: $space--xxs;
+		svg {
+			font-size: 40px;
+			margin-right: $space--xxs;
+		}
+
+    
+	}
+  &__logo:hover {
+    background: $color-black;
+    color:$color-white;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    a {
+      font-size: $font--xl;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: $space--sm;
+      padding: $space--xxs;
+      border-radius: $space--xxs;
+      border: 1px solid $color-white;
+      color:$color-white;
+
+      svg {
+        margin-right: $space--xxs;
+      }      
+    }
+
+    a:first-child svg {
+      font-size: $font--xxl;
+    }
+
+    a:hover {
+      background: $color-black;
+      color:$color-white;
+    }
+  }
+}

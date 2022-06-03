@@ -2,12 +2,16 @@ import React from 'react';
 import styles from './Navbar.module.scss';
 
 import MobileNavbar from './MobileNavbar';
+import DesktopNavbar from './DesktopNavbar';
+import useResponsive from '../../utils/hooks/useResponsive';
 
 const Navbar = () => {
 
+  const { isDesktop } = useResponsive();
+
   return (
     <header className={styles.navbar}>
-      <MobileNavbar />
+      {isDesktop ? <DesktopNavbar /> : <MobileNavbar />}
     </header>
   );
 }
