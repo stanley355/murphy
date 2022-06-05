@@ -18,11 +18,11 @@ const Home = (props: any) => {
   return (
     <div className="landing">
       <MetaHead meta={LandingMeta} />
-      <HeroContent />
-      <LandingCloudSolution />
-      <LandingCloudList cloudList={cloudList} />
-      <LandingCloudPlans planList={planList} />
-      <LandingCloudProducts productList={productList} />
+        <HeroContent />
+        <LandingCloudSolution />
+        <LandingCloudList cloudList={cloudList} />
+        <LandingCloudPlans planList={planList} />
+        <LandingCloudProducts productList={productList} />
     </div>
   );
 };

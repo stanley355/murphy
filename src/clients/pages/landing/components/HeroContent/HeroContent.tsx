@@ -46,7 +46,7 @@ const HeroContent = () => {
         <h1>One Stop for All Web Services</h1>
         <div className={styles.heroContent__menu}>
           {HeroMenu.map((menu: any) =>
-              <Link href={menu.url}>
+              <Link href={menu.url} key={menu.title}>
                 <a title={menu.title} className={styles.heroContent__menu__card}>
                   {menu.icon}
                   {menu.title}
