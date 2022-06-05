@@ -5,7 +5,6 @@ import MetaHead from '../components/Head';
 import { LandingMeta } from '../clients/pages/landing/constant/meta';
 import HeroContent from '../clients/pages/landing/components/HeroContent';
 import AppSolutions from '../clients/pages/landing/components/AppSolutions';
-import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution';
 import LandingCloudList from '../clients/pages/landing/components/LandingCloudList';
 import LandingCloudPlans from '../clients/pages/landing/components/LandingCloudPlans';
 import LandingCloudProducts from '../clients/pages/landing/components/LandingCloudProducts';
