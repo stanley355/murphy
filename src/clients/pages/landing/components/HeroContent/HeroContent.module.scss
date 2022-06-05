@@ -2,18 +2,30 @@
 
 .heroContent {
   background: $color-blue;
-  @include desktop-view {
-    padding-bottom: $space--sm;
-  }
+  padding: $space--sm 0;
 
   h1 {
-    margin: 0 0 $space--sm;
-    font-size: $font--xxl;
+    margin: 0;
+    padding-bottom: $space--sm;
+    font-size: 42px;
     color:$color-white;
     text-align: center;
+    border-bottom: 1px solid $color-white;
 
     @include desktop-view {
       font-size: 42px;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font--lg;
+    color:$color-white;
+    text-align: center;
+    line-height: 1.5;
+    margin: $space--xs;
+
+    @include desktop-view {
+      font-size: $font--xxl;
     }
   }
 

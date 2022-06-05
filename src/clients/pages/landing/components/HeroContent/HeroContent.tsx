@@ -44,6 +44,9 @@ const HeroContent = () => {
     <div className={styles.heroContent}>
       <div className="container">
         <h1>One Stop for All Web Services</h1>
+        <div className={styles.heroContent__subtitle}>
+          Explore hundreds of services to help you build large scale application fast and robust
+        </div>
         <div className={styles.heroContent__menu}>
           {HeroMenu.map((menu: any) =>
               <Link href={menu.url} key={menu.title}>
