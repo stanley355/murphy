@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next';
 import MetaHead from '../components/Head';
 import { LandingMeta } from '../clients/pages/landing/constant/meta';
 import HeroContent from '../clients/pages/landing/components/HeroContent';
-import LandingCloudSolution from '../clients/pages/landing/components/LandingCloudSolution';
+import AppSolutions from '../clients/pages/landing/components/AppSolutions';
 import LandingCloudList from '../clients/pages/landing/components/LandingCloudList';
 import LandingCloudPlans from '../clients/pages/landing/components/LandingCloudPlans';
 import LandingCloudProducts from '../clients/pages/landing/components/LandingCloudProducts';
@@ -18,11 +18,11 @@ const Home = (props: any) => {
   return (
     <div className="landing">
       <MetaHead meta={LandingMeta} />
-      <HeroContent />
-      <LandingCloudSolution />
-      <LandingCloudList cloudList={cloudList} />
-      <LandingCloudPlans planList={planList} />
-      <LandingCloudProducts productList={productList} />
+        <HeroContent />
+        <AppSolutions />
+        <LandingCloudList cloudList={cloudList} />
+        <LandingCloudPlans planList={planList} />
+        <LandingCloudProducts productList={productList} />
     </div>
   );
 };
