@@ -1,0 +1,15 @@
+@import '../../../../../../styles/tokens/all';
+
+.appSolutions {
+  &__card {
+    border: 1px solid $color-black;
+    padding: $space--xs;
+    margin-bottom: $space--xs;
+
+    &__imgContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
