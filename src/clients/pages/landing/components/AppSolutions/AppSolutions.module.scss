@@ -1,6 +1,20 @@
 @import '../../../../../../styles/tokens/all';
 
 .appSolutions {
+  @include desktop-view {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+
+    &__card {
+      margin:  $space--sm $space--xs;
+      padding: $space--sm;
+
+      img {
+        width: 95%;
+      }
+    }
+  }
+
   &__card {
     border: 1px solid $color-black;
     padding: $space--xs;
@@ -10,6 +24,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    div {
+      font-size: $font--md;
+    }
+
+    &__title {
+      font-weight: bold;
     }
   }
 }
