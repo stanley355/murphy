@@ -1,0 +1,48 @@
+@import '../../../../../../styles/tokens/all';
+
+.plansCarousel {
+  padding-bottom: $space--lg;
+  h2 {
+    text-align: center;
+  }
+  &__card {
+    @include desktop-view {
+      border: 2px solid $color-white;
+    }
+    border-radius: $space--xs;
+    font-size: $font--xl;
+    background: $color-blue;
+    color:$color-white;
+    position: relative;
+
+    &__head {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: $space--sm;
+      div:first-child {
+        font-weight: bold;
+      }
+      div:last-child {
+        font-weight: bold;
+        color:$color-green-light;
+      }
+    }
+
+    &__description {
+      padding: 0 $space--sm;
+      margin-bottom: $space--lg;
+    }
+
+    &__cta {
+      position: absolute;
+      left: 2.5%;
+      bottom: 5%;
+      width: 95%;
+      background: $color-green-dark;
+      padding: $space--xs;
+      border-radius: $space--xs;
+      text-align: center;
+    }
+  }
+}
