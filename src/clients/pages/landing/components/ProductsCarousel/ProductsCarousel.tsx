@@ -22,8 +22,6 @@ const ProductsCarousel = (props: productsCarouselInterface) => {
     return desc;
   }
 
-  console.log(productList[0]);
-
   return (
     <div className={styles.productsCarousel}>
       <div className="container">
