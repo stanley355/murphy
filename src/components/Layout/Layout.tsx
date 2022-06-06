@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import getConfig from 'next/config';
+import Head from 'next/head';
 
 import Navbar from '../Navbar';
 import Footer from '../Footer';
@@ -31,13 +32,21 @@ const Layout = ({ children }: any) => {
   };
 
   // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    if (app.name && typeof window !== 'undefined') {
-      if (APP_ENV === 'production') getAnalytics(app);
-    }
+  const app = initializeApp(firebaseConfig);
+  if (app.name && typeof window !== 'undefined') {
+    if (APP_ENV === 'production') getAnalytics(app);
+  }
 
   return (
-    <div className="">
+    <div className="layout">
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" charSet='UTF-8' />
+        <meta name="theme-color" media="(prefers-color-scheme: #cbdaff)" content="#cbdaff"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+      </Head>
       <Navbar />
       {children}
       <Footer />

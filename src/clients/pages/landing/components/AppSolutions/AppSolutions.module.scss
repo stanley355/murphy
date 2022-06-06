@@ -1,12 +1,19 @@
 @import '../../../../../../styles/tokens/all';
 
 .appSolutions {
+  h2 {
+    text-align: center;
+  }
+
+
   @include desktop-view {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    &__list {
+      display: grid;
+      grid-template-columns: 25% 25% 25% 25%;
+    }
 
     &__card {
-      margin:  $space--sm $space--xs;
+      margin: $space--sm $space--xs;
       padding: $space--sm;
 
       img {

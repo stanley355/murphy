@@ -31,12 +31,6 @@ const MetaHead = (props: IMeta) => {
       <link rel="canonical" key="canonical" href={meta.url} />
       <meta name='keywords' content={meta.keywords} />
       <meta name='description' content={meta.description} />
-      <meta charSet="utf-8" />
-      <meta name="mobile-web-app-capable" content="yes" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" charSet='UTF-8' />
-      <meta name="theme-color" media="(prefers-color-scheme: #cbdaff)" content="#cbdaff"></meta>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-      <meta name="robots" content="index, follow" />
       <meta property="og:locale" content="en_EN" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={meta.openGraph.title} />
