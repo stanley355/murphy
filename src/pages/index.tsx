@@ -8,13 +8,15 @@ import AppSolutions from '../clients/pages/landing/components/AppSolutions';
 import Partners from '../clients/pages/landing/components/Partners';
 import PlansCarousel from '../clients/pages/landing/components/PlansCarousel';
 import ProductsCarousel from '../clients/pages/landing/components/ProductsCarousel';
+import NewsCarousel from '../components/NewsCarousel';
 
 import { fetchAllPlans } from '../lib/api-fetcher/morphclouds/plans';
 import { fetchAllProducts } from '../lib/api-fetcher/morphclouds/products';
 import { fetchAllHostNames } from '../lib/api-fetcher/morphclouds/hosts';
+import { fetchNews } from '../lib/api-fetcher/external/newsapi';
 
 const Home = (props: any) => {
-  const { partnerList, planList, productList } = props;
+  const { partnerList, planList, productList, newsList } = props;
 
   return (
     <div className="landing">
@@ -23,7 +25,8 @@ const Home = (props: any) => {
       <AppSolutions />
       {partnerList && <Partners partnerList={partnerList} />}
       {planList && <PlansCarousel planList={planList} />}
-      {productList && <ProductsCarousel productList={productList} /> }
+      {productList && <ProductsCarousel productList={productList} />}
+      {newsList?.articles.length > 0 && <NewsCarousel articles={newsList.articles} />}
     </div>
   );
 };
@@ -32,12 +35,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const hostNames = await fetchAllHostNames();
   const plansData = await fetchAllPlans();
   const productsData = await fetchAllProducts();
+  const newsData = await fetchNews('web');
 
   return {
     props: {
       partnerList: hostNames,
       planList: plansData,
-      productList: productsData
+      productList: productsData,
+      newsList: newsData
     },
   };
 };
