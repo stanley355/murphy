@@ -4,7 +4,7 @@ import styles from './Partners.module.scss';
 import { slugify } from '../../../../../utils/slugify';
 
 interface PartnersInterface {
-  partnerList: any
+  partnerList: [string]
 }
 
 const Partners = (props: PartnersInterface) => {
