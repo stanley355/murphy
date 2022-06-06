@@ -9,5 +9,6 @@ module.exports = {
     MORPHCLOUDS_URL:process.env.MORPHCLOUDS_URL,
     MORPHCLOUDS_TOKEN: process.env.MORPHCLOUDS_TOKEN,
     FIREBASE_APIKEY: process.env.FIREBASE_APIKEY,
+    NEWSAPI_KEY: process.env.NEWSAPI_KEY
   }
 }

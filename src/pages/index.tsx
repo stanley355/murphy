@@ -12,9 +12,10 @@ import ProductsCarousel from '../clients/pages/landing/components/ProductsCarous
 import { fetchAllPlans } from '../lib/api-fetcher/morphclouds/plans';
 import { fetchAllProducts } from '../lib/api-fetcher/morphclouds/products';
 import { fetchAllHostNames } from '../lib/api-fetcher/morphclouds/hosts';
+import { fetchNews } from '../lib/api-fetcher/external/newsapi';
 
 const Home = (props: any) => {
-  const { partnerList, planList, productList } = props;
+  const { partnerList, planList, productList, newsList } = props;
 
   return (
     <div className="landing">
@@ -32,12 +33,14 @@ export const getStaticProps: GetStaticProps = async () => {
   const hostNames = await fetchAllHostNames();
   const plansData = await fetchAllPlans();
   const productsData = await fetchAllProducts();
+  const newsData = await fetchNews('web');
 
   return {
     props: {
       partnerList: hostNames,
       planList: plansData,
-      productList: productsData
+      productList: productsData,
+      newsList: newsData
     },
   };
 };
