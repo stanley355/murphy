@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import { setPlanPriceDisplay } from '../../../cloudslug/modules/setPriceDisplay';
 import { setPlanHostURL } from '../../../cloudslug/modules/setPlanHostURL';
@@ -29,7 +29,7 @@ const PlansCarousel = (props: PlansCarouselInterface) => {
         <h2>Hosting Plans</h2>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={isDesktop ? 70 : 60}
+          naturalSlideHeight={isDesktop ? 75 : 60}
           infinite={true}
           visibleSlides={isDesktop ? 3 : 1}
           isPlaying={true}

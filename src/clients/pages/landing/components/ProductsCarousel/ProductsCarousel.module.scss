@@ -1,6 +1,6 @@
 @import '../../../../../../styles/tokens/all';
 
-.plansCarousel {
+.productsCarousel {
   padding-bottom: $space--lg;
   h2 {
     text-align: center;
@@ -9,7 +9,7 @@
     @include desktop-view {
       border: 2px solid $color-white;
     }
-    border-radius: $space--xs;
+    border-radius: $space--sm;
     font-size: $font--xl;
     background: $color-blue;
     color:$color-white;
