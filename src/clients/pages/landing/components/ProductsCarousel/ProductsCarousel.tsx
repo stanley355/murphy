@@ -37,12 +37,11 @@ const ProductsCarousel = (props: productsCarouselInterface) => {
           <Slider>
             {productList.map((product: any, index: number) => {
               return (
-                <Slide index={index} key={product.name} className={styles.productsCarousel__card}>
+                <Slide index={index} key={product.title} className={styles.productsCarousel__card}>
                   <div className={styles.productsCarousel__card__head}>
                     <div>{product.title}</div>
                     <div>{setProductCategory(product.category)}</div>
                     <div>{setProductPriceDisplay(product)}</div>
-                    
                   </div>
                   <div className={styles.productsCarousel__card__description}>
                     {setProductDescriptionDisplay(product.description)}
