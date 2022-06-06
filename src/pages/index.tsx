@@ -6,9 +6,9 @@ import { LandingMeta } from '../clients/pages/landing/constant/meta';
 import HeroContent from '../clients/pages/landing/components/HeroContent';
 import AppSolutions from '../clients/pages/landing/components/AppSolutions';
 import Partners from '../clients/pages/landing/components/Partners';
+import PlansCarousel from '../clients/pages/landing/components/PlansCarousel';
+import ProductsCarousel from '../clients/pages/landing/components/ProductsCarousel';
 
-import LandingCloudPlans from '../clients/pages/landing/components/LandingCloudPlans';
-import LandingCloudProducts from '../clients/pages/landing/components/LandingCloudProducts';
 import { fetchAllPlans } from '../lib/api-fetcher/morphclouds/plans';
 import { fetchAllProducts } from '../lib/api-fetcher/morphclouds/products';
 import { fetchAllHostNames } from '../lib/api-fetcher/morphclouds/hosts';
@@ -22,8 +22,8 @@ const Home = (props: any) => {
       <HeroContent />
       <AppSolutions />
       {partnerList && <Partners partnerList={partnerList} />}
-      <LandingCloudPlans planList={planList} />
-      <LandingCloudProducts productList={productList} />
+      {planList && <PlansCarousel planList={planList} />}
+      {productList && <ProductsCarousel productList={productList} /> }
     </div>
   );
 };
