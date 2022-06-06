@@ -12,7 +12,7 @@ export const fetchNews = async (keyword: string) => {
 
   const newsApiRequest = {
     method: 'GET',
-    url: `https://newsapi.org/v2/everything?q=${keyword}&from=${currentDate}&sortBy=popularity&language=en`,
+    url: `https://newsapi.org/v2/everything?q=${keyword}&from=${currentDate}&sortBy=relevancy&language=en`,
     headers: {
       'X-Api-Key': NEWSAPI_KEY
     }

@@ -1,0 +1,36 @@
+@import './../../../styles/tokens/all.scss';
+
+.newsCarousel {
+
+  @include desktop-view {
+    padding-bottom: $space--sm;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  &__card {
+    border-radius: $space--xs;
+
+    img {
+      width: 100%;
+      border-radius: $space--xs $space--xs 0 0;
+    }
+
+    &__title {
+      padding: $space--xs;
+      font-size: $font--xl;
+      font-weight: bold;
+    }
+
+    &__description {
+      padding: $space--xs;
+      font-size: $font--lg;
+
+      span {
+        color: $color-blue;
+      }
+    }
+  }
+}
