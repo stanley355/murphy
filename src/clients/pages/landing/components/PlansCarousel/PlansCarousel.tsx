@@ -29,7 +29,7 @@ const PlansCarousel = (props: PlansCarouselInterface) => {
         <h2>Hosting Plans</h2>
         <CarouselProvider
           naturalSlideWidth={100}
-          naturalSlideHeight={isDesktop ? 70 : 60}
+          naturalSlideHeight={isDesktop ? 75 : 60}
           infinite={true}
           visibleSlides={isDesktop ? 3 : 1}
           isPlaying={true}

@@ -16,12 +16,10 @@
     position: relative;
 
     &__head {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
       padding: $space--sm;
       div:first-child {
         font-weight: bold;
+        font-size: $font--xxl;
       }
       div:last-child {
         font-weight: bold;
