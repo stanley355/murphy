@@ -7,7 +7,7 @@ import HeroContent from '../clients/pages/landing/components/HeroContent';
 import AppSolutions from '../clients/pages/landing/components/AppSolutions';
 import Partners from '../clients/pages/landing/components/Partners';
 import PlansCarousel from '../components/Carousels/PlansCarousel';
-import ProductsCarousel from '../clients/pages/landing/components/ProductsCarousel';
+import ProductsCarousel from '../components/Carousels/ProductsCarousel';
 import NewsCarousel from '../components/Carousels/NewsCarousel';
 
 import { fetchAllPlans } from '../lib/api-fetcher/morphclouds/plans';
@@ -25,7 +25,7 @@ const Home = (props: any) => {
       <AppSolutions />
       {partnerList && <Partners partnerList={partnerList} />}
       {planList && <PlansCarousel carouselTitle='Hosting Plans' carouselItems={planList} />}
-      {productList && <ProductsCarousel productList={productList} />}
+      {productList && <ProductsCarousel carouselTitle='Web Services' carouselItems={productList} />}
       {newsList?.articles.length > 0 && <NewsCarousel carouselTitle='Tech Related News' carouselItems={newsList.articles} />}
     </div>
   );

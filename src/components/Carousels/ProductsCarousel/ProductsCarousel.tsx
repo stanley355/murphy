@@ -2,17 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import { setProductPriceDisplay } from '../../../cloudslug/modules/setPriceDisplay';
-import { setProductCategory } from '../../../cloudslug/modules/setProductCategory';
-import useResponsive from '../../../../../utils/hooks/useResponsive';
 import styles from './ProductsCarousel.module.scss';
 
-interface productsCarouselInterface {
-  productList: [any]
-}
+import { CarouselInterface } from '../../../clients/common/interfaces/CarouselInterface';
+import { setProductPriceDisplay } from '../../../clients/pages/cloudslug/modules/setPriceDisplay';
+import { setProductCategory } from '../../../clients/pages/cloudslug/modules/setProductCategory';
+import useResponsive from '../../../utils/hooks/useResponsive';
 
-const ProductsCarousel = (props: productsCarouselInterface) => {
-  const { productList } = props;
+const ProductsCarousel = (props: CarouselInterface) => {
+  const { carouselTitle, carouselItems } = props;
   const { isDesktop } = useResponsive();
 
   const setProductDescriptionDisplay = (desc: string) => {
@@ -25,29 +23,29 @@ const ProductsCarousel = (props: productsCarouselInterface) => {
   return (
     <div className={styles.productsCarousel}>
       <div className="container">
-        <h2>Web Services</h2>
+        {carouselTitle && <h2>{carouselTitle}</h2>}
         <CarouselProvider
           naturalSlideWidth={100}
           naturalSlideHeight={isDesktop ? 90 : 70}
           infinite={true}
           visibleSlides={isDesktop ? 3 : 1}
           isPlaying={true}
-          totalSlides={productList.length}
+          totalSlides={carouselItems.length}
         >
           <Slider>
-            {productList.map((product: any, index: number) => {
+            {carouselItems.map((item: any, index: number) => {
               return (
-                <Slide index={index} key={product.title} className={styles.productsCarousel__card}>
+                <Slide index={index} key={item.title} className={styles.productsCarousel__card}>
                   <div className={styles.productsCarousel__card__head}>
-                    <div>{product.title}</div>
-                    <div>{setProductCategory(product.category)}</div>
-                    <div>{setProductPriceDisplay(product)}</div>
+                    <div>{item.title}</div>
+                    <div>{setProductCategory(item.category)}</div>
+                    <div>{setProductPriceDisplay(item)}</div>
                   </div>
                   <div className={styles.productsCarousel__card__description}>
-                    {setProductDescriptionDisplay(product.description)}
+                    {setProductDescriptionDisplay(item.description)}
                   </div>
-                  <Link href={product.product_url}>
-                    <a title={product.name} className={styles.productsCarousel__card__cta}>
+                  <Link href={item.product_url}>
+                    <a title={item.name} className={styles.productsCarousel__card__cta}>
                       Check Specs
                     </a>
                   </Link>
