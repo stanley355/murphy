@@ -33,7 +33,6 @@ const Clouds = ({ hostList }: any) => {
           {isDesktop &&
             <div className={styles.clouds__menu__left}>
               <CloudFilterDesktop />
-              <CloudCalculatorCopy />
             </div>
           }
           <CloudList hosts={hostList} />
