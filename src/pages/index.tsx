@@ -6,9 +6,9 @@ import { LandingMeta } from '../clients/pages/landing/constant/meta';
 import HeroContent from '../clients/pages/landing/components/HeroContent';
 import AppSolutions from '../clients/pages/landing/components/AppSolutions';
 import Partners from '../clients/pages/landing/components/Partners';
-import PlansCarousel from '../clients/pages/landing/components/PlansCarousel';
+import PlansCarousel from '../components/Carousels/PlansCarousel';
 import ProductsCarousel from '../clients/pages/landing/components/ProductsCarousel';
-import NewsCarousel from '../components/NewsCarousel';
+import NewsCarousel from '../components/Carousels/NewsCarousel';
 
 import { fetchAllPlans } from '../lib/api-fetcher/morphclouds/plans';
 import { fetchAllProducts } from '../lib/api-fetcher/morphclouds/products';
@@ -24,13 +24,9 @@ const Home = (props: any) => {
       <HeroContent />
       <AppSolutions />
       {partnerList && <Partners partnerList={partnerList} />}
-      {planList && <PlansCarousel planList={planList} />}
+      {planList && <PlansCarousel carouselTitle='Hosting Plans' carouselItems={planList} />}
       {productList && <ProductsCarousel productList={productList} />}
-      {newsList?.articles.length > 0 &&
-        <NewsCarousel
-          carouselTitle='Tech Related News'
-          carouselItems={newsList.articles}
-        />}
+      {newsList?.articles.length > 0 && <NewsCarousel carouselTitle='Tech Related News' carouselItems={newsList.articles} />}
     </div>
   );
 };

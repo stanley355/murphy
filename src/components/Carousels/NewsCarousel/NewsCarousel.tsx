@@ -4,10 +4,8 @@ import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import styles from './NewsCarousel.module.scss';
 
-import { CarouselInterface } from '../../clients/common/interfaces/CarouselInterface';
-import useResponsive from '../../utils/hooks/useResponsive';
-
-
+import { CarouselInterface } from '../../../clients/common/interfaces/CarouselInterface';
+import useResponsive from '../../../utils/hooks/useResponsive';
 
 const NewsCarousel = (props: CarouselInterface) => {
   const { carouselTitle, carouselItems } = props;
@@ -44,19 +42,19 @@ const NewsCarousel = (props: CarouselInterface) => {
           totalSlides={carouselItems.length}
         >
           <Slider>
-            {carouselItems.map((article: any, index: number) => {
+            {carouselItems.map((item: any, index: number) => {
               return (
-                <Slide index={index} key={article.title} className={styles.newsCarousel__card}>
-                  <Link href={article.url}>
-                    <a title={article.title}>
+                <Slide index={index} key={item.title} className={styles.newsCarousel__card}>
+                  <Link href={item.url}>
+                    <a title={item.title}>
                       <img
-                        src={article.urlToImage}
+                        src={item.urlToImage}
                         width={400}
                         height={250}
                       />
-                      <div className={styles.newsCarousel__card__title}>{article.title}</div>
+                      <div className={styles.newsCarousel__card__title}>{item.title}</div>
                       <div className={styles.newsCarousel__card__description}>
-                        {setArticlesDescription(article.description)}
+                        {setArticlesDescription(item.description)}
                       </div>
                     </a>
                   </Link>
