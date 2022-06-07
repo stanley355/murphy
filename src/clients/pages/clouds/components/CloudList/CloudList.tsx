@@ -30,7 +30,7 @@ const CloudList = (props: CloudListInterface) => {
       <div className={styles.cloud__list__card__head}>
         <div className={styles.cloud__list__card__head__logo}>
           <img
-            src={`/images/clouds/${slugify(host.name.toLowerCase())}.webp`}
+            src={`/static/images/partners/${slugify(host.name.toLowerCase())}.webp`}
             alt={host.name}
             width={80}
             height={80}
