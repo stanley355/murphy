@@ -2,15 +2,15 @@ import React from 'react';
 import Link from 'next/link';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import useResponsive from '../../utils/hooks/useResponsive';
 import styles from './NewsCarousel.module.scss';
 
-interface NewsCarouselInterface {
-  articles: [any]
-}
+import { CarouselInterface } from '../../clients/common/interfaces/CarouselInterface';
+import useResponsive from '../../utils/hooks/useResponsive';
 
-const NewsCarousel = (props: NewsCarouselInterface) => {
-  const { articles } = props;
+
+
+const NewsCarousel = (props: CarouselInterface) => {
+  const { carouselTitle, carouselItems } = props;
   const { isDesktop } = useResponsive();
 
   const setArticlesDescription = (desc: string) => {
@@ -34,17 +34,17 @@ const NewsCarousel = (props: NewsCarouselInterface) => {
   return (
     <div className={styles.newsCarousel}>
       <div className="container">
-        <h2>Tech Related News</h2>
+        {carouselTitle && <h2>{carouselTitle}</h2>}
         <CarouselProvider
           naturalSlideWidth={isDesktop ? 125 : 100}
           naturalSlideHeight={isDesktop ? 175 : 120}
           infinite={true}
           visibleSlides={isDesktop ? 3 : 1}
           isPlaying={true}
-          totalSlides={articles.length}
+          totalSlides={carouselItems.length}
         >
           <Slider>
-            {articles.map((article: any, index: number) => {
+            {carouselItems.map((article: any, index: number) => {
               return (
                 <Slide index={index} key={article.title} className={styles.newsCarousel__card}>
                   <Link href={article.url}>

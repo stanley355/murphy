@@ -26,7 +26,11 @@ const Home = (props: any) => {
       {partnerList && <Partners partnerList={partnerList} />}
       {planList && <PlansCarousel planList={planList} />}
       {productList && <ProductsCarousel productList={productList} />}
-      {newsList?.articles.length > 0 && <NewsCarousel articles={newsList.articles} />}
+      {newsList?.articles.length > 0 &&
+        <NewsCarousel
+          carouselTitle='Tech Related News'
+          carouselItems={newsList.articles}
+        />}
     </div>
   );
 };
