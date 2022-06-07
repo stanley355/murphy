@@ -17,7 +17,7 @@ const CloudSlugHead = (props: ICloudSlugHead) => {
     <div className={styles.cloudslug__head}>
       <div>
         <img
-          src={`/images/clouds/${slugify(name)}.webp`}
+          src={`/static/images/partners/${slugify(name)}.webp`}
           alt={name}
           width={80}
           height={80}
