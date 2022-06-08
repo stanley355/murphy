@@ -1,6 +1,8 @@
 import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
+import PlanTemplate from '../../clients/pages/hosting/components/Templates/PlanTemplate';
+
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import { slugify } from '../../utils/slugify';
 
@@ -22,7 +24,7 @@ const HostingSlug = (props: HostingSlugInterface) => {
   return (
     <div className="hostingSlug">
       <div className="container">
-        <h1>Hi</h1>
+        <PlanTemplate hostData={hostData} />
       </div>
     </div>
   );
