@@ -19,7 +19,6 @@ interface HostingSlugInterface {
 
 const HostingSlug = (props: HostingSlugInterface) => {
   const { hostData, hostPlans, allPlansData } = props;
-  console.log(hostData);
 
   return (
     <div className="hostingSlug">
