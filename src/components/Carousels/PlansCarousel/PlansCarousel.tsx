@@ -5,8 +5,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import styles from './PlansCarousel.module.scss';
 
 import { CarouselInterface } from '../../../clients/common/interfaces/CarouselInterface';
-import { setPlanPriceDisplay } from '../../../clients/pages/cloudslug/modules/setPriceDisplay';
-import { setPlanHostURL } from '../../../clients/pages/cloudslug/modules/setPlanHostURL';
+import { setPlanPriceDisplay } from '../../../clients/common/modules/setPriceDisplay';
 import useResponsive from '../../../utils/hooks/useResponsive';
 
 const PlansCarousel = (props: CarouselInterface) => {
@@ -21,6 +20,7 @@ const PlansCarousel = (props: CarouselInterface) => {
     return desc;
   }
 
+  console.log(carouselItems[0]);
   return (
     <div className={styles.plansCarousel}>
       <div className="container">
@@ -44,7 +44,7 @@ const PlansCarousel = (props: CarouselInterface) => {
                   <div className={styles.plansCarousel__card__description}>
                     {setPlanDescriptionDisplay(item.description)}
                   </div>
-                  <Link href={setPlanHostURL(item.name)}>
+                  <Link href={item.plan_url}>
                     <a title={item.name} className={styles.plansCarousel__card__cta}>
                       Check Specs
                     </a>
