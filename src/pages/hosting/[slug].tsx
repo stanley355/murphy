@@ -1,10 +1,10 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
-
+import Skeleton from '../../clients/pages/hosting/components/Skeleton/Skeleton';
 import PlanTemplate from '../../clients/pages/hosting/components/Templates/PlanTemplate';
 
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
-import { slugify } from '../../utils/slugify';
 
 import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
 import { fetchHostPlans } from '../../lib/api-fetcher/morphclouds/plans';
@@ -19,11 +19,13 @@ interface HostingSlugInterface {
 
 const HostingSlug = (props: HostingSlugInterface) => {
   const { hostData, hostPlans, allPlansData } = props;
+  const router = useRouter();
 
   return (
     <div className="hostingSlug">
       <div className="container">
-        <PlanTemplate hostData={hostData} />
+        {/* <PlanTemplate hostData={hostData} /> */}
+        <Skeleton />
       </div>
     </div>
   );
@@ -66,7 +68,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const hostNames = await fetchAllHostNames();
-  const pathList = hostNames && hostNames.map((hostName: string) => { return { params: { slug: slugify(hostName) } } });
+  // const pathList = hostNames && hostNames.map((hostName: string) => { return { params: { slug: slugify(hostName) } } });
+  const pathList = [
+    { params: { slug: 'vercel' } },
+    { params: { slug: 'heroku' } },
+  ]
 
   return {
     paths: pathList ?? [],
