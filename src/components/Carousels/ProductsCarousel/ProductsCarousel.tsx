@@ -5,8 +5,8 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import styles from './ProductsCarousel.module.scss';
 
 import { CarouselInterface } from '../../../clients/common/interfaces/CarouselInterface';
-import { setProductPriceDisplay } from '../../../clients/pages/cloudslug/modules/setPriceDisplay';
-import { setProductCategory } from '../../../clients/pages/cloudslug/modules/setProductCategory';
+import { setProductPriceDisplay } from '../../../clients/common/modules/setPriceDisplay';
+import { setProductCategory } from '../../../clients/common/modules/setProductCategory';
 import useResponsive from '../../../utils/hooks/useResponsive';
 
 const ProductsCarousel = (props: CarouselInterface) => {
