@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { slugify } from '../../utils/slugify';
 import Skeleton from '../../clients/pages/hosting/components/Skeleton/Skeleton';
 import PlanTemplate from '../../clients/pages/hosting/components/Templates/PlanTemplate';
 
@@ -28,7 +29,7 @@ const HostingSlug = (props: HostingSlugInterface) => {
   return (
     <div className="hostingSlug">
       <div className="container">
-        <PlanTemplate hostData={hostData} />
+        <PlanTemplate hostData={hostData} plansData={hostPlans} />
       </div>
     </div>
   );
@@ -71,11 +72,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const hostNames = await fetchAllHostNames();
-  // const pathList = hostNames && hostNames.map((hostName: string) => { return { params: { slug: slugify(hostName) } } });
-  const pathList = [
-    { params: { slug: 'vercel' } },
-    { params: { slug: 'heroku' } },
-  ]
+  const pathList = hostNames && hostNames.map((hostName: string) => { return { params: { slug: slugify(hostName) } } });
+  // const pathList = [
+  //   { params: { slug: 'vercel' } },
+  //   { params: { slug: 'heroku' } },
+  // ]
 
   return {
     paths: pathList ?? [],
