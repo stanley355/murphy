@@ -9,7 +9,7 @@ const Skeleton = () => {
 
   const MobileSkeleton = () => {
     return (
-      <div className={styles.skeleton__body}>
+      <div className={classnames(styles.skeleton__body)}>
         <div className={classnames(styles['skeleton__box'], styles['skeleton__large'])} />
         <div className={classnames(styles['skeleton__box'], styles['skeleton__large'])} />
       </div>
@@ -18,8 +18,8 @@ const Skeleton = () => {
 
   const DesktopSkeleton = () => {
     return (
-      <div className={styles.skeleton__body}>
-        <div className={styles.skeleton__body__list}>
+      <div className={classnames(styles.skeleton__body)}>
+        <div className={classnames(styles.skeleton__body__list)}>
           <div className={classnames(styles['skeleton__box'], styles['skeleton__large'])} />
           <div className={classnames(styles['skeleton__box'], styles['skeleton__large'])} />
           <div className={classnames(styles['skeleton__box'], styles['skeleton__large'])} />
@@ -30,10 +30,10 @@ const Skeleton = () => {
   }
 
   return (
-    <div className={styles.skeleton}>
-      <div className={styles.skeleton__head}>
+    <div className={classnames(styles.skeleton, 'container')}>
+      <div className={classnames(styles.skeleton__head)}>
         <div className={classnames(styles['skeleton__box'], styles['skeleton__small'])} />
-        <div className={styles.skeleton__box} />
+        <div className={classnames(styles['skeleton__box'])} />
       </div>
       {isDesktop ? <DesktopSkeleton /> : <MobileSkeleton />}
     </div>

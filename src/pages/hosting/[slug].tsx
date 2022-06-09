@@ -21,11 +21,14 @@ const HostingSlug = (props: HostingSlugInterface) => {
   const { hostData, hostPlans, allPlansData } = props;
   const router = useRouter();
 
+  if (router.isFallback) {
+    return <Skeleton />
+  }
+
   return (
     <div className="hostingSlug">
       <div className="container">
-        {/* <PlanTemplate hostData={hostData} /> */}
-        <Skeleton />
+        <PlanTemplate hostData={hostData} />
       </div>
     </div>
   );
