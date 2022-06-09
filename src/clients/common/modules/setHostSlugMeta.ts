@@ -1,4 +1,4 @@
-import { slugify } from '../../../../utils/slugify';
+import { slugify } from '../../../utils/slugify';
 import getConfig from 'next/config';
 
 interface ICloudSlugMeta {
@@ -9,7 +9,7 @@ interface ICloudSlugMeta {
 
 const { BASE_URL } = getConfig().publicRuntimeConfig;
 
-export const setCloudSlugMeta = (hostData: ICloudSlugMeta) => {
+export const setHostSlugMeta = (hostData: ICloudSlugMeta) => {
   const cloudSlugMeta = {
     title: `${hostData.name} web hosting`,
     siteName: `${hostData} hosting plans and products Selection`,
