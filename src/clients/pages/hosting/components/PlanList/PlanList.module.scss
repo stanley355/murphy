@@ -71,30 +71,37 @@
     border-collapse: collapse;
 
     th {
-      border: 1px solid $color-black;
+      border-top: 1px solid $color-black;
+      border-bottom: 1px solid $color-black;
       padding: $space--xs $space--xxs;
+      font-size: $font--lg;
     }
 
     td {
-      border: 1px solid $color-black;
+      border-bottom: 1px solid $color-black;
       font-weight: 400;
       padding: $space--xs;
+      font-size: $font--lg;
+      text-align: center;
     }
 
     button {
       border: none;
-      border-radius: $space--xs;
-      background: $color-blue;
+      background: none;
       padding: $space--xs;
-      color: $color-white;
       font-weight: bold;
       cursor: pointer;
+      svg {
+        font-size: $font--xxxl;
+      }
     }
 
     button:hover {
-      background: unset;
-      border: 1px solid $color-blue;
-      color:$color-black;
+      svg {
+        background: black;
+        border-radius: 50%;
+        color:$color-white;
+      }
 
     }
   }

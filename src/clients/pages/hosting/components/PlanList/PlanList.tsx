@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './PlanList.module.scss';
+import { FaArrowAltCircleRight } from 'react-icons/fa';
 import useResponsive from '../../../../../utils/hooks/useResponsive';
 
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
@@ -16,10 +17,10 @@ const PlanList = (props: PlanListInterface) => {
   const { isDesktop } = useResponsive();
 
   const PlanCard = (props: any) => {
-    const { plan, key } = props;
+    const { plan, mapKey } = props;
 
     return (
-      <div key={key} className={styles.planList__card}>
+      <div key={mapKey} className={styles.planList__card}>
         <div className={styles.planList__card__head}>
           <span>{plan.name}</span>
           <span>{setPlanPriceDisplay(plan)}</span>
@@ -55,7 +56,7 @@ const PlanList = (props: PlanListInterface) => {
           <th>Build</th>
           <th>Concurrent Build</th>
           <th>Price</th>
-          <th>-</th>
+          <th></th>
         </tr>
         {planList.map((plan: any) => {
           return (
@@ -70,7 +71,7 @@ const PlanList = (props: PlanListInterface) => {
                 <button
                   onClick={() => window.location.href = plan.plan_url}
                 >
-                  Check Out
+                  <FaArrowAltCircleRight />
                 </button>
               </td>
             </tr>
@@ -85,9 +86,9 @@ const PlanList = (props: PlanListInterface) => {
       if (plans.length > 1) {
         return <PlanTable planList={plans} />;
       }
-      return <>{plans.map((plan: any) => <PlanCard plan={plan} key={plan.name} />)}</>
+      return <>{plans.map((plan: any) => <PlanCard plan={plan} mapKey={plan.name} />)}</>
     }
-    return <>{plans.map((plan: any) => <PlanCard plan={plan} key={plan.name} />)}</>
+    return <>{plans.map((plan: any) => <PlanCard plan={plan} mapKey={plan.name} />)}</>
   }
 
   return (
