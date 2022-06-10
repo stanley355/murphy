@@ -7,21 +7,22 @@ import PlanTemplate from '../../clients/pages/hosting/components/Templates/PlanT
 
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 
+
 import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
-import { fetchHostPlans } from '../../lib/api-fetcher/morphclouds/plans';
-import { fetchAllPlans } from '../../lib/api-fetcher/morphclouds/plans';
+import { fetchPlanTemplateData } from '../../clients/pages/hosting/modules/fetchPlanTemplateData';
 import { fetchAllHostNames } from '../../lib/api-fetcher/morphclouds/hosts';
 
 interface HostingSlugInterface {
   hostData: any,
-  hostPlans: any,
-  allPlansData: any,
+  hostPlansData: [any],
+  similarPlansData: [any],
 }
 
 const HostingSlug = (props: HostingSlugInterface) => {
-  const { hostData, hostPlans, allPlansData } = props;
+  const { hostData, hostPlansData, similarPlansData } = props;
   const router = useRouter();
 
+  
   if (router.isFallback) {
     return <Skeleton />
   }
@@ -29,7 +30,11 @@ const HostingSlug = (props: HostingSlugInterface) => {
   return (
     <div className="hostingSlug">
       <div className="container">
-        <PlanTemplate hostData={hostData} plansData={hostPlans} />
+        <PlanTemplate
+          hostData={hostData}
+          plansData={hostPlansData}
+          similarPlansData={similarPlansData}
+        />
       </div>
     </div>
   );
@@ -41,14 +46,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const hostName = params && capitalizeFirstLetter(params.slug);
   const hostData = await fetchSingleHost(hostName);
-
-  let hostPlans = [];
-  let allPlansData = [];
-
-  if (hostData && hostData.template === 'Plan') {
-    hostPlans = await fetchHostPlans(hostName);
-    allPlansData = await fetchAllPlans();
-  }
+  const planTemplateData = await fetchPlanTemplateData(hostName, hostData.id);
 
   // let hostProducts = [];
   // let allProductsData = [];
@@ -61,8 +59,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       hostData: hostData ?? null,
-      hostPlans: hostPlans,
-      allPlans: allPlansData,
+      hostPlansData: planTemplateData.hostPlans ?? [],
+      similarPlansData: planTemplateData.similarPlans ?? [],
       // hostProducts: hostProducts,
       // allProducts: allProductsData,
     },

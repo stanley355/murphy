@@ -17,10 +17,10 @@ const PlanList = (props: PlanListInterface) => {
   const { isDesktop } = useResponsive();
 
   const PlanCard = (props: any) => {
-    const { plan, mapKey } = props;
+    const { plan } = props;
 
     return (
-      <div key={mapKey} className={styles.planList__card}>
+      <div className={styles.planList__card}>
         <div className={styles.planList__card__head}>
           <span>{plan.name}</span>
           <span>{setPlanPriceDisplay(plan)}</span>
@@ -49,34 +49,36 @@ const PlanList = (props: PlanListInterface) => {
 
     return (
       <table>
-        <tr>
-          <th>Name</th>
-          <th>Analytic</th>
-          <th>Bandwidth</th>
-          <th>Build</th>
-          <th>Concurrent Build</th>
-          <th>Price</th>
-          <th></th>
-        </tr>
-        {planList.map((plan: any) => {
-          return (
-            <tr key={plan.name}>
-              <td>{plan.name}</td>
-              <td>{setPlanAnalyticDisplay(plan)}</td>
-              <td>{setPlanBandwidthDisplay(plan)}</td>
-              <td>{setPlanBuildDisplay(plan)}</td>
-              <td>{setPlanConcurrentBuildDisplay(plan)} </td>
-              <td>{setPlanPriceDisplay(plan)}</td>
-              <td>
-                <button
-                  onClick={() => window.location.href = plan.plan_url}
-                >
-                  <FaArrowAltCircleRight />
-                </button>
-              </td>
-            </tr>
-          );
-        })}
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th>Analytic</th>
+            <th>Bandwidth</th>
+            <th>Build</th>
+            <th>Concurrent Build</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+          {planList.map((plan: any) => {
+            return (
+              <tr key={plan.name}>
+                <td>{plan.name}</td>
+                <td>{setPlanAnalyticDisplay(plan)}</td>
+                <td>{setPlanBandwidthDisplay(plan)}</td>
+                <td>{setPlanBuildDisplay(plan)}</td>
+                <td>{setPlanConcurrentBuildDisplay(plan)} </td>
+                <td>{setPlanPriceDisplay(plan)}</td>
+                <td>
+                  <button
+                    onClick={() => window.location.href = plan.plan_url}
+                  >
+                    <FaArrowAltCircleRight />
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     );
   }
@@ -86,7 +88,7 @@ const PlanList = (props: PlanListInterface) => {
       if (plans.length > 1) {
         return <PlanTable planList={plans} />;
       }
-      return <>{plans.map((plan: any) => <PlanCard plan={plan} mapKey={plan.name} />)}</>
+      return <>{plans.map((plan: any) => <PlanCard plan={plan} key={plan.name} />)}</>
     }
     return <>{plans.map((plan: any) => <PlanCard plan={plan} mapKey={plan.name} />)}</>
   }
