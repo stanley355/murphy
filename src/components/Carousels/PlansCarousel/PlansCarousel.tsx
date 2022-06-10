@@ -20,7 +20,6 @@ const PlansCarousel = (props: CarouselInterface) => {
     return desc;
   }
 
-  console.log(carouselItems[0]);
   return (
     <div className={styles.plansCarousel}>
       <div className="container">

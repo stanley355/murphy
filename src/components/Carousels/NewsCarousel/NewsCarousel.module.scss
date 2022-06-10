@@ -11,8 +11,8 @@
   }
 
   &__card {
+    border: 2px solid $color-white;
     border-radius: $space--xs;
-    border: 1px solid $color-white;
 
     img {
       width: 100%;
@@ -23,6 +23,10 @@
       padding: $space--xs;
       font-size: $font--xl;
       font-weight: bold;
+
+      @include desktop-view {
+        font-size: $font--lg;
+      }
     }
 
     &__description {

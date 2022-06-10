@@ -2,7 +2,7 @@ import getConfig from 'next/config';
 import RestClient from '../../RestClient';
 const { NEWSAPI_KEY } = getConfig().publicRuntimeConfig;
 
-export const fetchNews = async (keyword: string) => {
+export const fetchNews = async (keyword: any | string) => {
   const proxyUrl = "https://cors-anywhere.herokuapp.com/"
   const date = new Date();
   const year = date.getFullYear();
