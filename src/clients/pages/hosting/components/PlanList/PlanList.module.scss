@@ -1,8 +1,6 @@
 @import '../../../../../../styles/tokens/all';
 
 .planList {
-  &__title {}
-
   &__card {
     border: 1px solid $color-black;
     border-radius: $space--xs;
@@ -22,12 +20,32 @@
         font-size: $font--xl;
         color:$color-green-dark;
       }
+
+      @include desktop-view {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        border: none;
+        span:last-child {
+          float: unset;
+          padding-left: $space--xs;
+        }
+      }
+    }
+
+    &__body {
+      @include desktop-view {
+        display: grid;
+        grid-template-columns: 50% 50%;
+      }
     }
 
     &__description {
       line-height: 1.5;
       padding: $space--xs;
       text-align: justify;
+      @include desktop-view {
+        font-size: $font--lg;
+      }
     }
 
     &__spec {

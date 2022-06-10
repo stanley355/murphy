@@ -23,11 +23,15 @@ const PlanList = (props: PlanListInterface) => {
           <span>{plan.name}</span>
           <span>{setPlanPriceDisplay(plan)}</span>
         </div>
-        <div className={styles.planList__card__description}>{plan.description}</div>
-        <div className={styles.planList__card__spec}>Analytics: {setPlanAnalyticDisplay(plan)} </div>
-        <div className={styles.planList__card__spec}>Bandwidth: {setPlanBandwidthDisplay(plan)} </div>
-        <div className={styles.planList__card__spec}>Build: {setPlanBuildDisplay(plan)} </div>
-        <div className={styles.planList__card__spec}>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
+        <div className={styles.planList__card__body}>
+          <div className={styles.planList__card__description}>{plan.description}</div>
+          <div>
+            <div className={styles.planList__card__spec}>Analytics: {setPlanAnalyticDisplay(plan)} </div>
+            <div className={styles.planList__card__spec}>Bandwidth: {setPlanBandwidthDisplay(plan)} </div>
+            <div className={styles.planList__card__spec}>Build: {setPlanBuildDisplay(plan)} </div>
+            <div className={styles.planList__card__spec}>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
+          </div>
+        </div>
         <button className={styles.planList__card__cta}>Check Out</button>
       </div>
     );
@@ -36,7 +40,7 @@ const PlanList = (props: PlanListInterface) => {
   return (
     <div className={styles.planList}>
       <h2 className={styles.planList__title}>Hosting Plans</h2>
-      {plans.map((plan: any) => <PlanCard plan={plan} key={plan.name} />)}
+      {plans.length > 1 ? "" : plans.map((plan: any) => <PlanCard plan={plan} key={plan.name} />)}
     </div>
   )
 }
