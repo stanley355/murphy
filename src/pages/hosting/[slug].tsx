@@ -71,10 +71,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pathList = [
-    { params: { slug: 'vercel' } },
-    { params: { slug: 'heroku' } },
-  ]
+  const hostNames = await fetchAllHostNames();
+  const pathList = hostNames && hostNames.map((hostName: string) => { return { params: { slug: slugify(hostName) } } });
 
   return {
     paths: pathList ?? [],
