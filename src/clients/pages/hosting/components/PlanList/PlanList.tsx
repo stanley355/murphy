@@ -1,6 +1,7 @@
 import React from 'react';
-
 import styles from './PlanList.module.scss';
+import useResponsive from '../../../../../utils/hooks/useResponsive';
+
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
 import { setPlanBandwidthDisplay } from '../../../../common/modules/setPlanBandwidthDisplay';
 import { setPlanConcurrentBuildDisplay } from '../../../../common/modules/setPlanConcurrentBuildDisplay';
@@ -12,7 +13,7 @@ interface PlanListInterface {
 
 const PlanList = (props: PlanListInterface) => {
   const { plans } = props;
-
+  const { isDesktop } = useResponsive();
 
   const PlanCard = (props: any) => {
     const { plan, key } = props;
@@ -32,15 +33,67 @@ const PlanList = (props: PlanListInterface) => {
             <div className={styles.planList__card__spec}>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
           </div>
         </div>
-        <button className={styles.planList__card__cta}>Check Out</button>
+        <button
+          className={styles.planList__card__cta}
+          onClick={() => window.location.href = plan.plan_url}
+        >
+          Check Out
+        </button>
       </div>
     );
+  }
+
+  const PlanTable = (props: any) => {
+    const { planList } = props;
+
+    return (
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Analytic</th>
+          <th>Bandwidth</th>
+          <th>Build</th>
+          <th>Concurrent Build</th>
+          <th>Price</th>
+          <th>-</th>
+        </tr>
+        {planList.map((plan: any) => {
+          return (
+            <tr key={plan.name}>
+              <td>{plan.name}</td>
+              <td>{setPlanAnalyticDisplay(plan)}</td>
+              <td>{setPlanBandwidthDisplay(plan)}</td>
+              <td>{setPlanBuildDisplay(plan)}</td>
+              <td>{setPlanConcurrentBuildDisplay(plan)} </td>
+              <td>{setPlanPriceDisplay(plan)}</td>
+              <td>
+                <button
+                  onClick={() => window.location.href = plan.plan_url}
+                >
+                  Check Out
+                </button>
+              </td>
+            </tr>
+          );
+        })}
+      </table>
+    );
+  }
+
+  const PlanDisplay = () => {
+    if (isDesktop) {
+      if (plans.length > 1) {
+        return <PlanTable planList={plans} />;
+      }
+      return <>{plans.map((plan: any) => <PlanCard plan={plan} key={plan.name} />)}</>
+    }
+    return <>{plans.map((plan: any) => <PlanCard plan={plan} key={plan.name} />)}</>
   }
 
   return (
     <div className={styles.planList}>
       <h2 className={styles.planList__title}>Hosting Plans</h2>
-      {plans.length > 1 ? "" : plans.map((plan: any) => <PlanCard plan={plan} key={plan.name} />)}
+      <PlanDisplay />
     </div>
   )
 }

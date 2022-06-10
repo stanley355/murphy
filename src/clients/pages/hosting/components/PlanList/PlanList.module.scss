@@ -5,6 +5,7 @@
     border: 1px solid $color-black;
     border-radius: $space--xs;
     padding: $space--xs;
+    margin-bottom: $space--xs;
 
     &__head {
       border: 1px solid $color-black;
@@ -61,6 +62,40 @@
       font-size: $font--md;
       font-weight: bold;
       color:$color-white;
+      cursor: pointer;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      border: 1px solid $color-black;
+      padding: $space--xs $space--xxs;
+    }
+
+    td {
+      border: 1px solid $color-black;
+      font-weight: 400;
+      padding: $space--xs;
+    }
+
+    button {
+      border: none;
+      border-radius: $space--xs;
+      background: $color-blue;
+      padding: $space--xs;
+      color: $color-white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: unset;
+      border: 1px solid $color-blue;
+      color:$color-black;
+
     }
   }
 }

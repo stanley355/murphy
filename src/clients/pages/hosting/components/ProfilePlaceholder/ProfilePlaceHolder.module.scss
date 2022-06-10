@@ -21,6 +21,7 @@
   &__description {
     font-size: $font--lg;
     line-height: 1.5;
+    text-align: justify;
   }
 
   @include desktop-view {
