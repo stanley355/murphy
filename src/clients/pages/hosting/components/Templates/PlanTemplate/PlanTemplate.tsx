@@ -14,12 +14,11 @@ interface PlanTemplateInterface {
 const PlanTemplate = (props: PlanTemplateInterface) => {
   const { hostData, plansData, similarPlansData } = props;
 
-  console.log(similarPlansData);
   return (
     <div className={styles.planTemplate}>
       {hostData && <ProfilePlaceholder profile={hostData} />}
       {plansData.length > 0 && <PlanList plans={plansData} /> }
-      {}
+      {similarPlansData.length > 0 && <PlansCarousel carouselTitle='Similar Plans' carouselItems={similarPlansData} /> }
     </div>
   );
 }

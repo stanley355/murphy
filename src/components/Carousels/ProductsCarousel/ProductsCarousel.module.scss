@@ -11,8 +11,6 @@
     }
     border-radius: $space--sm;
     font-size: $font--xl;
-    background: $color-blue;
-    color:$color-white;
     position: relative;
 
     &__head {
@@ -23,7 +21,7 @@
       }
       div:last-child {
         font-weight: bold;
-        color:$color-green-light;
+        color:$color-green-dark;
       }
     }
 
@@ -37,14 +35,16 @@
       left: 2.5%;
       bottom: 5%;
       width: 95%;
-      background: $color-green-dark;
+      background: $color-black;
+      color:$color-white;
       padding: $space--xs;
       border-radius: $space--xs;
       text-align: center;
     }
 
     &__cta:hover {
-      color:$color-green-dark;
+      color:$color-black;
+      border: 1px solid $color-black;
       background: $color-white;
     }
   }
