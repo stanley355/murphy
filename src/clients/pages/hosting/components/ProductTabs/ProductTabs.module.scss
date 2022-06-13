@@ -1,0 +1,27 @@
+@import '../../../../../../styles/tokens/all';
+
+.productTabs {
+
+  &__head {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    button {
+      padding: $space--sm;
+      border-radius: $space--xs $space--xs 0 0;
+      font-size: $font--lg;
+      
+    }
+
+    .btnActive {
+      background: none;
+      border-bottom: none;
+      color: $color-blue;
+      font-weight: bold;
+    }
+
+    .btnInactive {
+      color: gray;
+    }
+  }
+}
