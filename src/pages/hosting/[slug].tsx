@@ -5,6 +5,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { slugify } from '../../utils/slugify';
 import Skeleton from '../../clients/pages/hosting/components/Skeleton/Skeleton';
 import PlanTemplate from '../../clients/pages/hosting/components/Templates/PlanTemplate';
+import ProductTemplate from '../../clients/pages/hosting/components/Templates/ProductTemplate';
 import NewsCarousel from '../../components/Carousels/NewsCarousel';
 
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
@@ -44,7 +45,7 @@ const HostingSlug = (props: HostingSlugInterface) => {
     }
 
     if (templateName === "Product") {
-      return <div>Hi</div>
+      return <ProductTemplate hostData={hostData} />
     }
     return <div>404</div>
   }
