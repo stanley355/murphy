@@ -18,6 +18,8 @@ interface HostingSlugInterface {
   hostData: any,
   hostPlansData: [any],
   similarPlansData: [any],
+  hostProductsData: [any],
+  similarProductsData: [any],
   newsData: {
     status: string,
     totalResults: number,
@@ -26,7 +28,7 @@ interface HostingSlugInterface {
 }
 
 const HostingSlug = (props: HostingSlugInterface) => {
-  const { hostData, hostPlansData, similarPlansData, newsData } = props;
+  const { hostData, hostPlansData, similarPlansData, hostProductsData, similarProductsData, newsData } = props;
   const router = useRouter();
 
   if (router.isFallback) {
@@ -45,7 +47,7 @@ const HostingSlug = (props: HostingSlugInterface) => {
     }
 
     if (templateName === "Product") {
-      return <ProductTemplate hostData={hostData} />
+      return <ProductTemplate hostData={hostData} productList={hostProductsData} />
     }
     return <div>404</div>
   }

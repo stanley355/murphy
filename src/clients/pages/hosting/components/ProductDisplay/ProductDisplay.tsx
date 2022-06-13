@@ -5,13 +5,18 @@ import styles from './ProductDisplay.module.scss';
 
 import useResponsive from '../../../../../utils/hooks/useResponsive';
 
-const ProductDisplay = () => {
+interface ProductDisplayInterface {
+  productList: [any]
+}
 
-  const {isDesktop} = useResponsive();
+const ProductDisplay = (props: ProductDisplayInterface) => {
+  const { productList } = props;
+
+  const { isDesktop } = useResponsive();
 
   return (
     <div className={styles.productDisplay}>
-      {!isDesktop && <ProductTabs />}
+      {!isDesktop && <ProductTabs productList={productList} />}
     </div>
   )
 }

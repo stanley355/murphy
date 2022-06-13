@@ -5,15 +5,16 @@ import ProductDisplay from '../../ProductDisplay';
 
 interface ProductTemplateInterface {
   hostData: any,
+  productList: [any]
 }
 
 const ProductTemplate = (props: ProductTemplateInterface) => {
-  const { hostData } = props;
+  const { hostData, productList } = props;
 
   return (
     <div className="productTemplate">
       <ProfilePlaceholder profile={hostData} />
-      <ProductDisplay />
+      <ProductDisplay productList={productList} />
     </div>
   );
 }

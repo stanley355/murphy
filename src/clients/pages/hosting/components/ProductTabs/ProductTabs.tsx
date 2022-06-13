@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './ProductTabs.module.scss';
 
-const ProductTabs = () => {
+interface ProductTabsInterface {
+  productList: [any]
+}
+
+const ProductTabs = (props: ProductTabsInterface) => {
+  const { productList } = props;
+
   const [activeTab, setActiveTab] = useState("list");
 
   const ProductTabsHead = () => {
