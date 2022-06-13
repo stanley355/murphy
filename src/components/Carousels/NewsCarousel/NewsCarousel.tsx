@@ -11,33 +11,15 @@ const NewsCarousel = (props: CarouselInterface) => {
   const { carouselTitle, carouselItems } = props;
   const { isDesktop } = useResponsive();
 
-  const setArticlesDescription = (desc: string) => {
-    if (desc.length > 120) {
-      return (
-        <div>
-          {desc.substring(0, 120).concat('...')}
-          <span>See More</span>
-        </div>
-      )
-    }
-
-    return (
-      <div>
-        {desc}...
-        <span>See More</span>
-      </div>
-    )
-  }
-
   return (
     <div className={styles.newsCarousel}>
       <div className="container">
         {carouselTitle && <h2>{carouselTitle}</h2>}
         <CarouselProvider
-          naturalSlideWidth={isDesktop ? 125 : 100}
-          naturalSlideHeight={isDesktop ? 175 : 120}
+          naturalSlideWidth={100}
+          naturalSlideHeight={isDesktop ? 115 :100}
           infinite={true}
-          visibleSlides={isDesktop ? 3 : 1}
+          visibleSlides={isDesktop ? 4 : 1}
           isPlaying={true}
           totalSlides={carouselItems.length}
         >
@@ -49,13 +31,10 @@ const NewsCarousel = (props: CarouselInterface) => {
                     <a title={item.title}>
                       <img
                         src={item.urlToImage}
-                        width={400}
-                        height={250}
+                        width={isDesktop ? 200 : 400}
+                        height={isDesktop ? 175 : 250}
                       />
                       <div className={styles.newsCarousel__card__title}>{item.title}</div>
-                      <div className={styles.newsCarousel__card__description}>
-                        {setArticlesDescription(item.description)}
-                      </div>
                     </a>
                   </Link>
                 </Slide>
