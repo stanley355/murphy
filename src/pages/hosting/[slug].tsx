@@ -11,7 +11,9 @@ import NewsCarousel from '../../components/Carousels/NewsCarousel';
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import { fetchAllHostNames } from '../../lib/api-fetcher/morphclouds/hosts';
 import { fetchSingleHost } from '../../lib/api-fetcher/morphclouds/hosts';
-import { fetchPlanTemplateData } from '../../clients/pages/hosting/modules/fetchPlanTemplateData';
+import fetchPlanTemplateData from '../../clients/pages/hosting/modules/fetchPlanTemplateData';
+import fetchProductTemplateData from '../../clients/pages/hosting/modules/fetchProductTemplateData';
+
 import { fetchNews } from '../../lib/api-fetcher/external/newsapi';
 
 interface HostingSlugInterface {
@@ -72,9 +74,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const hostName = params && capitalizeFirstLetter(params.slug);
   const hostData = await fetchSingleHost(hostName);
   const planTemplateData = hostData.template === "Plan" ? await fetchPlanTemplateData(hostName, hostData.id) : null;
-
-
-
+  const productTemplateData = hostData.template === "Product" ? await fetchProductTemplateData(hostName, hostData.id) : null;
   const newsData = params && await fetchNews(params.slug);
 
   return {
@@ -82,6 +82,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
       hostData: hostData ?? null,
       hostPlansData: planTemplateData?.hostPlans ?? [],
       similarPlansData: planTemplateData?.similarPlans ?? [],
+      hostProductsData: productTemplateData?.hostProducts ?? [],
+      similarProductsData: productTemplateData?.similarProducts ?? [],
       newsData: newsData ?? []
     },
     revalidate: 2 * 60 // 2 minutes
