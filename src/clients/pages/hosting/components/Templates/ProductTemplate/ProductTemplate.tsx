@@ -13,8 +13,8 @@ const ProductTemplate = (props: ProductTemplateInterface) => {
 
   return (
     <div className="productTemplate">
-      <ProfilePlaceholder profile={hostData} />
-      <ProductDisplay productList={productList} />
+      {hostData && <ProfilePlaceholder profile={hostData} />}
+      {productList.length > 0 && <ProductDisplay productList={productList} />}
     </div>
   );
 }
