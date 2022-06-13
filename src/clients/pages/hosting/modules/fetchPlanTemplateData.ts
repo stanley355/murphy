@@ -7,8 +7,8 @@ const fetchPlanTemplateData = async (hostName: string, hostID: number) => {
   const similarPlans = allPlans.length > 0 && allPlans.filter((plan: any) => plan.id !== hostID);
 
   return {
-    hostPlans: hostPlans ?? [],
-    similarPlans: similarPlans ?? [],
+    hostPlans: hostPlans,
+    similarPlans: similarPlans,
   };
 };
 
