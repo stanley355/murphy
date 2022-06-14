@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
-
 import styles from './ProductTabs.module.scss';
 
 import ProductList from '../ProductList';
-
+import ProductFilter from '../ProductFilter';
 interface ProductTabsInterface {
   productList: [any]
 }
@@ -37,7 +35,7 @@ const ProductTabs = (props: ProductTabsInterface) => {
       case "list":
         return <ProductList list={productList} />
       case "filter":
-        return <h1>Hi</h1>
+        return <ProductFilter />
       default:
         return <ProductList list={productList} />
     }

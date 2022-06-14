@@ -11,7 +11,6 @@ interface ProductDisplayInterface {
 
 const ProductDisplay = (props: ProductDisplayInterface) => {
   const { productList } = props;
-
   const { isDesktop } = useResponsive();
 
   return (
