@@ -1,34 +1,32 @@
 import React from 'react';
-import { useFormik } from 'formik';
-
+import { Formik } from 'formik';
+import CategoryDropdown from '../FilterFields/CategoryDropdown';
 import styles from './ProductFilter.module.scss';
 
 const ProductFilter = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-    },
-    onSubmit: (values) => {
-      console.log(values);
-    }
-  });
 
   return (
     <div className={styles.productFilter}>
-      <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="email">Email Address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
+      <Formik
+        initialValues={{ category: '' }}
+        onSubmit={(values: any) => {
+          console.log(values);
+        }}
+      >
+        {({ setFieldValue, handleChange, handleSubmit, }) =>
+          <form onSubmit={handleSubmit}>
+            <CategoryDropdown
+              fieldName='category'
+              onChange={(category) => setFieldValue('category', category.value)}
+            />
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+            <button type="submit">Submit</button>
+          </form>
+        }
+      </Formik>
+    </div >
   )
 }
+
 
 export default ProductFilter;
