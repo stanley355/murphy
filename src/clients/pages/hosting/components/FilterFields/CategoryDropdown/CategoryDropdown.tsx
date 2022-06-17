@@ -1,5 +1,4 @@
 import React from 'react';
-import Select from 'react-select';
 import styles from './CategoryDropdown.module.scss';
 import { DropdownInterface } from '../../../../../common/interfaces/DropdownInterface';
 
@@ -18,13 +17,12 @@ const CategoryDropdown = (props: DropdownInterface) => {
   return (
     <div className={styles.categoryDropdown}>
       <label aria-label={fieldName} htmlFor={fieldName} >Category</label>
-      <Select
-        id={fieldName}
-        aria-labelledby={fieldName}
-        options={options}
-        onChange={onChange}
-        placeholder='Choose product category'
-      />
+
+      <select name={fieldName} id={fieldName} onChange={onChange}>
+        {options.map((option: any) =>
+          <option value={option.value} key={option.label}>{option.label}</option>
+        )}
+      </select>
     </div>
   )
 

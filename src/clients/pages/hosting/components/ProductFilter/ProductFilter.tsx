@@ -17,7 +17,7 @@ const ProductFilter = () => {
           <form onSubmit={handleSubmit}>
             <CategoryDropdown
               fieldName='category'
-              onChange={(category) => setFieldValue('category', category.value)}
+              onChange={(e) => setFieldValue('category', e.target.value)}
             />
 
             <button type="submit">Submit</button>

@@ -1,5 +1,5 @@
 export interface DropdownInterface {
   fieldName: string;
-  options?: [{ value: any; label: any }];
-  onChange: (option: any) => void;
+  options?: [any];
+  onChange: (e: any) => void;
 }
