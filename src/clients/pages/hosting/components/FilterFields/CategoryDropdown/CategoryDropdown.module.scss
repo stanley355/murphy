@@ -6,13 +6,13 @@
   flex-direction: column;
 
   label {
-    font-size: $font--lg;
+    font-size: $font--xl;
     line-height: 1.5;
   }
 
   select {
     padding: $space--xs;
-    font-size: $font--md;
+    font-size: $font--lg;
     border-radius: $space--xxs;
     background: none;
   }
