@@ -6,7 +6,7 @@ const CategoryDropdown = (props: DropdownInterface) => {
   const { fieldName, onChange } = props;
 
   const options = [
-    { value: "", label: "Any Category" },
+    { value: null, label: "Any Category" },
     { value: "ANLT", label: "Analytic" },
     { value: "DTBS", label: "Databases" },
     { value: "CMPT", label: "Compute" },

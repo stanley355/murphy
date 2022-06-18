@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import styles from './ProductTabs.module.scss';
-
+import { filterProductList } from '../../modules/filterProductList';
 import ProductList from '../ProductList';
 import ProductFilter from '../ProductFilter';
 interface ProductTabsInterface {
-  productList: [any]
+  productList: [any] | any[]
 }
 
 const ProductTabs = (props: ProductTabsInterface) => {
   const { productList } = props;
   const [activeTab, setActiveTab] = useState("list");
+  const [filteredProducts, setFilteredProducts] = useState(productList);
+
+  const filterHandler = (filterValues: any) => {
+    const newProductList = filterProductList(filterValues, productList);
+    setFilteredProducts(newProductList);
+    setActiveTab("list");
+  }
 
   const ProductTabsHead = () => {
     return (
@@ -30,12 +37,12 @@ const ProductTabs = (props: ProductTabsInterface) => {
     );
   }
 
-  const setTabContent = (tab: string) => {
+  const setShowingTab = (tab: string) => {
     switch (tab) {
       case "list":
-        return <ProductList list={productList} />
+        return <ProductList list={filteredProducts} />
       case "filter":
-        return <ProductFilter />
+        return <ProductFilter onSubmit={filterHandler} />
       default:
         return <ProductList list={productList} />
     }
@@ -45,7 +52,7 @@ const ProductTabs = (props: ProductTabsInterface) => {
   return (
     <div className={styles.productTabs}>
       <ProductTabsHead />
-      {setTabContent(activeTab)}
+      {setShowingTab(activeTab)}
     </div>
   );
 }

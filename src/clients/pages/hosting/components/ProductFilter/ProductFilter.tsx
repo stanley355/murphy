@@ -5,7 +5,13 @@ import FilterCheckbox from '../FilterFields/FilterCheckbox';
 import PriceInput from '../FilterFields/PriceInput';
 import styles from './ProductFilter.module.scss';
 
-const ProductFilter = () => {
+interface ProductFilterInterface {
+  onSubmit: (values: any) => void
+}
+
+const ProductFilter = (props: ProductFilterInterface) => {
+  const { onSubmit } = props;
+
   const formInitialValues = {
     category: '',
     free_tier: false,
@@ -17,9 +23,7 @@ const ProductFilter = () => {
     <div className={styles.productFilter}>
       <Formik
         initialValues={formInitialValues}
-        onSubmit={(values: any) => {
-          console.log(values);
-        }}
+        onSubmit={onSubmit}
       >
         {({ setFieldValue, handleSubmit, }) =>
           <form onSubmit={handleSubmit}>

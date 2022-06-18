@@ -6,7 +6,7 @@ import { setProductPriceDisplay } from '../../../../common/modules/setPriceDispl
 import { setProductCategory } from '../../../../common/modules/setProductCategory';
 
 interface ProductListInterface {
-  list: [any]
+  list: [any] | any[]
 }
 
 const ProductList = (props: ProductListInterface) => {
