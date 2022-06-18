@@ -5,9 +5,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  padding: $space--xs;
-  border-top: 1px solid $color-black;
-  border-bottom: 1px solid $color-black;
+  padding: $space--xs 0;
 
   label {
     font-size: $font--xl;

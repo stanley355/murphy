@@ -12,7 +12,6 @@ const FilterCheckbox = (props: CheckboxesInterface) => {
         type="checkbox" 
         name={fieldName} 
         id={fieldName} 
-        value={fieldName}
         onChange={onChange}
       />
     </div>
