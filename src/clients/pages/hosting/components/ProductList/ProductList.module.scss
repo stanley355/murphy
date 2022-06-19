@@ -1,0 +1,50 @@
+@import '../../../../../../styles/tokens/all';
+
+.productList {
+  border-left: 2px solid $color-black;
+  border-right: 2px solid $color-black;
+  border-bottom: 2px solid $color-black;
+  border-radius: 0 0 $space--xs $space--xs;
+  padding: $space--xs;
+
+  &__card {
+    border: 1px solid $color-black;
+    padding: $space--xs;
+    border-radius: $space--xs;
+    margin-bottom: $space--sm;
+    line-height: 1.5;
+
+    &__title {
+      font-weight: bold;
+      font-size: $font--lg;
+    }
+
+    &__category {
+      color:$color-blue;
+    }
+
+    &__price {
+      span {
+        font-style: italic;
+        font-weight: bold;
+        color:$color-green-dark;
+      }
+    }
+
+    &__description {
+      margin: $space--xs 0;
+      text-align: justify;
+    }
+
+    &__cta {
+      margin: $space--xs 0;
+      width: 100%;
+      padding: $space--xs;
+      font-size: $font--md;
+      font-weight: bold;
+      background: $color-barely-blue;
+      border: 1px solid $color-black;
+      border-radius: $space--xs;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import '../../../../../../styles/tokens/all';
+
+.productFilter {
+  padding: $space--xs;
+  border-left: 2px solid $color-black;
+  border-right: 2px solid $color-black;
+  border-bottom: 2px solid $color-black;
+  border-radius: 0 0 $space--xs $space--xs;
+
+  &__cta {
+    width: 100%;
+    margin: $space--xs 0;
+    padding: $space--xs 0;
+    font-size: $font--lg;
+    font-weight: bold;
+    background: $color-barely-blue;
+    border-radius: $space--xs;
+  }
+}
