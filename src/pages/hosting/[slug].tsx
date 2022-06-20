@@ -49,6 +49,7 @@ const HostingSlug = (props: HostingSlugInterface) => {
         return <ProductTemplate
           hostData={hostData}
           productList={hostProductsData}
+          similarProductsData={similarProductsData}
         />
       default:
         return <div>404 Not Found</div>

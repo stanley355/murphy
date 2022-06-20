@@ -17,6 +17,11 @@
     border-radius: $space--xs;
   }
 
+  &__cta:hover {
+    background: none;
+    cursor: pointer;
+  }
+
   @include desktop-view {
     border: none;
   }

@@ -50,6 +50,11 @@
       border: 1px solid $color-black;
       border-radius: $space--xs;
     }
+
+    &__cta:hover {
+      background: none;
+      cursor: pointer;
+    }
   }
 
   &__notFound {
