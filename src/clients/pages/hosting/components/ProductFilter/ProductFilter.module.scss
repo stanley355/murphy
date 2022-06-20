@@ -16,4 +16,8 @@
     background: $color-barely-blue;
     border-radius: $space--xs;
   }
+
+  @include desktop-view {
+    border: none;
+  }
 }
