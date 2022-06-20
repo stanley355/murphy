@@ -17,19 +17,19 @@ const DesktopNavbar = () => {
         </Link>
       </div>
       <div className={styles.desktopNavbar__right}>
-        <Link href="/clouds/amazon-web-services">
+        <Link href="/hosting/amazon-web-services">
           <a title="Amazon Web Services">
             <FaAws />
             AWS
           </a>
         </Link>
-        <Link href="/clouds/google-cloud-platform">
+        <Link href="/hosting/google-cloud-platform">
           <a title="Google Cloud Platform">
             <FaGoogle />
             GCP
           </a>
         </Link>
-        <Link href="/clouds/">
+        <Link href="/hosting/">
           <a title="Marph Web Services">
             <FaTelegram />
             Web Services

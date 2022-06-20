@@ -98,7 +98,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: pathList ?? [],
-    fallback: true,
+    fallback: false,
   }
 }
 
