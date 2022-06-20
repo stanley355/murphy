@@ -16,7 +16,7 @@ const Partners = (props: PartnersInterface) => {
         <h2>Our Partners</h2>
         <div className={styles.partners__list}>
           {partnerList.map((partner: string) =>
-            <Link href={`/clouds/${slugify(partner)}`} key={partner}>
+            <Link href={`/hosting/${slugify(partner)}`} key={partner}>
               <a title={partner} className={styles.partners__card}>
                 <img
                   src={`/static/images/partners/${slugify(partner)}.webp`}

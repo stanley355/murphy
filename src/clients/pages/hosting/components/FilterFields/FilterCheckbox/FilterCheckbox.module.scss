@@ -1,0 +1,18 @@
+@import '../../../../../../../styles/tokens/all';
+
+.filterCheckbox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: $space--xs 0;
+
+  label {
+    font-size: $font--xl;
+  }
+
+  input {
+    width: 25px;
+    height: 25px;
+  }
+}
