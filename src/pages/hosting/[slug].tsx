@@ -37,27 +37,29 @@ const HostingSlug = (props: HostingSlugInterface) => {
     return <Skeleton />
   }
 
-  const Template = (props: any) => {
-    const { templateName } = props;
-
-    if (templateName === "Plan") {
-      return <PlanTemplate
-        hostData={hostData}
-        plansData={hostPlansData}
-        similarPlansData={similarPlansData}
-      />;
+  const renderTemplate = (templateName: string) => {
+    switch (templateName) {
+      case "Plan":
+        return <PlanTemplate
+          hostData={hostData}
+          plansData={hostPlansData}
+          similarPlansData={similarPlansData}
+        />;
+      case "Product":
+        return <ProductTemplate
+          hostData={hostData}
+          productList={hostProductsData}
+          similarProductsData={similarProductsData}
+        />
+      default:
+        return <div>404 Not Found</div>
     }
-
-    if (templateName === "Product") {
-      return <ProductTemplate hostData={hostData} productList={hostProductsData} />
-    }
-    return <div>404</div>
   }
 
   return (
     <div className="hostingSlug">
       <div className="container">
-        <Template templateName={hostData.template} />
+        {renderTemplate(hostData.template)}
         {newsData?.articles.length > 0 && <NewsCarousel
           carouselTitle="Related News"
           carouselItems={newsData.articles}
@@ -96,7 +98,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: pathList ?? [],
-    fallback: true,
+    fallback: false,
   }
 }
 

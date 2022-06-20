@@ -11,9 +11,10 @@ interface ProductListInterface {
 
 const ProductList = (props: ProductListInterface) => {
   const { list } = props;
-  return (
-    <div className={styles.productList}>
-      {list.map((item: any) => {
+
+  const Products = () => {
+    return <>{
+      list.map((item: any) => {
         return (
           <div key={item.title} className={styles.productList__card}>
             <div className={styles.productList__card__title}>{item.title}</div>
@@ -22,10 +23,16 @@ const ProductList = (props: ProductListInterface) => {
             <div className={styles.productList__card__description}>{item.description}</div>
             <div className={styles.productList__card__feature}>Free Tier: {item.free_tier ? "Yes" : "No"}</div>
             <div className={styles.productList__card__feature}>Free Trial: {item.free_trial ? "Yes" : "No"}</div>
-            <button className={styles.productList__card__cta} onClick={()=> Router.push(item.product_url)} >Check Out</button>
+            <button className={styles.productList__card__cta} onClick={() => Router.push(item.product_url)} >Check Out</button>
           </div>
         )
-      })}
+      })
+    }</>
+  }
+
+  return (
+    <div className={styles.productList}>
+      {list.length > 0 ? <Products /> : <div className={styles.productList__notFound}>Data Not Found</div> }
     </div>
   )
 }

@@ -14,7 +14,7 @@ export const setHostSlugMeta = (hostData: ICloudSlugMeta) => {
     title: `${hostData.name} web hosting`,
     siteName: `${hostData} hosting plans and products Selection`,
     description: hostData.description,
-    url: `${BASE_URL}/clouds/${slugify(hostData.name)}`,
+    url: `${BASE_URL}/hosting/${slugify(hostData.name)}`,
     keywords: `web hosting, ${hostData.name} hosting, ${hostData.name} hosting plans, ${hostData.name} products`,
     openGraph: {
       title: `${hostData.name} web hosting`,
@@ -23,7 +23,7 @@ export const setHostSlugMeta = (hostData: ICloudSlugMeta) => {
       publishedTime: '2021-08-25T04:52:02+00:00',
     },
     twitter: {
-      site: `${BASE_URL}/clouds/${slugify(hostData.name)}`,
+      site: `${BASE_URL}/hosting/${slugify(hostData.name)}`,
       title: `${hostData.name} web hosting`,
       description: hostData.description,
     },

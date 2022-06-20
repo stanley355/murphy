@@ -20,7 +20,7 @@ const PlanList = (props: PlanListInterface) => {
     const { plan } = props;
 
     return (
-      <div className={styles.planList__card}>
+      <div className={styles.planList__card} >
         <div className={styles.planList__card__head}>
           <span>{plan.name}</span>
           <span>{setPlanPriceDisplay(plan)}</span>
@@ -88,9 +88,9 @@ const PlanList = (props: PlanListInterface) => {
       if (plans.length > 1) {
         return <PlanTable planList={plans} />;
       }
-      return <>{plans.map((plan: any) => <PlanCard plan={plan} key={plan.name} />)}</>
+      return <>{plans.map((plan: any) => <PlanCard plan={plan} />)}</>
     }
-    return <>{plans.map((plan: any) => <PlanCard plan={plan} mapKey={plan.name} />)}</>
+    return <>{plans.map((plan: any) => <PlanCard plan={plan} />)}</>
   }
 
   return (

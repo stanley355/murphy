@@ -2,4 +2,9 @@
 
 .productDisplay {
   margin: $space--lg 0 $space--sm;
+
+  &__desktop {
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
 }

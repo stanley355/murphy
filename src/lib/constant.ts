@@ -1,26 +1,26 @@
 export const NAVIGATION_MENU = [
   {
     title: "Amazon Web Services",
-    url: "/clouds/amazon-web-services/"
+    url: "/hosting/amazon-web-services/"
   },
   {
     title: "Google Cloud Platform",
-    url: "/clouds/google-cloud-platform/"
+    url: "/hosting/google-cloud-platform/"
   },
   {
     title: "Digital Ocean",
-    url: "/clouds/digital-ocean/"
+    url: "/hosting/digital-ocean/"
   },
   {
     title: "Heroku",
-    url: "/clouds/heroku/"
+    url: "/hosting/heroku/"
   },
   {
     title: "Netlify",
-    url: "/clouds/netlify/"
+    url: "/hosting/netlify/"
   },
   {
     title: "Vercel",
-    url: "/clouds/vercel/"
+    url: "/hosting/vercel/"
   }
 ]
