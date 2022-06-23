@@ -11,32 +11,32 @@ const HeroContent = () => {
     {
       title: 'Analytics',
       icon: <FaShareAlt />,
-      url: '/hosting/amazon-web-services/'
+      url: '/products/?category=ANLT'
     },
     {
       title: 'Databases',
       icon: <FaDatabase />,
-      url: '/hosting/amazon-web-services/?&database_support=true'
+      url: '/products/?category=DTBS'
     },
     {
       title: 'Computing',
       icon: <FaUbuntu />,
-      url: '/hosting/amazon-web-services/'
+      url: '/products/?category=CMPT'
     },
     {
       title: 'Containers',
       icon: <FaDocker />,
-      url: '/hosting/amazon-web-services/'
+      url: '/products/?category=CTNR'
     },
     {
       title: 'Hosting',
       icon: <FaCloud />,
-      url: '/hosting/amazon-web-services/'
+      url: '/products/'
     },
     {
       title: 'Servers',
       icon: <FaServer />,
-      url: '/hosting/amazon-web-services/'
+      url: '/products/'
     }
   ]
 
