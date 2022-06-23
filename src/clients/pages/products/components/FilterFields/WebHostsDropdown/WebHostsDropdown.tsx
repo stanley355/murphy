@@ -7,6 +7,10 @@ const WebHostsDropdown = (props: DropdownInterface) => {
 
   const options = [
     {
+      value: null,
+      label: "All Web Hosts",
+    },
+    {
       value: 7,
       label: "Amazon Web Services",
     },

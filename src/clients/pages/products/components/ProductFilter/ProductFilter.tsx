@@ -1,5 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
+import Router from 'next/router';
+import WebHostsDropdown from '../FilterFields/WebHostsDropdown';
 import CategoryDropdown from '../FilterFields/CategoryDropdown';
 import FilterCheckbox from '../FilterFields/FilterCheckbox';
 import PriceInput from '../FilterFields/PriceInput';
@@ -13,6 +15,7 @@ const ProductFilter = (props: ProductFilterInterface) => {
   const { onSubmit } = props;
 
   const formInitialValues = {
+    web_host_id: null,
     category: '',
     free_tier: false,
     free_trial: false,
@@ -21,12 +24,18 @@ const ProductFilter = (props: ProductFilterInterface) => {
 
   return (
     <div className={styles.productFilter}>
+      <div className={styles.productFilter__title}>Filter By:</div>
       <Formik
         initialValues={formInitialValues}
         onSubmit={onSubmit}
       >
         {({ setFieldValue, handleSubmit, }) =>
           <form onSubmit={handleSubmit}>
+            {Router.asPath === "/products" && <WebHostsDropdown
+              fieldName='web_host_id'
+              onChange={(e) => setFieldValue('web_host_id', e.target.value)}
+            />}
+
             <CategoryDropdown
               fieldName='category'
               onChange={(e) => setFieldValue('category', e.target.value)}

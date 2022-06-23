@@ -16,7 +16,7 @@ const CategoryDropdown = (props: DropdownInterface) => {
 
   return (
     <div className={styles.categoryDropdown}>
-      <label aria-label={fieldName} htmlFor={fieldName} >Category</label>
+      <label aria-label={fieldName} htmlFor={fieldName} >All Category</label>
 
       <select name={fieldName} id={fieldName} onChange={onChange}>
         {options.map((option: any) =>
