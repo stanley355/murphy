@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
 import Router from 'next/router';
+import Link from 'next/link';
 import WebHostsDropdown from '../FilterFields/WebHostsDropdown';
 import CategoryDropdown from '../FilterFields/CategoryDropdown';
 import FilterCheckbox from '../FilterFields/FilterCheckbox';
@@ -22,6 +23,9 @@ const ProductFilter = (props: ProductFilterInterface) => {
     max_price: null,
   }
 
+  const isProductPage = Router.pathname === "/products";
+  const hasCategoryParam = Router.query && Router.query.category;
+
   return (
     <div className={styles.productFilter}>
       <div className={styles.productFilter__title}>Filter By:</div>
@@ -31,15 +35,15 @@ const ProductFilter = (props: ProductFilterInterface) => {
       >
         {({ setFieldValue, handleSubmit, }) =>
           <form onSubmit={handleSubmit}>
-            {Router.asPath === "/products" && <WebHostsDropdown
+            {isProductPage && <WebHostsDropdown
               fieldName='web_host_id'
               onChange={(e) => setFieldValue('web_host_id', e.target.value)}
             />}
 
-            <CategoryDropdown
+            {!hasCategoryParam && <CategoryDropdown
               fieldName='category'
               onChange={(e) => setFieldValue('category', e.target.value)}
-            />
+            />}
 
             <PriceInput
               title='Max Price per Month'
@@ -68,7 +72,14 @@ const ProductFilter = (props: ProductFilterInterface) => {
           </form>
         }
       </Formik>
-    </div >
+      {hasCategoryParam && <button
+        onClick={() => window.location.href = "/products/"}
+        title='Products'
+        className={styles.productFilter__productsLink}
+      >
+        See All Products
+      </button>}
+    </div>
   )
 }
 

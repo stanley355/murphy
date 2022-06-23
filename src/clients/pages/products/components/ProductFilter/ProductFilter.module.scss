@@ -30,4 +30,20 @@
   @include desktop-view {
     border: none;
   }
+
+  &__productsLink {
+    font-size: $font--lg;
+    text-align: center;
+    color: $color-blue;
+    margin: auto;
+    padding: $space--sm 0;
+    width: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  &__productsLink:hover {
+    text-decoration: underline;
+  }
 }
