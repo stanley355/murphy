@@ -29,7 +29,7 @@ const DesktopNavbar = () => {
             GCP
           </a>
         </Link>
-        <Link href="/hosting/">
+        <Link href="/products/">
           <a title="Marph Web Services">
             <FaTelegram />
             Web Services

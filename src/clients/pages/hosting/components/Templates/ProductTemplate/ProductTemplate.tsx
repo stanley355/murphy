@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ProfilePlaceholder from '../../ProfilePlaceholder';
-import ProductDisplay from '../../ProductDisplay';
+import ProductDisplay from '../../../../products/components/ProductDisplay';
 import ProductsCarousel from '../../../../../../components/Carousels/ProductsCarousel';
 
 interface ProductTemplateInterface {

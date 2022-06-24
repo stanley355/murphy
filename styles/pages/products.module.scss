@@ -1,0 +1,7 @@
+@import '../tokens/all';
+
+.products {
+  &__title {
+    padding: 0 $space--sm;
+  }
+}
