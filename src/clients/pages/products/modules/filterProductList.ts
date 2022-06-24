@@ -1,4 +1,7 @@
+import Router from 'next/router';
+
 interface filterValuesInterface {
+  web_host_id?: number;
   category: string;
   free_tier: boolean;
   free_trial: boolean;
@@ -10,6 +13,14 @@ export const filterProductList = (
   productList: [any] | any[]
 ) => {
   let newProductList = [...productList];
+
+  if (filterValues.web_host_id) {
+    const filteredList = newProductList.filter(
+      (product: any) => product.hosts_id === Number(filterValues.web_host_id)
+    );
+
+    newProductList = filteredList;
+  }
 
   if (filterValues.category) {
     const filteredList = newProductList.filter(
