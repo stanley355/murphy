@@ -1,0 +1,80 @@
+@import '../../../../../../styles/tokens/all';
+
+.hostList {
+  padding: $space--xs 0;
+
+  @include desktop-view {
+    display: grid;
+    grid-gap: 1%;
+    grid-template-columns: 32% 32% 32%;
+  }
+
+  &__card {
+    border-top: 1px solid $color-blue;
+    border-bottom: 1px solid $color-blue;
+    border-radius: $space--xs;
+    margin-bottom: $space--sm;
+    padding: $space--sm 0;
+
+    @include desktop-view {
+      border: none;
+    }
+    &__imgContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        border-radius: $space--xs;
+      }
+    }
+
+    &__title {
+      font-weight: bold;
+      font-size: $font--xl;
+      padding: $space--sm 0;
+    }
+
+    &__desc {
+      line-height: 1.5;
+      text-align: justify;
+
+      @include desktop-view {
+        height: 150px;
+        overflow-y: scroll;
+        padding-right: $space--xs;
+      }
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+
+      a {
+        text-align: center;
+        width: 100%;
+        padding: $space--xs;
+        border-radius: $space--xxs;
+        margin: $space--xs 0;
+        border: 1px solid $color-black;
+        font-weight: bold;
+      }
+
+      a:first-child {
+        color: $color-white;
+        background: $color-blue;
+      }
+
+      a:last-child {
+        background: $color-barely-blue;
+        
+      }
+
+      @include desktop-view {
+        a {
+          width: 95%;
+        }
+      }
+    }
+  }
+}
