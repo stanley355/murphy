@@ -5,10 +5,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: $space--xs $space--sm;
+  padding: 0 $space--sm;
 
 	&__logo {
-		font-size: 30px;
+		font-size: $font--xxxl;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -16,15 +16,15 @@
     padding: $space--xxs;
     border-radius: $space--xxs;
 		svg {
-			font-size: 40px;
+			font-size: 36px;
 			margin-right: $space--xxs;
 		}
 
     
 	}
   &__logo:hover {
-    background: $color-black;
-    color:$color-white;
+    background: $color-white;
+    color:$color-blue;
   }
 
   &__right {
@@ -37,23 +37,20 @@
       flex-direction: row;
       align-items: center;
       margin-left: $space--sm;
-      padding: $space--xxs;
-      border-radius: $space--xxs;
-      border: 1px solid $color-white;
+      padding: $space--xs;
       color:$color-white;
+      border-radius: $space--xxs;
 
       svg {
+        font-size: 24px;
         margin-right: $space--xxs;
       }      
     }
 
-    a:first-child svg {
-      font-size: $font--xxl;
-    }
 
     a:hover {
-      background: $color-black;
-      color:$color-white;
+      background: $color-white;
+      color:$color-blue;
     }
   }
 }
