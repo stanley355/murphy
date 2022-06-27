@@ -13,33 +13,43 @@
       display: flex;
       flex-direction: column;
       padding-bottom: $space--xs;
+      line-height: 1.5;
       &__title {
+        font-size: $font--xxl;
+        font-weight: bold;
+        margin-bottom: $space--xs;
+      }
+      a {
+        font-size: $font--xl;
         display: flex;
         flex-direction: row;
         align-items: center;
-        font-size: $font--lg;
-        font-weight: bold;
-        margin-bottom: $space--xs;
+        padding: $space--xs 0;
+        color:$color-white;
+        border-radius: $space--xxs;
+  
         svg {
-          margin-right: $space--xs;
-        }
+          font-size: 24px;
+          margin-right: $space--xxs;
+        }      
       }
-      a {
-        margin-bottom: $space--xs;
-      }
-      div {
-        margin-bottom: $space--xs;
+  
+      a:hover {
+        background: $color-white;
+        color:$color-blue;
+        padding: $space--xs;
       }
     }
 
     @include desktop-view {
       display: grid;
       grid-gap: 1%;
-      grid-template-columns: 33% 33% 33%;
+      grid-template-columns: 49% 49%;
     }
   }
 
   &__bottom {
+    font-size: $font--xl;
     padding: $space--sm 0;
     text-align: center;
     display: flex;
