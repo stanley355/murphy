@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import { slugify } from '../../utils/slugify';
+import HostMeta from '../../clients/pages/hosting/components/HostMeta';
 import Skeleton from '../../clients/pages/hosting/components/Skeleton/Skeleton';
 import PlanTemplate from '../../clients/pages/hosting/components/Templates/PlanTemplate';
 import ProductTemplate from '../../clients/pages/hosting/components/Templates/ProductTemplate';
@@ -58,6 +59,7 @@ const HostingSlug = (props: HostingSlugInterface) => {
 
   return (
     <div className="hostingSlug">
+      <HostMeta hostData={hostData} />
       <div className="container">
         {renderTemplate(hostData.template)}
         {newsData?.articles.length > 0 && <NewsCarousel
