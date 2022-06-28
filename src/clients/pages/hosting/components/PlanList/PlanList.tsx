@@ -16,32 +16,34 @@ const PlanList = (props: PlanListInterface) => {
   const { plans } = props;
   const { isDesktop } = useResponsive();
 
-  const PlanCard = (props: any) => {
-    const { plan } = props;
+  const PlanCard = () => {
 
-    return (
-      <div className={styles.planList__card} >
-        <div className={styles.planList__card__head}>
-          <span>{plan.name}</span>
-          <span>{setPlanPriceDisplay(plan)}</span>
-        </div>
-        <div className={styles.planList__card__body}>
-          <div className={styles.planList__card__description}>{plan.description}</div>
-          <div>
-            <div className={styles.planList__card__spec}>Analytics: {setPlanAnalyticDisplay(plan)} </div>
-            <div className={styles.planList__card__spec}>Bandwidth: {setPlanBandwidthDisplay(plan)} </div>
-            <div className={styles.planList__card__spec}>Build: {setPlanBuildDisplay(plan)} </div>
-            <div className={styles.planList__card__spec}>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
+    return <>
+      {plans.map(
+        (plan: any) =>
+          <div className={styles.planList__card} key={plan.name}>
+            <div className={styles.planList__card__head}>
+              <span>{plan.name}</span>
+              <span>{setPlanPriceDisplay(plan)}</span>
+            </div>
+            <div className={styles.planList__card__body}>
+              <div className={styles.planList__card__description}>{plan.description}</div>
+              <div>
+                <div className={styles.planList__card__spec}>Analytics: {setPlanAnalyticDisplay(plan)} </div>
+                <div className={styles.planList__card__spec}>Bandwidth: {setPlanBandwidthDisplay(plan)} </div>
+                <div className={styles.planList__card__spec}>Build: {setPlanBuildDisplay(plan)} </div>
+                <div className={styles.planList__card__spec}>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </div>
+              </div>
+            </div>
+            <button
+              className={styles.planList__card__cta}
+              onClick={() => window.location.href = plan.plan_url}
+            >
+              Check Out
+            </button>
           </div>
-        </div>
-        <button
-          className={styles.planList__card__cta}
-          onClick={() => window.location.href = plan.plan_url}
-        >
-          Check Out
-        </button>
-      </div>
-    );
+      )}
+    </>;
   }
 
   const PlanTable = (props: any) => {
@@ -88,9 +90,9 @@ const PlanList = (props: PlanListInterface) => {
       if (plans.length > 1) {
         return <PlanTable planList={plans} />;
       }
-      return <>{plans.map((plan: any) => <PlanCard plan={plan} />)}</>
+      return <PlanCard />
     }
-    return <>{plans.map((plan: any) => <PlanCard plan={plan} />)}</>
+    return <PlanCard />
   }
 
   return (
