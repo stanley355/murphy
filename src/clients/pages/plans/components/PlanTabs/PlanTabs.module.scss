@@ -11,6 +11,16 @@
       width: 100%;
       padding: $space--xs;
       font-size: $font--md;
+      background: $color-white;
+      border-bottom: none;
+      border-radius: $space--xs $space--xs 0 0;
     }
+  }
+
+  &__body {
+    border: 2px solid $color-black;
+    border-top: none;
+    border-radius: 0 0 $space--xs $space--xs;
+    padding: $space--xs;
   }
 }

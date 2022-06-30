@@ -1,0 +1,40 @@
+@import '../../../../../../styles/tokens/all';
+
+.planList {
+  &__card {
+    &__head {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &__imgContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $space--xs $space--md;
+        margin-right: $space--xxl;
+
+        img {
+          border-radius: $space--xs;
+        }
+      }
+
+      &__details {
+        padding: $space--xs;
+        margin-left: $space--xxl;
+      }
+
+      &__title {
+        font-size: $font--lg;
+        font-weight: bold;
+        line-height: 1.5;
+      }
+
+      &__price {
+        color:$color-green-dark;
+        font-weight: bold;
+        line-height: 1.5;
+      }
+    }
+  }
+}
