@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './PlanList.module.scss';
+import styles from './SimplePlanList.module.scss';
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 import useResponsive from '../../../../../utils/hooks/useResponsive';
 
@@ -12,11 +12,11 @@ interface PlanListInterface {
   plans: [any]
 }
 
-const PlanList = (props: PlanListInterface) => {
+const SimplePlanList = (props: PlanListInterface) => {
   const { plans } = props;
   const { isDesktop } = useResponsive();
 
-  const PlanCard = () => {
+  const PlanCards = () => {
 
     return <>
       {plans.map(
@@ -90,9 +90,9 @@ const PlanList = (props: PlanListInterface) => {
       if (plans.length > 1) {
         return <PlanTable planList={plans} />;
       }
-      return <PlanCard />
+      return <PlanCards />
     }
-    return <PlanCard />
+    return <PlanCards />
   }
 
   return (
@@ -103,4 +103,4 @@ const PlanList = (props: PlanListInterface) => {
   )
 }
 
-export default PlanList;
+export default SimplePlanList;

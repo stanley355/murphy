@@ -1,0 +1,16 @@
+@import '../../../../../../styles/tokens/all';
+
+.planTabs {
+  width: 100%;
+  margin: $space--sm 0;
+
+  &__head {
+    display: flex;
+    flex-direction: row;
+    button {
+      width: 100%;
+      padding: $space--xs;
+      font-size: $font--md;
+    }
+  }
+}

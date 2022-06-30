@@ -3,7 +3,7 @@ import styles from './PlanTemplate.module.scss';
 
 import PlansCarousel from '../../../../../../components/Carousels/PlansCarousel';
 import ProfilePlaceholder from '../../ProfilePlaceholder';
-import PlanList from '../../PlanList';
+import SimplePlanList from '../../SimplePlanList';
 
 interface PlanTemplateInterface {
   hostData: any,
@@ -17,7 +17,7 @@ const PlanTemplate = (props: PlanTemplateInterface) => {
   return (
     <div className={styles.planTemplate}>
       {hostData && <ProfilePlaceholder profile={hostData} />}
-      {plansData.length > 0 && <PlanList plans={plansData} /> }
+      {plansData.length > 0 && <SimplePlanList plans={plansData} /> }
       {similarPlansData.length > 0 && <PlansCarousel carouselTitle='Similar Plans' carouselItems={similarPlansData} /> }
     </div>
   );
