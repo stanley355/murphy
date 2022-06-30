@@ -1,8 +1,13 @@
 import React from 'react';
-
+import Router from 'next/router';
 import styles from './PlanList.module.scss';
 import PlanAccordion from '../PlanAccordion';
+
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
+import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
+import { setPlanBandwidthDisplay } from '../../../../common/modules/setPlanBandwidthDisplay';
+import { setPlanBuildDisplay } from '../../../../common/modules/setPlanBuildDisplay';
+import { setPlanConcurrentBuildDisplay } from '../../../../common/modules/setPlanConcurrentBuildDisplay';
 import { setPlanPriceDisplay } from '../../../../common/modules/setPriceDisplay';
 
 interface IPlanList {
@@ -12,10 +17,24 @@ interface IPlanList {
 const PlanList = (props: IPlanList) => {
   const { list } = props;
 
+  const PlanDetails = (props: any) => {
+    const { plan } = props;
+    return (
+      <div className={styles.planList__card__details}>
+        <ul>
+          <li>Analytic: {setPlanAnalyticDisplay(plan)} </li>
+          <li>Bandwidth: {setPlanBandwidthDisplay(plan)} </li>
+          <li>Build: {setPlanBuildDisplay(plan)} </li>
+          <li>Concurrent Build: {setPlanConcurrentBuildDisplay(plan)} </li>
+        </ul>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.planList}>
       {list.map((item: any) =>
-        <div className={styles.planList__card}>
+        <div className={styles.planList__card}  key={item.name}>
           <div className={styles.planList__card__head}>
             <div className={styles.planList__card__head__imgContainer}>
               <img
@@ -31,7 +50,17 @@ const PlanList = (props: IPlanList) => {
             </div>
           </div>
           <PlanAccordion title="See Description" body={item.description} />
-          <PlanAccordion title="See Description" body={item.description} />
+          <PlanAccordion title="See Details" body={<PlanDetails plan={item} />} />
+          <div className={styles.planList__card__cta}>
+            {/* TODO: Add Comparison Event */}
+            <button className={styles.planList__card__cta__compare}>Compare</button>
+            <button
+              className={styles.planList__card__cta__purchase}
+              onClick={()=> Router.push(item.plan_url)}
+            >
+              Purchase
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -17,7 +17,7 @@ const PlanAccordion = (props: IPlanAccordion) => {
         <span>{title} </span>
         {open ? <FaChevronUp /> : <FaChevronDown />}
       </button>
-      {open && <div> {body} </div>}
+      {open && <div className={styles.planAccordion__body}> {body} </div>}
     </div>
   )
 }

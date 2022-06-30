@@ -2,7 +2,7 @@
 
 .planAccordion {
   border-top: 1px solid $color-blue;
-  // border-bottom: 1px solid $color-blue;
+
   button {
     width: 100%;
     border: none;
@@ -13,12 +13,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
     svg {
-      color:$color-blue;
+      color: $color-blue;
     }
   }
 
-  div {
+  &__body {
     padding: $space--xs;
   }
 }
