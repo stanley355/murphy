@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './PlanList.module.scss';
+import PlanAccordion from '../PlanAccordion';
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
 import { setPlanPriceDisplay } from '../../../../common/modules/setPriceDisplay';
 
@@ -29,6 +30,8 @@ const PlanList = (props: IPlanList) => {
               <div className={styles.planList__card__head__price}>{setPlanPriceDisplay(item)}</div>
             </div>
           </div>
+          <PlanAccordion title="See Description" body={item.description} />
+          <PlanAccordion title="See Description" body={item.description} />
         </div>
       )}
     </div>
