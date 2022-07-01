@@ -1,9 +1,11 @@
 import React from 'react';
 import Router from 'next/router';
+
 import styles from './PlanList.module.scss';
 import PlanAccordion from '../PlanAccordion';
 
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
+import { addComparison, planComparisonStore } from '../../modules/planComparisonState';
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
 import { setPlanBandwidthDisplay } from '../../../../common/modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../../common/modules/setPlanBuildDisplay';
@@ -11,11 +13,12 @@ import { setPlanConcurrentBuildDisplay } from '../../../../common/modules/setPla
 import { setPlanPriceDisplay } from '../../../../common/modules/setPriceDisplay';
 
 interface IPlanList {
-  list: [any]
+  list: [any],
+  onCompareClick: () => void
 }
 
 const PlanList = (props: IPlanList) => {
-  const { list } = props;
+  const { list, onCompareClick } = props;
 
   const PlanDetails = (props: any) => {
     const { plan } = props;
@@ -52,10 +55,14 @@ const PlanList = (props: IPlanList) => {
           <PlanAccordion title="See Description" body={item.description} />
           <PlanAccordion title="See Details" body={<PlanDetails plan={item} />} />
           <div className={styles.planList__card__cta}>
-            {/* TODO: Add Comparison Event */}
             <button
               type="button"
-              className={styles.planList__card__cta__compare}>
+              className={styles.planList__card__cta__compare}
+              onClick={() => {
+                planComparisonStore.dispatch(addComparison(item));
+                onCompareClick();
+              }}
+            >
               Compare
             </button>
             <button

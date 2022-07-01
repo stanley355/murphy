@@ -12,16 +12,15 @@ interface IPlanTabs {
 const PlanTabs = (props: IPlanTabs) => {
   const { planList } = props;
   const [activeTab, setActiveTab] = useState("list");
-  const [comparingPlans, setComparingPlans] = useState([]);
 
   const setShowingTab = (tab: string) => {
     switch (tab) {
       case "list":
-        return <PlanList list={planList} />
+        return <PlanList list={planList} onCompareClick={() => setActiveTab("comparisons")} />
       case "comparisons":
         return <PlanComparison />
       default:
-        return <PlanList list={planList} />
+        return <PlanList list={planList} onCompareClick={() => setActiveTab("comparisons")} />
     }
   }
 
