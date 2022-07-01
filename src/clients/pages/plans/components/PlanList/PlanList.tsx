@@ -34,7 +34,7 @@ const PlanList = (props: IPlanList) => {
   return (
     <div className={styles.planList}>
       {list.map((item: any) =>
-        <div className={styles.planList__card}  key={item.name}>
+        <div className={styles.planList__card} key={item.name}>
           <div className={styles.planList__card__head}>
             <div className={styles.planList__card__head__imgContainer}>
               <img
@@ -53,10 +53,13 @@ const PlanList = (props: IPlanList) => {
           <PlanAccordion title="See Details" body={<PlanDetails plan={item} />} />
           <div className={styles.planList__card__cta}>
             {/* TODO: Add Comparison Event */}
-            <button className={styles.planList__card__cta__compare}>Compare</button>
             <button
+              type="button"
+              className={styles.planList__card__cta__compare}>Compare</button>
+            <button
+              type="button"
               className={styles.planList__card__cta__purchase}
-              onClick={()=> Router.push(item.plan_url)}
+              onClick={() => Router.push(item.plan_url)}
             >
               Purchase
             </button>
