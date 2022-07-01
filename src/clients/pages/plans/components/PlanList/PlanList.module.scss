@@ -1,6 +1,7 @@
 @import '../../../../../../styles/tokens/all';
 
 .planList {
+
   &__card {
     margin-bottom: $space--md;
 
@@ -19,6 +20,13 @@
         img {
           border-radius: $space--xs;
         }
+
+        @include desktop-view {
+          img {
+            width: 75px;
+            height: 75px;
+          }
+        }
       }
 
       &__details {
@@ -36,6 +44,12 @@
         color: $color-green-dark;
         font-weight: bold;
         line-height: 1.5;
+      }
+
+      @include desktop-view {
+        &__title, &__price {
+          font-size: $font--xl;
+        }
       }
     }
 
@@ -61,6 +75,7 @@
         color:$color-white;
         border-radius: $space--xxs;
         border: 1px solid $color-white;
+        cursor: pointer;
       }
 
       &__compare {

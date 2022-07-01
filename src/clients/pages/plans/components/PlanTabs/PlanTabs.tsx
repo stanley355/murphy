@@ -10,29 +10,39 @@ interface IPlanTabs {
 
 const PlanTabs = (props: IPlanTabs) => {
   const { planList } = props;
+  const [activeTab, setActiveTab] = useState("list");
 
-  const [activeTab, setActiveTab] = useState("plans");
+  const setShowingTab = (tab: string) => {
+    switch (tab) {
+      case "list":
+        return <PlanList list={planList} />
+      case "comparisons":
+        return ""
+      default:
+        return <PlanList list={planList} />
+    }
+  }
 
   return (
     <div className={styles.planTabs}>
       <div className={styles.planTabs__head}>
         <button
           type="button"
-          onClick={() => setActiveTab("plans")}
-          className={classNames(activeTab !== "plans" ? styles["btnInactive"] : "")}
+          onClick={() => setActiveTab("list")}
+          className={classNames(activeTab === "list" ? "" : styles["btnInactive"])}
         >
           Plans
         </button>
         <button
           type="button"
           onClick={() => setActiveTab("comparisons")}
-          className={classNames(activeTab !== "comparisons" ? styles["btnInactive"] : "")}
+          className={classNames(activeTab === "comparisons" ? "" : styles["btnInactive"])}
         >
           Comparisons
         </button>
       </div>
       <div className={styles.planTabs__body}>
-        <PlanList list={planList} />
+        {setShowingTab(activeTab)}
       </div>
     </div>
   );
