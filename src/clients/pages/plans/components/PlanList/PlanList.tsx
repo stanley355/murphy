@@ -55,7 +55,9 @@ const PlanList = (props: IPlanList) => {
             {/* TODO: Add Comparison Event */}
             <button
               type="button"
-              className={styles.planList__card__cta__compare}>Compare</button>
+              className={styles.planList__card__cta__compare}>
+              Compare
+            </button>
             <button
               type="button"
               className={styles.planList__card__cta__purchase}

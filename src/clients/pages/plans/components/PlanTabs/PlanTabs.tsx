@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './PlanTabs.module.scss';
 
+import PlanComparison from '../PlanComparison';
 import PlanList from '../PlanList';
 
 interface IPlanTabs {
@@ -11,13 +12,14 @@ interface IPlanTabs {
 const PlanTabs = (props: IPlanTabs) => {
   const { planList } = props;
   const [activeTab, setActiveTab] = useState("list");
+  const [comparingPlans, setComparingPlans] = useState([]);
 
   const setShowingTab = (tab: string) => {
     switch (tab) {
       case "list":
         return <PlanList list={planList} />
       case "comparisons":
-        return ""
+        return <PlanComparison />
       default:
         return <PlanList list={planList} />
     }

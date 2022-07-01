@@ -3,6 +3,7 @@ import styles from './ProductTabs.module.scss';
 import { filterProductList } from '../../modules/filterProductList';
 import ProductList from '../ProductList';
 import ProductFilter from '../ProductFilter';
+
 interface ProductTabsInterface {
   productList: [any] | any[]
 }
