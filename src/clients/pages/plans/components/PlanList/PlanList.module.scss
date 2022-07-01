@@ -1,0 +1,90 @@
+@import '../../../../../../styles/tokens/all';
+
+.planList {
+
+  &__card {
+    margin-bottom: $space--md;
+
+    &__head {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &__imgContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $space--xs $space--md;
+        margin-right: $space--xxl;
+
+        img {
+          border-radius: $space--xs;
+        }
+
+        @include desktop-view {
+          img {
+            width: 75px;
+            height: 75px;
+          }
+        }
+      }
+
+      &__details {
+        padding: $space--xs;
+        margin-left: $space--xxl;
+      }
+
+      &__title {
+        font-size: $font--lg;
+        font-weight: bold;
+        line-height: 1.5;
+      }
+
+      &__price {
+        color: $color-green-dark;
+        font-weight: bold;
+        line-height: 1.5;
+      }
+
+      @include desktop-view {
+        &__title, &__price {
+          font-size: $font--xl;
+        }
+      }
+    }
+
+    &__details {
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      ul li {
+        font-size: $font--md;
+        line-height: 1.5;
+      }
+    }
+
+    &__cta {
+      display: flex;
+      flex-direction: row;
+      button {
+        width: 100%;
+        padding: $space--xs;
+        font-size: $font--md;
+        color:$color-white;
+        border-radius: $space--xxs;
+        border: 1px solid $color-white;
+        cursor: pointer;
+      }
+
+      &__compare {
+        background: $color-blue;
+      }
+
+      &__purchase {
+        background: $color-green-dark;
+      }
+    }
+  }
+}

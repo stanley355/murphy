@@ -1,0 +1,26 @@
+@import '../../../../../../styles/tokens/all';
+
+.planAccordion {
+  border-top: 1px solid $color-blue;
+
+  button {
+    width: 100%;
+    border: none;
+    padding: $space--xs;
+    font-size: $font--lg;
+    background: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    svg {
+      color: $color-blue;
+    }
+  }
+
+  &__body {
+    padding: $space--xs;
+  }
+}

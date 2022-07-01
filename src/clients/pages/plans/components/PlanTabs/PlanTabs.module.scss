@@ -1,0 +1,36 @@
+@import '../../../../../../styles/tokens/all';
+
+.planTabs {
+  width: 100%;
+  margin: $space--sm 0;
+
+  &__head {
+    display: flex;
+    flex-direction: row;
+    button {
+      width: 100%;
+      padding: $space--xs;
+      font-size: $font--md;
+      background: $color-white;
+      border-bottom: none;
+      border-radius: $space--xs $space--xs 0 0;
+      color:$color-blue;
+      font-size: $font--lg;
+      cursor: pointer;
+    }
+
+    .btnInactive {
+      background: $color-barely-blue;
+      border:1px solid $color-black;
+      color:$color-black;
+    }
+  }
+
+  &__body {
+    border: 2px solid $color-black;
+    border-top: none;
+    border-radius: 0 0 $space--xs $space--xs;
+    padding: $space--xs;
+    background: $color-white;
+  }
+}

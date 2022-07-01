@@ -3,6 +3,7 @@ import styles from './ProductTabs.module.scss';
 import { filterProductList } from '../../modules/filterProductList';
 import ProductList from '../ProductList';
 import ProductFilter from '../ProductFilter';
+
 interface ProductTabsInterface {
   productList: [any] | any[]
 }
@@ -22,13 +23,13 @@ const ProductTabs = (props: ProductTabsInterface) => {
     return (
       <div className={styles.productTabs__head}>
         <button
-          className={activeTab === "list" ? styles["btnActive"] : ""}
+          className={activeTab === "list" ? "" : styles["btnInactive"]}
           onClick={() => setActiveTab("list")}
         >
           Product List
         </button>
         <button
-          className={activeTab === "filter" ? styles["btnActive"] : ""}
+          className={activeTab === "filter" ? "" : styles["btnInactive"]}
           onClick={() => setActiveTab("filter")}
         >
           Filters
