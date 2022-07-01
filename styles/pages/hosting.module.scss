@@ -1,0 +1,8 @@
+@import '../tokens/all';
+
+.hosting {
+  &__subtitle {
+    font-size: $font--xl;
+    font-weight: bold;
+  }
+}

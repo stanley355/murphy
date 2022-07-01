@@ -13,8 +13,9 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		color:$color-white;
+		color: $color-white;
 		font-weight: bold;
+
 		svg {
 			font-size: 32px;
 			margin-right: $space--xxs;
@@ -26,49 +27,69 @@
 		border: none;
 		font-size: $font--xxl;
 		padding-top: $space--xs;
-		color:$color-white;
+		color: $color-white;
 	}
 }
 
 
 .mobileNavbar__menu {
+	background: $color-blue;
+	position: fixed;
 	top: 0;
 	left: 0;
-	position: fixed;
-	background: $color-blue;
 	width: 100%;
 	height: 100%;
-	padding: $space--sm;
 
 	&__head {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		padding: $space--sm $space--xs;
 	}
 
 	&__logo {
-		font-weight: bold;
 		font-size: $font--xxxl;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
 		color: $color-white;
+		font-weight: bold;
+
+		svg {
+			font-size: 32px;
+			margin-right: $space--xxs;
+		}
 	}
 
 	&__closeBtn {
 		background: none;
 		border: none;
-		font-size: $font--xxxl;
-		color: $color-white;
+		font-size: $font--xxl;
 		padding-top: $space--xs;
+		color: $color-white;
 	}
 
-	ul {
-		padding: 0;
+	&__body {
+		display: flex;
+		flex-direction: column;
+		a {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: $space--lg $space--sm;
+			font-size: $font--xxl;
+			color:$color-white;
+			border-top: 1px solid $color-white;
+
+			svg {
+				font-size: 28px;
+				margin-right: $space--sm;
+			}
+		}
+		a:hover {
+			background: $color-white;
+			color:$color-blue;
+		}
 	}
 
-	ul li {
-		list-style: none;
-		font-size: $font--xl;
-		padding: $space--sm $space--xs;
-		color:$color-white;
-		border-top: 1px solid $color-white;
-	}
 }

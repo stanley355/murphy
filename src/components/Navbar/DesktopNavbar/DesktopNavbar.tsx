@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaJsfiddle, FaAws, FaGoogle, FaTelegram } from 'react-icons/fa';
+import { FaJsfiddle, FaDiceD6, FaRegWindowRestore, FaDesktop } from 'react-icons/fa';
 import styles from './DesktopNavbar.module.scss';
 
 const DesktopNavbar = () => {
@@ -17,22 +17,22 @@ const DesktopNavbar = () => {
         </Link>
       </div>
       <div className={styles.desktopNavbar__right}>
-        <Link href="/hosting/amazon-web-services">
-          <a title="Amazon Web Services">
-            <FaAws />
-            AWS
-          </a>
-        </Link>
-        <Link href="/hosting/google-cloud-platform">
-          <a title="Google Cloud Platform">
-            <FaGoogle />
-            GCP
-          </a>
-        </Link>
         <Link href="/products/">
-          <a title="Marph Web Services">
-            <FaTelegram />
-            Web Services
+          <a title="Marph Web Products" >
+            <FaDiceD6 />
+            Products
+          </a>
+        </Link>
+        <Link href="/plans/">
+          <a title="Marph Web Plans" >
+            <FaRegWindowRestore />
+            Plans
+          </a>
+        </Link>
+        <Link href="/hosting/">
+          <a title="Marph Web Hosting" >
+            <FaDesktop />
+            Hosting
           </a>
         </Link>
       </div>
