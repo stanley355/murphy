@@ -1,0 +1,52 @@
+@import '../../../../../../styles/tokens/all';
+
+.planComparison {
+  overflow-x: scroll;
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__price {
+    color:$color-green-dark;
+    font-weight: bold;
+  }
+
+  &__cta {
+    button {
+      width: 100%;
+      border: none;
+      background: none;
+      border-radius: $space--xxs;
+      padding: $space--xs;
+      font-size: $font--lg;
+      cursor: pointer;
+    }
+
+    button:first-child {
+      background: $color-blue;
+      color:$color-white;
+    }
+
+    button:last-child {
+      color:$color-blue;
+    }
+
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  th {
+    img {
+      border-radius: $space--xs;
+    }
+  }
+  th, td {
+    border-bottom: 1px solid $color-black;
+    padding: $space--sm $space--md;
+    font-size: $font--lg;
+    text-align: center;
+  }
+}

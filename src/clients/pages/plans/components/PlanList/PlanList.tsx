@@ -5,7 +5,7 @@ import styles from './PlanList.module.scss';
 import PlanAccordion from '../PlanAccordion';
 
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
-import { addComparison, planComparisonStore } from '../../modules/planComparisonState';
+import { planComparisonStore, addComparison } from '../../modules/planComparisonState';
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
 import { setPlanBandwidthDisplay } from '../../../../common/modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../../common/modules/setPlanBuildDisplay';

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './PlanTabs.module.scss';
 
+import { planComparisonStore } from '../../modules/planComparisonState';
 import PlanComparison from '../PlanComparison';
 import PlanList from '../PlanList';
 
