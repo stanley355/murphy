@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Partners.module.scss';
 import { slugify } from '../../../../../utils/slugify';
 
@@ -18,7 +19,7 @@ const Partners = (props: PartnersInterface) => {
           {partnerList.map((partner: string) =>
             <Link href={`/hosting/${slugify(partner)}`} key={partner}>
               <a title={partner} className={styles.partners__card}>
-                <img
+                <Image
                   src={`/static/images/partners/${slugify(partner)}.webp`}
                   alt={partner}
                   width={100}

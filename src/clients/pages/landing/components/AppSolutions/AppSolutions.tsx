@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './AppSolutions.module.scss';
 import useResponsive from '../../../../../utils/hooks/useResponsive';
 
@@ -13,7 +14,8 @@ const AppSolutions = () => {
         <div className={styles.appSolutions__list}>
           <div className={styles.appSolutions__card}>
             <div className={styles.appSolutions__card__imgContainer}>
-              <img
+              <Image
+                alt="Web solution"
                 src="/static/images/home/solution1.webp"
                 width={250}
                 height={120}
@@ -24,7 +26,8 @@ const AppSolutions = () => {
           </div>
           <div className={styles.appSolutions__card}>
             <div className={styles.appSolutions__card__imgContainer}>
-              <img
+            <Image
+                alt="Web solution"
                 src="/static/images/home/solution2.webp"
                 width={250}
                 height={120}
@@ -36,7 +39,8 @@ const AppSolutions = () => {
 
           <div className={styles.appSolutions__card}>
             <div className={styles.appSolutions__card__imgContainer}>
-              <img
+            <Image
+                alt="Web solution"
                 src="/static/images/home/solution3.webp"
                 width={250}
                 height={120}
@@ -48,7 +52,8 @@ const AppSolutions = () => {
 
           <div className={styles.appSolutions__card}>
             <div className={styles.appSolutions__card__imgContainer}>
-              <img
+            <Image
+                alt="Web solution"
                 src="/static/images/home/solution4.webp"
                 width={250}
                 height={120}

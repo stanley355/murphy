@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import styles from './NewsCarousel.module.scss';
@@ -29,8 +30,9 @@ const NewsCarousel = (props: CarouselInterface) => {
                 <Slide index={index} key={item.title} className={styles.newsCarousel__card}>
                   <Link href={item.url}>
                     <a title={item.title}>
-                      <img
+                      <Image 
                         src={item.urlToImage}
+                        alt={item.title}
                         width={isDesktop ? 200 : 400}
                         height={isDesktop ? 175 : 250}
                       />

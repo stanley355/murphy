@@ -31,12 +31,12 @@ const HeroContent = () => {
     {
       title: 'Hosting',
       icon: <FaCloud />,
-      url: '/products/'
+      url: '/hosting/'
     },
     {
       title: 'Servers',
       icon: <FaServer />,
-      url: '/products/'
+      url: '/hosting/'
     }
   ]
 
