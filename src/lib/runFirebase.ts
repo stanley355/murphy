@@ -20,10 +20,13 @@ export const runFirebase = () => {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   console.log(111, app.name);
-  if (typeof window !== 'undefined' && APP_ENV === 'production') {
+  console.log(222, typeof window);
+  if (typeof window !== 'undefined') {
     console.log(222, typeof window !== 'undefined');
-    console.log(333, APP_ENV);
-    const analytic = getAnalytics(app);
-    console.log(analytic);
+    if (APP_ENV === 'production') {
+      console.log(333, APP_ENV);
+      const analytic = getAnalytics(app);
+      console.log(analytic);
+    }
   }
 };
