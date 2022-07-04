@@ -62,7 +62,7 @@ const HostingSlug = (props: HostingSlugInterface) => {
       <HostMeta hostData={hostData} />
       <div className="container">
         {renderTemplate(hostData.template)}
-        {newsData?.articles.length > 0 && <NewsCarousel
+        {newsData?.articles?.length > 0 && <NewsCarousel
           carouselTitle="Related News"
           carouselItems={newsData.articles}
         />}
