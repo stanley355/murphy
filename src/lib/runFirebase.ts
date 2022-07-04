@@ -1,8 +1,8 @@
 import getConfig from 'next/config';
 import { initializeApp } from 'firebase/app';
-import { getAnalytics, isSupported } from 'firebase/analytics';
+import { getAnalytics } from 'firebase/analytics';
 
-const { APP_ENV, FIREBASE_APIKEY } = getConfig().publicRuntimeConfig;
+const { FIREBASE_APIKEY } = getConfig().publicRuntimeConfig;
 
 export const runFirebase = () => {
   // Your web app's Firebase configuration
