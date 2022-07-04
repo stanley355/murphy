@@ -21,6 +21,5 @@ export const runFirebase = () => {
   const app = initializeApp(firebaseConfig);
   if (typeof window !== 'undefined') {
     const analytic = getAnalytics(app);
-    console.log(analytic);
   }
 };
