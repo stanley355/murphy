@@ -23,6 +23,7 @@ export const runFirebase = () => {
   console.log(222, typeof window);
   if (typeof window !== 'undefined') {
     console.log(222, typeof window !== 'undefined');
+    console.log(331, APP_ENV);
     if (APP_ENV === 'production') {
       console.log(333, APP_ENV);
       const analytic = getAnalytics(app);
