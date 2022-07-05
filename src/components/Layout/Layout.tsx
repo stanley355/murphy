@@ -1,13 +1,38 @@
 import React from 'react';
 import Head from 'next/head';
-import { runFirebase } from '../../lib/runFirebase';
+import getConfig from 'next/config';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+
+const { FIREBASE_APIKEY } = getConfig().publicRuntimeConfig;
 
 const Layout = ({ children }: any) => {
 
-  runFirebase();
+
+  
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: FIREBASE_APIKEY,
+    authDomain: 'marph-4bb98.firebaseapp.com',
+    projectId: 'marph-4bb98',
+    storageBucket: 'marph-4bb98.appspot.com',
+    messagingSenderId: '409398382775',
+    appId: '1:409398382775:web:08f10ead553b82e906fd32',
+    measurementId: 'G-7S4L8WVV24',
+  };
+
+  console.log(111, firebaseConfig);
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  // if (typeof window !== 'undefined') {
+  //   return getAnalytics(app);
+  // }
+  console.log(app.name);
 
   return (
     <div className="layout">
