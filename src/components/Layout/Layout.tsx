@@ -1,13 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import getConfig from 'next/config';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-
-const { APP_ENV } = getConfig().serverRuntimeConfig;
 
 const Layout = ({ children }: any) => {
 
@@ -24,7 +21,7 @@ const Layout = ({ children }: any) => {
   };
 
   console.log(111, firebaseConfig);
-  console.log(222, APP_ENV);
+  console.log(222, process.env.APP_ENV);
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);

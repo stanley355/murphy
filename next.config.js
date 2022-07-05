@@ -11,7 +11,7 @@ module.exports = {
     FIREBASE_APIKEY: process.env.FIREBASE_APIKEY,
     NEWSAPI_KEY: process.env.NEWSAPI_KEY
   },
-  serverRuntimeConfig: {
+  env: {
     APP_ENV: process.env.APP_ENV,
     FIREBASE_APIKEY: process.env.FIREBASE_APIKEY,
   }
