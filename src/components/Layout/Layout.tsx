@@ -7,8 +7,10 @@ import Footer from '../Footer';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 
+const { APP_ENV } = getConfig().serverRuntimeConfig;
+
 const Layout = ({ children }: any) => {
-  
+
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
@@ -22,7 +24,7 @@ const Layout = ({ children }: any) => {
   };
 
   console.log(111, firebaseConfig);
-  console.log(222, process.env.APP_ENV);
+  console.log(222, APP_ENV);
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
