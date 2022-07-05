@@ -7,16 +7,12 @@ import Footer from '../Footer';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 
-const { FIREBASE_APIKEY } = getConfig().publicRuntimeConfig;
-
 const Layout = ({ children }: any) => {
-
-
   
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
-    apiKey: FIREBASE_APIKEY,
+    apiKey: process.env.FIREBASE_APIKEY,
     authDomain: 'marph-4bb98.firebaseapp.com',
     projectId: 'marph-4bb98',
     storageBucket: 'marph-4bb98.appspot.com',
@@ -26,6 +22,7 @@ const Layout = ({ children }: any) => {
   };
 
   console.log(111, firebaseConfig);
+  console.log(222, process.env.APP_ENV);
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
