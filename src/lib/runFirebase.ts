@@ -20,6 +20,7 @@ export const runFirebase = () => {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   if (typeof window !== 'undefined') {
-    // getAnalytics(app);
+    return getAnalytics(app);
   }
+  return '';
 };
