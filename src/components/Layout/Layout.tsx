@@ -11,7 +11,7 @@ const Layout = ({ children }: any) => {
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
-    apiKey: process.env.FIREBASE_APIKEY,
+    apiKey: 'AIzaSyA2Pj-9mzGHI3fvvMhesE12eZgyF5dLA6g',
     authDomain: 'marph-4bb98.firebaseapp.com',
     projectId: 'marph-4bb98',
     storageBucket: 'marph-4bb98.appspot.com',
@@ -20,15 +20,11 @@ const Layout = ({ children }: any) => {
     measurementId: 'G-7S4L8WVV24',
   };
 
-  console.log(111, firebaseConfig);
-  console.log(222, process.env.APP_ENV);
-
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  // if (typeof window !== 'undefined') {
-  //   return getAnalytics(app);
-  // }
-  console.log(app.name);
+  if (typeof window !== 'undefined') {
+    getAnalytics(app);
+  }
 
   return (
     <div className="layout">
