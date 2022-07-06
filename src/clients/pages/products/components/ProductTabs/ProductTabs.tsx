@@ -5,19 +5,13 @@ import ProductList from '../ProductList';
 import ProductFilter from '../ProductFilter';
 
 interface ProductTabsInterface {
-  productList: [any] | any[]
+  productList: [any] | any[],
+  onFilterSubmit: (e:any)=> void
 }
 
 const ProductTabs = (props: ProductTabsInterface) => {
-  const { productList } = props;
+  const { productList, onFilterSubmit } = props;
   const [activeTab, setActiveTab] = useState("list");
-  const [filteredProducts, setFilteredProducts] = useState(productList);
-
-  const filterHandler = (filterValues: any) => {
-    const newProductList = filterProductList(filterValues, productList);
-    setFilteredProducts(newProductList);
-    setActiveTab("list");
-  }
 
   const ProductTabsHead = () => {
     return (
@@ -41,9 +35,9 @@ const ProductTabs = (props: ProductTabsInterface) => {
   const setShowingTab = (tab: string) => {
     switch (tab) {
       case "list":
-        return <ProductList list={filteredProducts} />
+        return <ProductList list={productList} />
       case "filter":
-        return <ProductFilter onSubmit={filterHandler} />
+        return <ProductFilter onSubmit={onFilterSubmit} />
       default:
         return <ProductList list={productList} />
     }
