@@ -1,24 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styles from './ProductDisplay.module.scss';
 import ProductList from '../ProductList';
 import ProductTabs from '../ProductTabs';
 import ProductFilter from '../ProductFilter';
-import { filterProductList } from '../../modules/filterProductList';
+import productFilterStore from '../../modules/productFilterStore';
+import productFilterSlice from '../../modules/productFilterSlice';
 import useResponsive from '../../../../../utils/hooks/useResponsive';
 
 interface ProductDisplayInterface {
+  query?: any,
   productList: [any] | any[]
 }
 
 const ProductDisplay = (props: ProductDisplayInterface) => {
-  const { productList } = props;
-  const [filteredProducts, setFilteredProducts] = useState(productList);
+  const { query, productList } = props;
   const { isDesktop } = useResponsive();
+  const [filteredProducts, setFilteredProducts] = useState(productList);
+  
+  const { setInitialProducts, filterByQuery, filterByFilterBox } = productFilterSlice.actions;
+  const productStore = productFilterStore.getState();
+  if (productList) productFilterStore.dispatch(setInitialProducts(productList));
+  if (query) productFilterStore.dispatch(filterByQuery(query));
+  
+  useEffect(() => {
+    if (query && query.category) {
+      setFilteredProducts(productStore.filteredList);
+    }
+  }, [query]);
 
   const updateProductList = (filterValues: any) => {
-    const newProductList = filterProductList(filterValues, productList);
-    setFilteredProducts(newProductList);
+    productFilterStore.dispatch(filterByFilterBox(filterValues));
+    const newStore = productFilterStore.getState();
+    setFilteredProducts(newStore.filteredList);
   }
 
   const DesktopProductDisplay = () => {
@@ -32,7 +46,10 @@ const ProductDisplay = (props: ProductDisplayInterface) => {
 
   return (
     <div className={styles.productDisplay}>
-      {isDesktop ? <DesktopProductDisplay /> : <ProductTabs productList={productList} />}
+      {isDesktop ? <DesktopProductDisplay /> : <ProductTabs
+        productList={filteredProducts}
+        onFilterSubmit={updateProductList}
+      />}
     </div>
   )
 }
