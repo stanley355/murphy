@@ -9,7 +9,7 @@ import productFilterSlice from '../../modules/productFilterSlice';
 import useResponsive from '../../../../../utils/hooks/useResponsive';
 
 interface ProductDisplayInterface {
-  query: any,
+  query?: any,
   productList: [any] | any[]
 }
 
