@@ -20,8 +20,8 @@ const ProductDisplay = (props: ProductDisplayInterface) => {
   
   const { setInitialProducts, filterByQuery, filterByFilterBox } = productFilterSlice.actions;
   const productStore = productFilterStore.getState();
-  productFilterStore.dispatch(setInitialProducts(productList));
-  productFilterStore.dispatch(filterByQuery(query));
+  if (productList) productFilterStore.dispatch(setInitialProducts(productList));
+  if (query) productFilterStore.dispatch(filterByQuery(query));
   
   useEffect(() => {
     if (query && query.category) {

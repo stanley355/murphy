@@ -3,7 +3,6 @@ import { GetServerSideProps } from 'next';
 
 import styles from '../../../styles/pages/products.module.scss';
 import ProductDisplay from '../../clients/pages/products/components/ProductDisplay';
-import { filterProductByQuery } from '../../clients/pages/products/modules/filterProductByQuery';
 import { fetchAllProducts } from '../../lib/api-fetcher/morphclouds/products';
 
 const Products = (props: any) => {
