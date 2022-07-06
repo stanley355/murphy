@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Router from 'next/router';
 import styles from './PlanComparison.module.scss';
 
-import { planComparisonStore, removeComparison } from '../../modules/planComparisonState';
+import { planComparisonStore, removeComparison } from '../../modules/planComparisonStore';
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
 import { setPlanBandwidthDisplay } from '../../../../common/modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../../common/modules/setPlanBuildDisplay';
