@@ -19,13 +19,14 @@ const ProductDisplay = (props: ProductDisplayInterface) => {
   const [filteredProducts, setFilteredProducts] = useState(productList);
   
   const { setInitialProducts, filterByQuery, filterByFilterBox } = productFilterSlice.actions;
-  const productStore = productFilterStore.getState();
+  
   if (productList) productFilterStore.dispatch(setInitialProducts(productList));
-  if (query) productFilterStore.dispatch(filterByQuery(query));
   
   useEffect(() => {
     if (query && query.category) {
-      setFilteredProducts(productStore.filteredList);
+      productFilterStore.dispatch(filterByQuery(query));
+      const newStore = productFilterStore.getState();
+      setFilteredProducts(newStore.filteredList);
     }
   }, [query]);
 

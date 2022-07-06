@@ -2,16 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './HeroContent.module.scss';
 
-import { FaCloud, FaShareAlt, FaDatabase, FaUbuntu, FaDocker, FaServer } from 'react-icons/fa';
+import { FaCloud, FaDiceD6, FaDatabase, FaUbuntu, FaDocker, FaServer } from 'react-icons/fa';
 
 const HeroContent = () => {
 
   // TODO: Adjust the url after creating a more advanced filter
   const HeroMenu = [
     {
-      title: 'Analytics',
-      icon: <FaShareAlt />,
-      url: '/products/?category=ANLT'
+      title: 'Containers',
+      icon: <FaDocker />,
+      url: '/products/?category=CTNR'
     },
     {
       title: 'Databases',
@@ -24,20 +24,20 @@ const HeroContent = () => {
       url: '/products/?category=CMPT'
     },
     {
-      title: 'Containers',
-      icon: <FaDocker />,
-      url: '/products/?category=CTNR'
-    },
-    {
       title: 'Hosting',
       icon: <FaCloud />,
-      url: '/hosting/'
+      url: '/plans/'
     },
     {
       title: 'Servers',
       icon: <FaServer />,
       url: '/hosting/'
-    }
+    },
+    {
+      title: 'Storage',
+      icon: <FaDiceD6 />,
+      url: '/products/?category=STOR'
+    },
   ]
 
   return (
@@ -49,10 +49,12 @@ const HeroContent = () => {
         </div>
         <div className={styles.heroContent__menu}>
           {HeroMenu.map((menu: any) =>
-            <a title={menu.title} className={styles.heroContent__menu__card} href={menu.url} key={menu.title}>
-              {menu.icon}
-              {menu.title}
-            </a>
+            <Link href={menu.url} key={menu.title}>
+              <a title={menu.title} className={styles.heroContent__menu__card} >
+                {menu.icon}
+                {menu.title}
+              </a>
+            </Link>
           )}
         </div>
       </div>
