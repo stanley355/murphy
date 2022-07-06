@@ -49,12 +49,10 @@ const HeroContent = () => {
         </div>
         <div className={styles.heroContent__menu}>
           {HeroMenu.map((menu: any) =>
-              <Link href={menu.url} key={menu.title}>
-                <a title={menu.title} className={styles.heroContent__menu__card}>
-                  {menu.icon}
-                  {menu.title}
-                </a>
-              </Link>
+            <a title={menu.title} className={styles.heroContent__menu__card} href={menu.url} key={menu.title}>
+              {menu.icon}
+              {menu.title}
+            </a>
           )}
         </div>
       </div>
