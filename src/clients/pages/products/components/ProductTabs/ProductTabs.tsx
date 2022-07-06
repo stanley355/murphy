@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import styles from './ProductTabs.module.scss';
-import { filterProductList } from '../../modules/filterProductList';
 import ProductList from '../ProductList';
 import ProductFilter from '../ProductFilter';
 
 interface ProductTabsInterface {
   productList: [any] | any[],
-  onFilterSubmit: (e:any)=> void
+  onFilterSubmit: (e: any) => void
 }
 
 const ProductTabs = (props: ProductTabsInterface) => {
@@ -37,7 +36,7 @@ const ProductTabs = (props: ProductTabsInterface) => {
       case "list":
         return <ProductList list={productList} />
       case "filter":
-        return <ProductFilter onSubmit={onFilterSubmit} />
+        return <ProductFilter onSubmit={(e: any) => { onFilterSubmit(e); setActiveTab("list") }} />
       default:
         return <ProductList list={productList} />
     }

@@ -6,7 +6,6 @@ import ProductTabs from '../ProductTabs';
 import ProductFilter from '../ProductFilter';
 import productFilterStore from '../../modules/productFilterStore';
 import productFilterSlice from '../../modules/productFilterSlice';
-import { filterProductList } from '../../modules/filterProductList';
 import useResponsive from '../../../../../utils/hooks/useResponsive';
 
 interface ProductDisplayInterface {
@@ -18,12 +17,12 @@ const ProductDisplay = (props: ProductDisplayInterface) => {
   const { query, productList } = props;
   const { isDesktop } = useResponsive();
   const [filteredProducts, setFilteredProducts] = useState(productList);
-
-  const { setInitialProducts, filterByQuery } = productFilterSlice.actions;
+  
+  const { setInitialProducts, filterByQuery, filterByFilterBox } = productFilterSlice.actions;
+  const productStore = productFilterStore.getState();
   productFilterStore.dispatch(setInitialProducts(productList));
   productFilterStore.dispatch(filterByQuery(query));
-  const productStore = productFilterStore.getState();
-
+  
   useEffect(() => {
     if (query && query.category) {
       setFilteredProducts(productStore.filteredList);
@@ -31,8 +30,9 @@ const ProductDisplay = (props: ProductDisplayInterface) => {
   }, [query]);
 
   const updateProductList = (filterValues: any) => {
-    const newProductList = filterProductList(filterValues, productList);
-    setFilteredProducts(newProductList);
+    productFilterStore.dispatch(filterByFilterBox(filterValues));
+    const newStore = productFilterStore.getState();
+    setFilteredProducts(newStore.filteredList);
   }
 
   const DesktopProductDisplay = () => {
@@ -48,7 +48,7 @@ const ProductDisplay = (props: ProductDisplayInterface) => {
     <div className={styles.productDisplay}>
       {isDesktop ? <DesktopProductDisplay /> : <ProductTabs
         productList={filteredProducts}
-        onFilterSubmit={(e) => console.log(e)}
+        onFilterSubmit={updateProductList}
       />}
     </div>
   )
