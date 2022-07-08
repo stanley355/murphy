@@ -35,6 +35,7 @@ const Layout = ({ children }: any) => {
         <meta name="theme-color" media="(prefers-color-scheme: #cbdaff)" content="#cbdaff"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <meta name="robots" content="index, follow" />
+        <meta name="google-site-verification" content="0nXecerQl8O8LuivKiaqqSb-42wvTZroXpXFsjM5HCk" />
       </Head>
       <Navbar />
       {children}

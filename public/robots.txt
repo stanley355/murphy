@@ -1,4 +1,6 @@
 User-agent: *
-Allow: /*
+Allow: /
 Allow: /hosting
 Allow: /hosting/*
+Allow: /plans
+Allow: /products
