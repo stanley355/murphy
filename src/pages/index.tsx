@@ -45,7 +45,7 @@ const Home = (props: any) => {
 
   return (
     <div className="landing">
-
+      <LandingMeta />
       <HeroContent />
       <AppSolutions />
       {partnerList && <Partners partnerList={partnerList} />}
