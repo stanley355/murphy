@@ -2,6 +2,7 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 
 import styles from '../../../styles/pages/products.module.scss';
+import ProductMeta from '../../clients/pages/products/components/ProductMeta';
 import ProductDisplay from '../../clients/pages/products/components/ProductDisplay';
 import { fetchAllProducts } from '../../lib/api-fetcher/morphclouds/products';
 
@@ -10,6 +11,7 @@ const Products = (props: any) => {
 
   return (
     <div className='container'>
+      <ProductMeta />
       <div className={styles.products}>
         <h1 className={styles.products__title}>Web Services</h1>
         <ProductDisplay query={query} productList={products} />
