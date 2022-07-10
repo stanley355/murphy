@@ -2,17 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './HeroContent.module.scss';
 
-import { FaCloud, FaShareAlt, FaDatabase, FaUbuntu, FaDocker, FaServer } from 'react-icons/fa';
+import { FaCloud, FaDiceD6, FaDatabase, FaUbuntu, FaDocker, FaServer } from 'react-icons/fa';
 
 const HeroContent = () => {
 
-  // TODO: Adjust the url after creating a more advanced filter
   const HeroMenu = [
-    {
-      title: 'Analytics',
-      icon: <FaShareAlt />,
-      url: '/products/?category=ANLT'
-    },
     {
       title: 'Databases',
       icon: <FaDatabase />,
@@ -31,13 +25,18 @@ const HeroContent = () => {
     {
       title: 'Hosting',
       icon: <FaCloud />,
-      url: '/hosting/'
+      url: '/plans/'
     },
     {
       title: 'Servers',
       icon: <FaServer />,
       url: '/hosting/'
-    }
+    },
+    {
+      title: 'Storage',
+      icon: <FaDiceD6 />,
+      url: '/products/?category=STOR'
+    },
   ]
 
   return (
