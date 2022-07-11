@@ -7,7 +7,6 @@ import HostMeta from '../../clients/pages/hosting/components/HostMeta';
 import Skeleton from '../../clients/pages/hosting/components/Skeleton/Skeleton';
 import PlanTemplate from '../../clients/pages/hosting/components/Templates/PlanTemplate';
 import ProductTemplate from '../../clients/pages/hosting/components/Templates/ProductTemplate';
-import NewsCarousel from '../../components/Carousels/NewsCarousel';
 
 import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import { fetchAllHostNames } from '../../lib/api-fetcher/morphclouds/hosts';
@@ -62,10 +61,6 @@ const HostingSlug = (props: HostingSlugInterface) => {
       <HostMeta hostData={hostData} />
       <div className="container">
         {renderTemplate(hostData.template)}
-        {newsData?.articles?.length > 0 && <NewsCarousel
-          carouselTitle="Related News"
-          carouselItems={newsData.articles}
-        />}
       </div>
     </div>
   );
