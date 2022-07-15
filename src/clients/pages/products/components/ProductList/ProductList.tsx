@@ -14,7 +14,7 @@ const ProductList = (props: ProductListInterface) => {
 
   const Products = () => {
     return <>{
-      list.map((item: any) => {
+      list && list.length > 0 && list.map((item: any) => {
         return (
           <div key={item.title} className={styles.productList__card}>
             <div className={styles.productList__card__title}>{item.title}</div>
