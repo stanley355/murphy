@@ -4,13 +4,20 @@ interface IPrice {
   price_timeunit: string;
   price_desc: string;
   base_price?: number;
+  currency: string,
+}
+
+export const setPriceCurrency = (currency: string) => {
+  if (currency) return currency;
+  return 'US$';
 }
 
 export const setPlanPriceDisplay = (plan : IPrice) => {
   if (plan.price === null) {
     if (plan.price_desc) return plan.price_desc;
   } else {
-    let price = `$${plan.price}`;
+    const currency = setPriceCurrency(plan.currency);
+    let price = `${currency} ${plan.price}`;
     if (plan.price_unit) price += `/${plan.price_unit}`;
     if (plan.price_timeunit) price += `/${plan.price_timeunit}`;
     return price;

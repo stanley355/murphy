@@ -6,6 +6,7 @@ import PlanAccordion from '../PlanAccordion';
 
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
 import { planComparisonStore, addComparison } from '../../modules/planComparisonStore';
+import { setPriceCurrency } from '../../../../common/modules/setPriceDisplay';
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
 import { setPlanBandwidthDisplay } from '../../../../common/modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../../common/modules/setPlanBuildDisplay';
@@ -34,6 +35,18 @@ const PlanList = (props: IPlanList) => {
     );
   }
 
+  const PriceView = (props: any) => {
+    const { item } = props;
+    if (item.discounted_price) {
+      return <div>
+        <s>{setPlanPriceDisplay(item)}</s>
+        <div className={styles.planList__card__head__price}>{setPriceCurrency(item.currency)} {item.discounted_price} / {item.price_timeunit}</div>
+      </div>
+    }
+
+    return <div className={styles.planList__card__head__price}>{setPlanPriceDisplay(item)}</div>;
+  }
+
   return (
     <div className={styles.planList}>
       {list.map((item: any) =>
@@ -49,7 +62,7 @@ const PlanList = (props: IPlanList) => {
             </div>
             <div className={styles.planList__card__head__details}>
               <div className={styles.planList__card__head__title}>{item.name}</div>
-              <div className={styles.planList__card__head__price}>{setPlanPriceDisplay(item)}</div>
+              <PriceView item={item} />
             </div>
           </div>
           <PlanAccordion title="See Description" body={item.description} />
