@@ -17,7 +17,7 @@ const Plans = (props: PlansInterface) => {
       <div className="plans">
         <h1>Web Hosting Plans</h1>
         <div>Select or Compare Plans suiting your Needs</div>
-        <PlanTabs planList={planList}/>
+        {planList && <PlanTabs planList={planList}/>}
       </div>
     </div>
 
