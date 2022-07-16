@@ -1,0 +1,8 @@
+@import '../../../../../../styles/tokens/all';
+
+.planPrice {
+  &__basePrice {
+    color:$color-green-dark;
+    font-weight: bold;
+  }
+}

@@ -4,6 +4,7 @@ import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import styles from './PlansCarousel.module.scss';
 
+import PlanPrice from '../../../clients/pages/plans/components/PlanPrice';
 import { CarouselInterface } from '../../../clients/common/interfaces/CarouselInterface';
 import { setPlanPriceDisplay } from '../../../clients/common/modules/setPriceDisplay';
 import useResponsive from '../../../utils/hooks/useResponsive';
@@ -38,7 +39,7 @@ const PlansCarousel = (props: CarouselInterface) => {
                 <Slide index={index} key={item.name} className={styles.plansCarousel__card}>
                   <div className={styles.plansCarousel__card__head}>
                     <div>{item.name}</div>
-                    <div>{setPlanPriceDisplay(item)}</div>
+                    <PlanPrice item={item}/>
                   </div>
                   <div className={styles.plansCarousel__card__description}>
                     {setPlanDescriptionDisplay(item.description)}

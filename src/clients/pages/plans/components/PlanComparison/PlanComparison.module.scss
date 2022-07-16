@@ -7,11 +7,6 @@
     font-weight: bold;
   }
 
-  &__price {
-    color:$color-green-dark;
-    font-weight: bold;
-  }
-
   &__cta {
     button {
       width: 100%;
@@ -24,7 +19,7 @@
     }
 
     button:first-child {
-      background: $color-blue;
+      background: $color-green-dark;
       color:$color-white;
     }
 

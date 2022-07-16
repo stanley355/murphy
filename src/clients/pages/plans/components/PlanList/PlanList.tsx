@@ -3,7 +3,7 @@ import Router from 'next/router';
 
 import styles from './PlanList.module.scss';
 import PlanAccordion from '../PlanAccordion';
-
+import PlanPrice from '../PlanPrice';
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
 import { planComparisonStore, addComparison } from '../../modules/planComparisonStore';
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
@@ -34,6 +34,7 @@ const PlanList = (props: IPlanList) => {
     );
   }
 
+
   return (
     <div className={styles.planList}>
       {list.map((item: any) =>
@@ -49,7 +50,7 @@ const PlanList = (props: IPlanList) => {
             </div>
             <div className={styles.planList__card__head__details}>
               <div className={styles.planList__card__head__title}>{item.name}</div>
-              <div className={styles.planList__card__head__price}>{setPlanPriceDisplay(item)}</div>
+              <PlanPrice item={item}/>
             </div>
           </div>
           <PlanAccordion title="See Description" body={item.description} />
