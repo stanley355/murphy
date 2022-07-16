@@ -11,8 +11,6 @@ interface PlansInterface {
 const Plans = (props: PlansInterface) => {
   const { planList } = props;
 
-  console.log(planList[0]);
-
   return (
     <div className="container">
       <PlanMeta />
