@@ -4,8 +4,8 @@ import styles from './ProductDisplay.module.scss';
 import ProductList from '../ProductList';
 import ProductTabs from '../ProductTabs';
 import ProductFilter from '../ProductFilter';
-import productFilterStore from '../../modules/productFilterStore';
-import productFilterSlice from '../../modules/productFilterSlice';
+import { productFilterReducer } from '../../modules/productFilterReducer';
+import { productFilterStore } from '../../modules/productFilterStore';
 import useResponsive from '../../../../../utils/hooks/useResponsive';
 
 interface ProductDisplayInterface {
@@ -16,6 +16,8 @@ interface ProductDisplayInterface {
 const ProductDisplay = (props: ProductDisplayInterface) => {
   const { query, productList } = props;
   const { isDesktop } = useResponsive();
+
+  const [state, dispatch] = useReducer(productFilterReducer, productFilterStore);
 
   const DesktopProductDisplay = () => {
     return (
