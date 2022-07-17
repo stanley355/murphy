@@ -47,6 +47,7 @@ const MetaHead = (props: IMeta) => {
       <meta name="twitter:site" content="@marph" />
       <meta name="twitter:label1" content="Written by" />
       <meta name="twitter:data1" content="Stanley Winata" />
+      <link rel="icon" href="/marph.ico"></link>
     </Head>
   );
 }
