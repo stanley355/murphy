@@ -1,12 +1,9 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './PlanTabs.module.scss';
 
 import PlanComparison from '../PlanComparison';
-import { planComparisonReducer } from '../../modules/planComparisonReducer';
-import { planComparisonState } from '../../modules/planComparisonStore';
 import PlanList from '../PlanList';
-
 
 interface IPlanTabs {
   planList: [any]
@@ -15,13 +12,20 @@ interface IPlanTabs {
 const PlanTabs = (props: IPlanTabs) => {
   const { planList } = props;
   const [activeTab, setActiveTab] = useState("list");
-
-  const [state, dispatch] = useReducer(planComparisonReducer, planComparisonState);
-  const { comparisonList } = state;
+  const [comparisonList, setComparisonList] = useState<Array<any>>([]);
+  
 
   const addComparisonItem = (item: any) => {
-    dispatch({ type: 'ADD_ITEM', payload: { item } });
-    // setActiveTab("comparisons");
+    const newList = [...comparisonList];
+    newList.push(item);
+    setComparisonList(newList)
+    setActiveTab("comparisons");
+  }
+
+  const removeComparisonItem = (itemID: number) => {
+    const newList = [...comparisonList].filter((item: any) => item.id !== itemID);
+    setComparisonList(newList)
+    setActiveTab("comparisons");
   }
 
   const setShowingTab = (tab: string) => {
@@ -29,7 +33,7 @@ const PlanTabs = (props: IPlanTabs) => {
       case "list":
         return <PlanList list={planList} onCompareClick={addComparisonItem} />
       case "comparisons":
-        return <PlanComparison comparisonList={planList} />
+        return <PlanComparison comparisonList={comparisonList} onRemoveClick={removeComparisonItem} />
       default:
         return <PlanList list={planList} onCompareClick={addComparisonItem} />
     }

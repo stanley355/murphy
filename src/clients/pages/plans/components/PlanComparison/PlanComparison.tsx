@@ -11,11 +11,12 @@ import { setPlanConcurrentBuildDisplay } from '../../../../common/modules/setPla
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
 
 interface IPlanComparison {
-  comparisonList: any[]
+  comparisonList: any[],
+  onRemoveClick: (itemID: number) => void
 }
 
 const PlanComparison = (props: IPlanComparison) => {
-  const { comparisonList } = props;
+  const { comparisonList, onRemoveClick } = props;
 
   return (
     <div className={styles.planComparison}>
@@ -128,7 +129,7 @@ const PlanComparison = (props: IPlanComparison) => {
                   Purchase
                 </button>
                 <button type="button"
-                  onClick={() => { }}>
+                  onClick={() => onRemoveClick(item.id)}>
                   Remove
                 </button>
               </td>
