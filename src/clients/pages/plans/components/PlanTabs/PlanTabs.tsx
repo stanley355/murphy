@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './PlanTabs.module.scss';
 
-import { planComparisonStore } from '../../modules/planComparisonStore';
 import PlanComparison from '../PlanComparison';
 import PlanList from '../PlanList';
 
@@ -13,15 +12,30 @@ interface IPlanTabs {
 const PlanTabs = (props: IPlanTabs) => {
   const { planList } = props;
   const [activeTab, setActiveTab] = useState("list");
+  const [comparisonList, setComparisonList] = useState<Array<any>>([]);
+  
+
+  const addComparisonItem = (item: any) => {
+    const newList = [...comparisonList];
+    newList.push(item);
+    setComparisonList(newList)
+    setActiveTab("comparisons");
+  }
+
+  const removeComparisonItem = (itemID: number) => {
+    const newList = [...comparisonList].filter((item: any) => item.id !== itemID);
+    setComparisonList(newList)
+    setActiveTab("comparisons");
+  }
 
   const setShowingTab = (tab: string) => {
     switch (tab) {
       case "list":
-        return <PlanList list={planList} onCompareClick={() => setActiveTab("comparisons")} />
+        return <PlanList list={planList} onCompareClick={addComparisonItem} />
       case "comparisons":
-        return <PlanComparison />
+        return <PlanComparison comparisonList={comparisonList} onRemoveClick={removeComparisonItem} />
       default:
-        return <PlanList list={planList} onCompareClick={() => setActiveTab("comparisons")} />
+        return <PlanList list={planList} onCompareClick={addComparisonItem} />
     }
   }
 
