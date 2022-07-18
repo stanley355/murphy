@@ -12,7 +12,7 @@ import { setPlanConcurrentBuildDisplay } from '../../../../common/modules/setPla
 
 interface IPlanList {
   list: [any],
-  onCompareClick: () => void
+  onCompareClick: (item: any) => void
 }
 
 const PlanList = (props: IPlanList) => {
@@ -32,7 +32,6 @@ const PlanList = (props: IPlanList) => {
     );
   }
 
-
   return (
     <div className={styles.planList}>
       {list.map((item: any) =>
@@ -48,7 +47,7 @@ const PlanList = (props: IPlanList) => {
             </div>
             <div className={styles.planList__card__head__details}>
               <div className={styles.planList__card__head__title}>{item.name}</div>
-              <PlanPrice item={item}/>
+              <PlanPrice item={item} />
             </div>
           </div>
           <PlanAccordion title="See Description" body={item.description} />
@@ -57,7 +56,7 @@ const PlanList = (props: IPlanList) => {
             <button
               type="button"
               className={styles.planList__card__cta__compare}
-              onClick={() => {}}
+              onClick={() => onCompareClick(item)}
             >
               Compare
             </button>

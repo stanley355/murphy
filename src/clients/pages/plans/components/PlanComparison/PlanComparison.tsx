@@ -10,9 +10,12 @@ import { setPlanBuildDisplay } from '../../../../common/modules/setPlanBuildDisp
 import { setPlanConcurrentBuildDisplay } from '../../../../common/modules/setPlanConcurrentBuildDisplay';
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
 
+interface IPlanComparison {
+  comparisonList: any[]
+}
 
-const PlanComparison = () => {
-  const [comparisonList, setComparisonList] = useState([]);
+const PlanComparison = (props: IPlanComparison) => {
+  const { comparisonList } = props;
 
   return (
     <div className={styles.planComparison}>
@@ -125,7 +128,7 @@ const PlanComparison = () => {
                   Purchase
                 </button>
                 <button type="button"
-                  onClick={() => {}}>
+                  onClick={() => { }}>
                   Remove
                 </button>
               </td>
