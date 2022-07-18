@@ -15,8 +15,8 @@ const DesktopNavbar = () => {
             <Image
               alt="Marph"
               src="/static/images/marph.webp"
-              width="35"
-              height="35"
+              width="50"
+              height="50"
             />
             Marph
           </a>
