@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaJsfiddle, FaDiceD6, FaRegWindowRestore, FaDesktop } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaDiceD6, FaRegWindowRestore, FaDesktop } from 'react-icons/fa';
 import styles from './DesktopNavbar.module.scss';
 
 const DesktopNavbar = () => {
@@ -11,7 +12,12 @@ const DesktopNavbar = () => {
           <a
             title="Marph"
             className={styles.desktopNavbar__logo} >
-            <FaJsfiddle />
+            <Image
+              alt="Marph"
+              src="/static/images/marph.webp"
+              width="50"
+              height="50"
+            />
             Marph
           </a>
         </Link>
