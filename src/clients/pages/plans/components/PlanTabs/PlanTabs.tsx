@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import classNames from 'classnames';
 import styles from './PlanTabs.module.scss';
 
-import { planComparisonStore } from '../../modules/planComparisonStore';
 import PlanComparison from '../PlanComparison';
 import PlanList from '../PlanList';
 

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import {FaCheck, FaTimes} from 'react-icons/fa';
+import { FaCheck, FaTimes } from 'react-icons/fa';
 import Router from 'next/router';
 import styles from './PlanComparison.module.scss';
 
 import PlanPrice from '../PlanPrice';
-import { planComparisonStore, removeComparison } from '../../modules/planComparisonStore';
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
 import { setPlanBandwidthDisplay } from '../../../../common/modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../../common/modules/setPlanBuildDisplay';
@@ -13,7 +12,7 @@ import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyt
 
 
 const PlanComparison = () => {
-  const [comparisonList, setComparisonList] = useState(planComparisonStore.getState());
+  const [comparisonList, setComparisonList] = useState([]);
 
   return (
     <div className={styles.planComparison}>
@@ -46,7 +45,7 @@ const PlanComparison = () => {
             <td>Free Domain</td>
             {comparisonList.map((item: any) =>
               <td key={item.name}>
-                {item.free_domain ? <FaCheck /> : <FaTimes/>}
+                {item.free_domain ? <FaCheck /> : <FaTimes />}
               </td>
             )}
           </tr>
@@ -62,8 +61,8 @@ const PlanComparison = () => {
             <td>Analytic</td>
             {comparisonList.map((item: any) =>
               <td key={item.name}>
-                <div>{setPlanAnalyticDisplay(item)}</div> 
-                {item.analytic_desc && <div>{item.analytic_desc}</div> }
+                <div>{setPlanAnalyticDisplay(item)}</div>
+                {item.analytic_desc && <div>{item.analytic_desc}</div>}
               </td>
             )}
           </tr>
@@ -72,7 +71,7 @@ const PlanComparison = () => {
             {comparisonList.map((item: any) =>
               <td key={item.name}>
                 {setPlanBandwidthDisplay(item)}
-                {item.bandwidth_desc && <div>{item.bandwidth_desc}</div> }
+                {item.bandwidth_desc && <div>{item.bandwidth_desc}</div>}
               </td>
             )}
           </tr>
@@ -81,7 +80,7 @@ const PlanComparison = () => {
             {comparisonList.map((item: any) =>
               <td key={item.name}>
                 {setPlanBuildDisplay(item)}
-                {item.build_desc && <div>{item.build_desc}</div> }
+                {item.build_desc && <div>{item.build_desc}</div>}
               </td>
             )}
           </tr>
@@ -90,7 +89,7 @@ const PlanComparison = () => {
             {comparisonList.map((item: any) =>
               <td key={item.name}>
                 {setPlanConcurrentBuildDisplay(item)}
-                {item.concurent_build_desc && <div>{item.concurrent_build_desc}</div> }
+                {item.concurent_build_desc && <div>{item.concurrent_build_desc}</div>}
               </td>
             )}
           </tr>
@@ -98,7 +97,7 @@ const PlanComparison = () => {
             <td>Database Benefit</td>
             {comparisonList.map((item: any) =>
               <td key={item.name}>
-                {item.database_benefit ? <FaCheck /> : <FaTimes/>}
+                {item.database_benefit ? <FaCheck /> : <FaTimes />}
               </td>
             )}
           </tr>
@@ -114,7 +113,7 @@ const PlanComparison = () => {
             <td>Price</td>
             {comparisonList.map((item: any) =>
               <td key={item.name}>
-                <PlanPrice item={item}/>
+                <PlanPrice item={item} />
               </td>
             )}
           </tr>
@@ -126,10 +125,7 @@ const PlanComparison = () => {
                   Purchase
                 </button>
                 <button type="button"
-                  onClick={() => {
-                    planComparisonStore.dispatch(removeComparison(item));
-                    setComparisonList(planComparisonStore.getState());
-                  }}>
+                  onClick={() => {}}>
                   Remove
                 </button>
               </td>

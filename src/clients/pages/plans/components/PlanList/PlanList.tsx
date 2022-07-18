@@ -5,12 +5,10 @@ import styles from './PlanList.module.scss';
 import PlanAccordion from '../PlanAccordion';
 import PlanPrice from '../PlanPrice';
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
-import { planComparisonStore, addComparison } from '../../modules/planComparisonStore';
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
 import { setPlanBandwidthDisplay } from '../../../../common/modules/setPlanBandwidthDisplay';
 import { setPlanBuildDisplay } from '../../../../common/modules/setPlanBuildDisplay';
 import { setPlanConcurrentBuildDisplay } from '../../../../common/modules/setPlanConcurrentBuildDisplay';
-import { setPlanPriceDisplay } from '../../../../common/modules/setPriceDisplay';
 
 interface IPlanList {
   list: [any],
@@ -59,10 +57,7 @@ const PlanList = (props: IPlanList) => {
             <button
               type="button"
               className={styles.planList__card__cta__compare}
-              onClick={() => {
-                planComparisonStore.dispatch(addComparison(item));
-                onCompareClick();
-              }}
+              onClick={() => {}}
             >
               Compare
             </button>
