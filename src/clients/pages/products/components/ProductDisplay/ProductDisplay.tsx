@@ -19,20 +19,32 @@ const ProductDisplay = (props: ProductDisplayInterface) => {
 
   const [state, dispatch] = useReducer(productFilterReducer, productFilterStore);
 
+  const { ogList, filteredList } = state;
+
+  useEffect(() => {
+    if (productList) {
+      dispatch({ type: 'SET_OG_LIST', payload: { list: productList } })
+    }
+  }, []);
+
+  
+
   const DesktopProductDisplay = () => {
     return (
       <div className={styles.productDisplay__desktop}>
-        <ProductList list={productList} />
-        <ProductFilter onSubmit={()=> {}} />
+        <ProductList list={filteredList} />
+        <ProductFilter onSubmit={() => { }} />
       </div>
     );
   }
 
+  console.log(state);
+
   return (
     <div className={styles.productDisplay}>
       {isDesktop ? <DesktopProductDisplay /> : <ProductTabs
-        productList={productList}
-        onFilterSubmit={()=> {}}
+        productList={filteredList}
+        onFilterSubmit={() => { }}
       />}
     </div>
   )
