@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { FaBuffer, FaTimes, FaJsfiddle, FaDiceD6, FaDesktop, FaRegWindowRestore } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaBuffer, FaTimes, FaDiceD6, FaDesktop, FaRegWindowRestore } from 'react-icons/fa';
 import styles from './MobileNavbar.module.scss';
 
 const MobileNavbar = () => {
@@ -14,7 +15,12 @@ const MobileNavbar = () => {
 						<a
 							title="Marph"
 							className={styles.mobileNavbar__menu__logo} >
-							<FaJsfiddle />
+							<Image
+								alt="Marph"
+								src="/static/images/marph.webp"
+								width="50"
+								height="50"
+							/>
 							Marph
 						</a>
 					</Link>
@@ -54,7 +60,12 @@ const MobileNavbar = () => {
 					<a
 						title="Marph"
 						className={styles.mobileNavbar__logo} >
-						<FaJsfiddle />
+						<Image
+								alt="Marph"
+								src="/static/images/marph.webp"
+								width="50"
+								height="50"
+							/>
 						Marph
 					</a>
 				</Link>
