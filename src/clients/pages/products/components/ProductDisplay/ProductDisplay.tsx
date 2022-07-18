@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 
 import styles from './ProductDisplay.module.scss';
 import ProductList from '../ProductList';
@@ -18,8 +18,7 @@ const ProductDisplay = (props: ProductDisplayInterface) => {
   const { isDesktop } = useResponsive();
 
   const [state, dispatch] = useReducer(productFilterReducer, productFilterStore);
-
-  const { ogList, filteredList } = state;
+  const { filteredList } = state;
 
   useEffect(() => {
     if (productList) {
@@ -27,24 +26,30 @@ const ProductDisplay = (props: ProductDisplayInterface) => {
     }
   }, []);
 
-  
+  useEffect(() => {
+    if (query && query.category) {
+      dispatch({ type: 'SET_QUERY_LIST', payload: { category: query.category } })
+    }
+  }, [query])
+
+  const updateFilteredProducts = (filterValues: any) => {
+    dispatch({ type: 'SET_FILTERED_LIST', payload: { filterValues } });
+  }
 
   const DesktopProductDisplay = () => {
     return (
       <div className={styles.productDisplay__desktop}>
         <ProductList list={filteredList} />
-        <ProductFilter onSubmit={() => { }} />
+        <ProductFilter onSubmit={updateFilteredProducts} />
       </div>
     );
   }
-
-  console.log(state);
 
   return (
     <div className={styles.productDisplay}>
       {isDesktop ? <DesktopProductDisplay /> : <ProductTabs
         productList={filteredList}
-        onFilterSubmit={() => { }}
+        onFilterSubmit={updateFilteredProducts}
       />}
     </div>
   )
