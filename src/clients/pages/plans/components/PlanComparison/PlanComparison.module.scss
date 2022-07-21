@@ -29,19 +29,4 @@
 
   }
 
-  table {
-    border-collapse: collapse;
-  }
-
-  th {
-    img {
-      border-radius: $space--xs;
-    }
-  }
-  th, td {
-    border-bottom: 1px solid $color-black;
-    padding: $space--sm $space--md;
-    font-size: $font--lg;
-    text-align: center;
-  }
 }
