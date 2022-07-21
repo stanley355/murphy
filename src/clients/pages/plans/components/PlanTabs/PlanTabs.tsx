@@ -23,6 +23,7 @@ const PlanTabs = (props: IPlanTabs) => {
   }
 
   const removeComparisonItem = (itemID: number) => {
+    console.log(itemID);
     const newList = [...comparisonList].filter((item: any) => item.id !== itemID);
     setComparisonList(newList)
     setActiveTab("comparisons");

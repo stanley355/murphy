@@ -2,6 +2,36 @@
 
 .planComparison {
   overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+  padding: $space--sm 0;
+
+  &__rowNames {
+    div {
+      padding: $space--sm $space--xs;
+      font-weight: bold;
+      min-height: 45px;
+    }
+  }
+
+  &__rowValues {
+    border: 1px solid $color-black;
+    border-radius: $space--sm;
+    margin: 0 $space--xs;
+    div {
+      padding: $space--sm $space--xs;
+      text-align: center;
+      min-height: 45px;
+    }
+  }
+
+  &__imgWrap {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+  }
 
   &__title {
     font-weight: bold;
@@ -20,28 +50,13 @@
 
     button:first-child {
       background: $color-green-dark;
-      color:$color-white;
+      color: $color-white;
     }
 
     button:last-child {
-      color:$color-blue;
+      color: $color-blue;
     }
 
   }
 
-  table {
-    border-collapse: collapse;
-  }
-
-  th {
-    img {
-      border-radius: $space--xs;
-    }
-  }
-  th, td {
-    border-bottom: 1px solid $color-black;
-    padding: $space--sm $space--md;
-    font-size: $font--lg;
-    text-align: center;
-  }
 }
