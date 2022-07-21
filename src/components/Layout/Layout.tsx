@@ -21,10 +21,10 @@ const Layout = ({ children }: any) => {
   };
 
   // Initialize Firebase
-  // const app = initializeApp(firebaseConfig);
-  // if (typeof window !== 'undefined') {
-  //   getAnalytics(app);
-  // }
+  const app = initializeApp(firebaseConfig);
+  if (typeof window !== 'undefined') {
+    getAnalytics(app);
+  }
 
   return (
     <div className="layout">
