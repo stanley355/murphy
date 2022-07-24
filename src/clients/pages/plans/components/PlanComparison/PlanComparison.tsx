@@ -1,15 +1,6 @@
 import React from 'react';
-import { FaCheck, FaTimes } from 'react-icons/fa';
-import Image from 'next/image';
-import Router from 'next/router';
 import styles from './PlanComparison.module.scss';
-
-import PlanPrice from '../PlanPrice';
-import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
-import { setPlanBandwidthDisplay } from '../../../../common/modules/setPlanBandwidthDisplay';
-import { setPlanBuildDisplay } from '../../../../common/modules/setPlanBuildDisplay';
-import { setPlanConcurrentBuildDisplay } from '../../../../common/modules/setPlanConcurrentBuildDisplay';
-import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
+import PlanComparisonCard from '../PlanComparisonCard';
 
 interface IPlanComparison {
   comparisonList: any[],
@@ -36,28 +27,8 @@ const PlanComparison = (props: IPlanComparison) => {
         <div className={styles.planComparison__cta}>Checkout</div>
       </div>
       {comparisonList.length > 0 && comparisonList.map((item: any) =>
-        < div className={styles.planComparison__rowValues}>
-          <div className={styles.planComparison__imgWrap}>
-            <Image
-              src={getPlanAvatarSrc(item.name)}
-              width={50}
-              height={50}
-            />
-          </div>
-          <div className={styles.planComparison__title}>{item.name}</div>
-          <div>{item.free_domain ? <FaCheck /> : <FaTimes />}</div>
-          <div>{item.domain_extension ?? 'custom'}</div>
-          <div>{setPlanAnalyticDisplay(item)}</div>
-          <div>{setPlanBandwidthDisplay(item)}</div>
-          <div>{setPlanBuildDisplay(item)}</div>
-          <div>{setPlanConcurrentBuildDisplay(item)}</div>
-          <div>{item.database_benefit ? <FaCheck /> : <FaTimes />}</div>
-          <div>{item.page_data}</div>
-          <PlanPrice item={item} />
-          <div className={styles.planComparison__cta}>
-            <button onClick={()=> Router.push(item.plan_url)}>Purchase</button>
-            <button onClick={()=> onRemoveClick(item.id)}>Remove</button>
-          </div>
+        <div key={item.name}>
+          <PlanComparisonCard plan={item} onRemoveClick={onRemoveClick} />
         </div>)}
     </div>
   );
