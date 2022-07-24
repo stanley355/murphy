@@ -2,9 +2,11 @@ import React from 'react';
 import Head from 'next/head';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
-
+import getConfig from 'next/config';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
+
+const { APP_ENV } = getConfig().publicRuntimeConfig;
 
 const Layout = ({ children }: any) => {
 
@@ -21,10 +23,10 @@ const Layout = ({ children }: any) => {
   };
 
   // Initialize Firebase
-  // const app = initializeApp(firebaseConfig);
-  // if (typeof window !== 'undefined') {
-  //   getAnalytics(app);
-  // }
+  const app = initializeApp(firebaseConfig);
+  if (typeof window !== 'undefined' && APP_ENV !== 'develop') {
+    getAnalytics(app);
+  }
 
   return (
     <div className="layout">
