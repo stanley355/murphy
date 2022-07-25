@@ -23,7 +23,6 @@ const PlanComparison = (props: IPlanComparison) => {
         <div>Concurrent Build</div>
         <div>Database Benefit</div>
         <div>Page Data</div>
-        <div>Price</div>
         <div className={styles.planComparison__cta}>Checkout</div>
       </div>
       {comparisonList.length > 0 && comparisonList.map((item: any) =>
