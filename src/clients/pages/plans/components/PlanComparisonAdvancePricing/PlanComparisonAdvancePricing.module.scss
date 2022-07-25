@@ -1,0 +1,28 @@
+@import '../../../../../../styles/tokens/all';
+
+.planComparisonAdvancePricing {
+  padding: 0 !important;
+
+  &__unit {
+    padding: 0 !important;
+
+    &__title {
+      text-align: left !important;
+      padding-bottom: 0 !important;
+    }
+
+    &__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0 !important;
+      font-size: $font--lg;
+
+      svg {
+        font-size: $font--xxl;
+      }
+    }
+
+
+  }
+}

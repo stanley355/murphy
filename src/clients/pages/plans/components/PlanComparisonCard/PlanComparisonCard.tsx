@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Router from 'next/router';
 import styles from './PlanComparisonCard.module.scss';
+import PlanPrice from '../PlanPrice';
+import PlanComparisonAdvancePricing from '../PlanComparisonAdvancePricing';
 import { FaCheck, FaTimes } from 'react-icons/fa';
 import { getPlanAvatarSrc } from '../../modules/getPlanAvatarSrc';
 import { setPlanAnalyticDisplay } from '../../../../common/modules/setPlanAnalyticDisplay';
@@ -37,6 +39,9 @@ const PlanComparisonCard = (props: IPlanComparisonCard) => {
       <div>{setPlanConcurrentBuildDisplay(plan)}</div>
       <div>{plan.database_benefit ? <FaCheck /> : <FaTimes />}</div>
       <div>{plan.page_data}</div>
+      <PlanPrice item={plan}/>
+      <PlanComparisonAdvancePricing plan={plan}/>
+
       <div className={styles.planComparisonCard__cta}>
         <button onClick={() => Router.push(plan.plan_url)}>Purchase</button>
         <button onClick={() => onRemoveClick(plan.id)}>Remove</button>
