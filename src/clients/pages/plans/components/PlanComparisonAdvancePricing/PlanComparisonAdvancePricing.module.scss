@@ -16,7 +16,13 @@
       align-items: center;
       justify-content: space-between;
       padding-top: 0 !important;
-      font-size: $font--lg;
+      font-size: $font--xxl;
+      text-align: center;
+      button {
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
 
       svg {
         font-size: $font--xxl;
