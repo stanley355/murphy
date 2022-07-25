@@ -1,0 +1,50 @@
+@import '../../../../../../styles/tokens/all';
+
+.planComparisonAdvancePricing {
+  padding: 0 !important;
+
+  &__unit {
+    padding: 0 !important;
+
+    &__title {
+      text-align: left !important;
+      padding-bottom: 0 !important;
+    }
+
+    &__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0 !important;
+      font-size: $font--xxl;
+      text-align: center;
+      button {
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      svg {
+        color:$primary-color;
+        font-size: $font--xxl;
+      }
+    }
+
+    &__price {
+      font-size: $font--xl;
+      color:$color-green-dark;
+      font-weight: bold;
+      min-height: unset !important;
+      padding: 0 $space--xs !important;
+    }
+  }
+
+  &__showBtn {
+    width: 100%;
+    font-weight: bold;
+    border-radius: $space--xxs;
+    padding: $space--xxs;
+    cursor: pointer;
+    background: $color-barely-blue;
+  }
+}
